@@ -281,6 +281,74 @@ h3 {
   padding-left: 20px;
 }
 
+details.guide {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+details.guide + details.guide {
+  margin-top: 14px;
+}
+
+details.guide summary {
+  cursor: pointer;
+  padding: 22px 26px;
+  font-size: clamp(1.15rem, 1.8vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  list-style: none;
+}
+
+details.guide summary::-webkit-details-marker {
+  display: none;
+}
+
+details.guide summary::after {
+  content: "+";
+  float: right;
+  color: var(--mint);
+}
+
+details.guide[open] summary::after {
+  content: "-";
+}
+
+.guide-body {
+  padding: 0 26px 26px;
+  color: var(--muted);
+}
+
+.guide-body p,
+.guide-body li {
+  font-size: 1.05rem;
+  line-height: 1.42;
+}
+
+.guide-body p + p {
+  margin-top: 14px;
+}
+
+.guide-body ul {
+  margin: 14px 0 0;
+  padding-left: 21px;
+}
+
+.callout {
+  border-left: 5px solid var(--mint);
+  border-radius: 0 22px 22px 0;
+  padding: 22px 24px;
+  background: rgba(248, 240, 223, .07);
+  color: var(--muted);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+  line-height: 1.32;
+}
+
+.source-list a {
+  color: var(--mint);
+}
+
 .feature {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);

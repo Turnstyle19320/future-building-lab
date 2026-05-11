@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy | Future Building Lab</title>
+  <title>Data and Privacy | Future Building Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
@@ -17,51 +17,99 @@
         <a href="index.html">Path</a>
         <a href="presentation.html">Slides</a>
         <a href="build-lab.html">Build Lab</a>
-        <a href="playbook.html">Playbook</a>
-        <a href="deployment.html">Deployment</a>
-        <a href="files.html">Files</a>
+        <a href="playbook.html">Learn</a>
+        <a href="deployment.html">Share &amp; Store</a>
         <a class="active" href="privacy.html">Privacy</a>
       </div>
     </nav>
 
     <main>
       <section class="section">
-        <div class="eyebrow">Safety before scale</div>
-        <h1>Data, Storage, and Privacy</h1>
-        <p class="lede">The moment a classroom tool stores student information, the project is no longer just a clever prototype. It becomes a data-governance question.</p>
-      </section>
-
-      <section class="section grid three">
-        <article class="card">
-          <strong>Lowest risk</strong>
-          <h3>No stored student data</h3>
-          <p>Static pages, calculators, flashcards, simulations, reflection prompts, and tools that reset when the page closes.</p>
-        </article>
-        <article class="card">
-          <strong>Medium risk</strong>
-          <h3>Local-only storage</h3>
-          <p>`localStorage` saves on one device/browser. Useful for demos, but not a real roster system or secure student record.</p>
-        </article>
-        <article class="card">
-          <strong>Higher risk</strong>
-          <h3>Cloud accounts or databases</h3>
-          <p>Anything with logins, rosters, names, grades, uploads, analytics, or shared records needs district review.</p>
-        </article>
-      </section>
-
-      <section class="section paper">
-        <div class="eyebrow">Beginner rule</div>
-        <h2>Do not collect what you do not need.</h2>
-        <div class="steps" style="margin-top: 28px;">
-          <div class="step"><h3>Avoid names when possible</h3><p>Use initials, demo data, pseudonyms, or no identifiers at all.</p></div>
-          <div class="step"><h3>Avoid grades and sensitive notes</h3><p>Do not use a vibe-coded prototype as an official gradebook, behavior log, intervention record, or IEP/504 workspace.</p></div>
-          <div class="step"><h3>Assume public hosting is public</h3><p>GitHub Pages is excellent for static resources. It is not private student-data infrastructure.</p></div>
-          <div class="step"><h3>Ask before adding accounts</h3><p>Authentication, databases, and cloud storage should go through approved district systems.</p></div>
-        </div>
+        <div class="eyebrow">Read before adding data</div>
+        <h1>Local Storage, Cloud Storage, and Student Data</h1>
+        <p class="lede">Most classroom prototypes can stay simple and local. The risk changes when data leaves the learner's device, gets tied to identity, or becomes part of a shared record.</p>
       </section>
 
       <section class="section">
-        <p class="quote">A safe first prototype helps people see the idea. It does not have to become the production system.</p>
+        <div class="callout">This page is a decision guide, not legal advice. If a tool stores student names, grades, behavior notes, uploads, roster data, or shared records, use your district's approved process before putting it in front of students.</div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The simple mental model</div>
+            <h2>Where does the data live?</h2>
+          </div>
+          <p>That one question determines most of the next questions. A static tool with no storage is different from local browser storage, which is different from a cloud database.</p>
+        </div>
+
+        <details class="guide" open>
+          <summary>No saved data</summary>
+          <div class="guide-body">
+            <p><strong>What it means:</strong> The page runs in the browser and forgets everything when refreshed or closed.</p>
+            <p><strong>Good for:</strong> simulations, calculators, flashcards, prompt generators, reflection starters, timers, randomizers, and practice activities.</p>
+            <p><strong>Teacher-friendly rule:</strong> If the tool does not collect or save student information, it is usually the safest first prototype.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Local browser storage</summary>
+          <div class="guide-body">
+            <p><strong>What it means:</strong> The browser stores data on the same device and same site origin. In a simple prototype, nothing is automatically sent to a server just because you used <code>localStorage</code>.</p>
+            <p><strong>Good for:</strong> one-device demos, personal checklists, draft reflections, local practice logs, and "try it today" tools where the saved data does not need to follow a student across devices.</p>
+            <p><strong>Limits:</strong> Local storage is not a secure student record system. It can be cleared by the browser, stays tied to that browser/device, and should not be used for sensitive records.</p>
+            <ul>
+              <li>Use demo data or nicknames when possible.</li>
+              <li>Avoid grades, behavior records, medical details, IEP/504 details, and discipline notes.</li>
+              <li>Tell users when data is saved locally.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Temporary join codes or local network tools</summary>
+          <div class="guide-body">
+            <p><strong>What it means:</strong> A tool may use a small server process, such as Node.js, to connect devices with a join code during a live activity.</p>
+            <p><strong>Good for:</strong> live group demos, anonymous polling, collaborative prototyping, or one-session activities where data is not permanently stored.</p>
+            <p><strong>Questions to answer:</strong> Is anything written to disk? Is anything sent outside the local network? Are student identities attached? How long does the session data persist?</p>
+            <p><strong>Teacher-friendly rule:</strong> A join code is not automatically a privacy problem. Persistent records, identity, and external hosting are what raise the stakes.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Cloud database or server storage</summary>
+          <div class="guide-body">
+            <p><strong>What it means:</strong> Data is stored on an external service, such as a hosted database, serverless storage, Cloudflare Workers/KV/D1, Firebase, Supabase, or another backend.</p>
+            <p><strong>Good for:</strong> real multi-user apps, cross-device history, teacher dashboards, shared records, and tools that need accounts.</p>
+            <p><strong>Why the risk changes:</strong> Once identifiable student data is stored by a third-party service, schools need to consider FERPA, district vendor approval, contracts, access controls, retention, deletion, and who can see the data.</p>
+            <ul>
+              <li>Do not store student names, grades, rosters, or behavior data in an unapproved cloud service.</li>
+              <li>Do not add logins or uploads casually.</li>
+              <li>Use district-approved platforms when the data becomes an education record.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Public static hosting</summary>
+          <div class="guide-body">
+            <p><strong>What it means:</strong> GitHub Pages or similar static hosting publishes files like <code>index.html</code>, <code>style.css</code>, <code>script.js</code>, and images. It is excellent for tools that run entirely in the browser.</p>
+            <p><strong>Good for:</strong> public resources, simulations, class tools, portfolios, workshop sites, and apps that do not require private server-side data.</p>
+            <p><strong>Boundary:</strong> Public static hosting is not private student-data infrastructure. If the tool needs private data, accounts, or a database, the project has moved beyond a static site.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="section paper source-list">
+        <div class="eyebrow">Reference links</div>
+        <h2>Primary sources to check</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">MDN: Window localStorage</a></li>
+          <li><a href="https://studentprivacy.ed.gov/">U.S. Department of Education Student Privacy Policy Office</a></li>
+          <li><a href="https://studentprivacy.ed.gov/resources/cloud-computing-faq">Student Privacy: Cloud Computing FAQ</a></li>
+          <li><a href="https://docs.github.com/en/pages">GitHub Docs: GitHub Pages</a></li>
+          <li><a href="https://developers.cloudflare.com/kv/">Cloudflare Docs: Workers KV</a></li>
+        </ul>
       </section>
     </main>
   </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deployment | Future Building Lab</title>
+  <title>Share and Store | Future Building Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
@@ -17,9 +17,8 @@
         <a href="index.html">Path</a>
         <a href="presentation.html">Slides</a>
         <a href="build-lab.html">Build Lab</a>
-        <a href="playbook.html">Playbook</a>
-        <a class="active" href="deployment.html">Deployment</a>
-        <a href="files.html">Files</a>
+        <a href="playbook.html">Learn</a>
+        <a class="active" href="deployment.html">Share &amp; Store</a>
         <a href="privacy.html">Privacy</a>
       </div>
     </nav>
@@ -27,42 +26,99 @@
     <main>
       <section class="hero">
         <div>
-          <div class="eyebrow">Where should this live?</div>
-          <h1>Deployment Strategies</h1>
-          <p class="lede">Most educator-built tools do not need a complex stack. Start with the simplest home that matches the risk and audience.</p>
+          <div class="eyebrow">After it works</div>
+          <h1>Share and Store</h1>
+          <p class="lede">The next question is not "How do I deploy?" The next question is: who needs to use this, and where does the data live?</p>
         </div>
-        <div class="image-card"><img src="assets/deployment-pathways.png" alt="A paper-collage map showing multiple deployment paths branching from one prototype." /></div>
-      </section>
-
-      <section class="section paper">
-        <div class="route">
-          <span>Canvas link</span>
-          <div><h3>Best for drafts and collaboration</h3><p>Use this when you are still building, testing with colleagues, or showing the process. It is the lowest-friction option, but it is not the cleanest public home for a finished tool.</p></div>
-        </div>
-        <div class="route">
-          <span>Google Sites</span>
-          <div><h3>Best for simple tools inside a familiar school ecosystem</h3><p>Great when the app is a single self-contained HTML embed and your audience already uses the Google Site. Keep it simple: no student data collection, no external accounts, no backend assumptions.</p></div>
-        </div>
-        <div class="route">
-          <span>GitHub Pages</span>
-          <div><h3>Best for a permanent public web page</h3><p>Free static hosting for HTML, CSS, JavaScript, and assets. Good for portfolios, resource hubs, interactive demos, and multi-file projects that do not need private server-side data.</p></div>
-        </div>
-        <div class="route">
-          <span>IDE + agent</span>
-          <div><h3>Best when the project outgrows copy-paste</h3><p>Use VS Code with an agent like Codex or Claude when you need folders, separate files, refactors, version control, and a more durable development workflow.</p></div>
-        </div>
+        <div class="image-card"><img src="assets/deployment-pathways.png" alt="A paper map of different sharing and hosting pathways." /></div>
       </section>
 
       <section class="section">
         <div class="section-head">
-          <div><div class="eyebrow">Decision rule</div><h2>Do not overbuild.</h2></div>
-          <p>Choose the least complex path that lets the right people use the tool safely.</p>
+          <div>
+            <div class="eyebrow">Decision path</div>
+            <h2>Pick the simplest safe home.</h2>
+          </div>
+          <p>Beginners do not need every hosting option. They need a clear ladder from "I made something" to "people can use it safely."</p>
+        </div>
+
+        <details class="guide" open>
+          <summary>1. Keep it in the AI workspace</summary>
+          <div class="guide-body">
+            <p><strong>Use when:</strong> it is still a rough draft, you are learning, or you want a colleague to see the build process.</p>
+            <p><strong>Examples:</strong> Gemini Canvas share link, ChatGPT conversation, Claude artifact, or another AI workspace preview.</p>
+            <p><strong>Limit:</strong> this is not always the best final home. It may depend on account access and may not feel like a clean classroom resource.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>2. Embed a simple tool in Google Sites or an LMS</summary>
+          <div class="guide-body">
+            <p><strong>Use when:</strong> the tool is one self-contained HTML file and belongs near existing class materials.</p>
+            <p><strong>Good for:</strong> flashcards, calculators, practice tools, reflection prompts, simple dashboards, and no-login prototypes.</p>
+            <p><strong>Limit:</strong> embedding is best when the tool does not need server-side data, accounts, uploads, or shared records.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>3. Publish a static site with GitHub Pages</summary>
+          <div class="guide-body">
+            <p><strong>Use when:</strong> you want a permanent public URL or the project has multiple files.</p>
+            <p><strong>Works well with:</strong></p>
+            <pre><code>my-tool/
+  index.html
+  style.css
+  script.js
+  assets/
+    image.png</code></pre>
+            <p><strong>Limit:</strong> GitHub Pages publishes static files. It is not a private database or roster system.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>4. Move into VS Code with an AI coding agent</summary>
+          <div class="guide-body">
+            <p><strong>Use when:</strong> copy-paste editing starts to break down, you need multiple files, or you want version history.</p>
+            <p><strong>Good for:</strong> Codex, Claude Code, or another agent working across a real project folder.</p>
+            <p><strong>Teacher-friendly rule:</strong> move to an IDE when you are maintaining a project, not when you are just trying to get the first version working.</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>5. Add a server only when the tool needs one</summary>
+          <div class="guide-body">
+            <p><strong>Use when:</strong> devices need to communicate live, users need join codes, or data needs to sync across devices.</p>
+            <p><strong>Examples:</strong> a Node.js app with WebSockets for a live activity, a Cloudflare Worker for a lightweight serverless endpoint, Firebase for authentication or database-backed apps.</p>
+            <p><strong>Limit:</strong> servers and databases introduce privacy, security, account, retention, and district approval questions. This is not where beginners need to start.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Storage ladder</div>
+            <h2>Saving data changes the project.</h2>
+          </div>
+          <p>A tool can look the same on screen while being very different underneath. The difference is where the data goes.</p>
         </div>
         <div class="grid three">
-          <article class="card"><strong>Prototype</strong><h3>Share link</h3><p>If you are still figuring out what it should do, keep it in the AI workspace.</p></article>
-          <article class="card"><strong>Classroom resource</strong><h3>Google Site or LMS</h3><p>If it is simple and belongs near existing course materials, embed it where people already go.</p></article>
-          <article class="card"><strong>Public artifact</strong><h3>GitHub Pages</h3><p>If it should have its own URL and file structure, publish it as a static site.</p></article>
+          <article class="card"><strong>No storage</strong><h3>Safest first version</h3><p>The page runs, teaches, calculates, or simulates, then forgets everything.</p></article>
+          <article class="card"><strong>localStorage</strong><h3>Saved on this device</h3><p>Useful for demos and personal progress on one browser. Not a secure shared record.</p></article>
+          <article class="card"><strong>Cloud database</strong><h3>Shared across devices</h3><p>Useful for real apps, but student data now needs governance and district review.</p></article>
         </div>
+      </section>
+
+      <section class="section paper source-list">
+        <div class="eyebrow">Useful documentation</div>
+        <h2>When you are ready to go deeper</h2>
+        <ul>
+          <li><a href="https://docs.github.com/en/pages">GitHub Pages documentation</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">MDN localStorage documentation</a></li>
+          <li><a href="https://nodejs.org/en/learn">Node.js learning documentation</a></li>
+          <li><a href="https://developers.cloudflare.com/workers/runtime-apis/websockets/">Cloudflare Workers WebSockets documentation</a></li>
+          <li><a href="https://firebase.google.com/docs">Firebase documentation</a></li>
+        </ul>
       </section>
     </main>
   </div>

@@ -11,7 +11,7 @@
     :root {
       --bg: #07110d;
       --ink: #f8f0df;
-      --muted: rgba(248, 240, 223, .7);
+      --muted: rgba(248, 240, 223, .72);
       --line: rgba(248, 240, 223, .18);
       --panel: rgba(248, 240, 223, .085);
       --mint: #71f2bd;
@@ -19,6 +19,7 @@
       --cyan: #72d9ff;
       --paper: #f7efe0;
       --paper-ink: #142019;
+      --mark: #fff06a;
     }
 
     * { box-sizing: border-box; }
@@ -64,7 +65,7 @@
     h1, h2, h3, p { margin: 0; }
     h1, h2 {
       font-family: "Newsreader", serif;
-      letter-spacing: -.085em;
+      letter-spacing: -.08em;
     }
 
     h1 {
@@ -74,30 +75,30 @@
     }
 
     h2 {
-      font-size: clamp(4rem, 7vw, 8rem);
+      font-size: clamp(3.8rem, 6.7vw, 7.6rem);
       line-height: .88;
       max-width: 1180px;
     }
 
     h3 {
-      font-size: clamp(1.7rem, 3vw, 3.2rem);
-      line-height: .96;
+      font-size: clamp(1.55rem, 2.65vw, 3rem);
+      line-height: .98;
       letter-spacing: -.055em;
     }
 
     .eyebrow {
       color: var(--mint);
-      font-size: clamp(.82rem, 1.2vw, 1.15rem);
+      font-size: clamp(.82rem, 1.15vw, 1.08rem);
       font-weight: 800;
       letter-spacing: .18em;
       text-transform: uppercase;
     }
 
     .lead {
-      max-width: 900px;
-      margin-top: 26px;
+      max-width: 940px;
+      margin-top: 24px;
       color: var(--muted);
-      font-size: clamp(1.4rem, 2.35vw, 2.7rem);
+      font-size: clamp(1.35rem, 2.25vw, 2.55rem);
       line-height: 1.14;
       letter-spacing: -.045em;
     }
@@ -114,10 +115,12 @@
     .split {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
-      gap: 56px;
+      gap: 54px;
       align-items: center;
       height: 100%;
     }
+
+    .split.reverse { grid-template-columns: 1.1fr .9fr; }
 
     .image-slide {
       padding: 0;
@@ -149,85 +152,20 @@
       max-width: 1040px;
     }
 
-    .paper {
+    .doc {
       color: var(--paper-ink);
       background: var(--paper);
-      border-radius: 30px;
-      padding: clamp(28px, 4vw, 54px);
+      border-radius: 26px;
+      overflow: hidden;
       box-shadow: 0 34px 100px rgba(0,0,0,.34);
       transform: rotate(-1deg);
+      border: 1px solid rgba(20,32,25,.12);
     }
 
-    .paper h3 { color: var(--paper-ink); }
-    .paper p {
-      margin-top: 18px;
-      color: rgba(20,32,25,.78);
-      font-size: clamp(1.25rem, 1.8vw, 2rem);
-      line-height: 1.27;
-      letter-spacing: -.035em;
-    }
+    .doc.alt { transform: rotate(1deg); }
 
-    .prompt {
-      color: var(--paper-ink);
-      background: var(--paper);
-      border-radius: 30px;
-      padding: clamp(30px, 4vw, 58px);
-      box-shadow: 0 34px 100px rgba(0,0,0,.3);
-      font-size: clamp(1.35rem, 2vw, 2.25rem);
-      line-height: 1.32;
-      letter-spacing: -.035em;
-    }
-
-    .prompt strong { color: #08785a; }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-self: center;
-    }
-
-    .cards.two { grid-template-columns: repeat(2, 1fr); }
-
-    .card {
-      min-height: 310px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: clamp(26px, 3vw, 42px);
-      background: var(--panel);
-      box-shadow: 0 24px 70px rgba(0,0,0,.24);
-    }
-
-    .card span {
-      display: block;
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: clamp(1.1rem, 1.65vw, 1.8rem);
-      line-height: 1.2;
-      letter-spacing: -.035em;
-      margin-top: 20px;
-    }
-
-    .mock-app {
-      color: var(--paper-ink);
-      background: var(--paper);
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 34px 100px rgba(0,0,0,.35);
-    }
-
-    .app-top {
-      height: 46px;
+    .doc-top {
+      height: 40px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -245,45 +183,119 @@
     .dot:nth-child(2) { background: #f4c95d; }
     .dot:nth-child(3) { background: #71f2bd; }
 
-    .app-body { padding: 34px; }
-    .field {
-      height: 44px;
-      margin-top: 16px;
-      border-radius: 12px;
-      background: #e3dbcd;
+    .doc-body {
+      padding: clamp(24px, 3vw, 42px);
+      font-size: clamp(1.05rem, 1.55vw, 1.7rem);
+      line-height: 1.32;
+      letter-spacing: -.025em;
     }
 
-    .field.short { width: 62%; }
-    .button-look {
+    .doc-body h3 { color: var(--paper-ink); margin-bottom: 18px; }
+    .doc-body p + p { margin-top: 14px; }
+    .doc-body ul { margin: 14px 0 0; padding-left: 24px; }
+    .doc-body li + li { margin-top: 10px; }
+    .tag {
       display: inline-block;
-      margin: 20px 0;
-      padding: 13px 18px;
-      border-radius: 14px;
-      color: white;
-      background: #142019;
+      margin-bottom: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #07110d;
+      background: var(--mint);
+      font-size: .78rem;
       font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
     }
 
-    .entry {
-      margin-top: 12px;
-      padding: 15px;
-      border-radius: 16px;
-      background: #e8f5ec;
-      color: rgba(20,32,25,.72);
+    mark {
+      background: var(--mark);
+      color: #141414;
+      padding: 0 5px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
 
-    pre {
+    .wall {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
       align-self: center;
-      overflow: hidden;
-      white-space: pre-wrap;
-      margin: 0;
-      padding: clamp(24px, 3vw, 40px);
+    }
+
+    .tab {
+      min-height: 132px;
       border: 1px solid var(--line);
-      border-radius: 28px;
-      color: rgba(248,240,223,.92);
-      background: rgba(0,0,0,.34);
-      font-size: clamp(1rem, 1.42vw, 1.55rem);
-      line-height: 1.42;
+      border-radius: 24px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--panel);
+    }
+
+    .tab span {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .72rem;
+    }
+
+    .tab strong {
+      font-size: clamp(1.2rem, 1.8vw, 2rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-self: center;
+    }
+
+    .card {
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: clamp(24px, 3vw, 40px);
+      background: var(--panel);
+      box-shadow: 0 24px 70px rgba(0,0,0,.24);
+    }
+
+    .card span {
+      display: block;
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.55vw, 1.7rem);
+      line-height: 1.2;
+      letter-spacing: -.035em;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      margin-top: 34px;
+      padding: 0 28px;
+      border-radius: 999px;
+      color: #07110d;
+      background: var(--mint);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
     }
 
     .home-link {
@@ -332,7 +344,7 @@
         pointer-events: auto;
       }
       .slide:not(.active) { display: none; }
-      .split, .cards, .cards.two { grid-template-columns: 1fr; }
+      .split, .split.reverse, .cards, .wall { grid-template-columns: 1fr; }
       .card { min-height: 220px; }
     }
   </style>
@@ -345,22 +357,42 @@
       <div class="title-copy">
         <div class="eyebrow">517 EdTech Innovators Network</div>
         <h1>Future Building Lab</h1>
-        <p class="lead">From radical ideas to working artifacts.</p>
+        <p class="lead">From the futures you imagined to one small thing we can build today.</p>
       </div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">February</div>
+      <div class="eyebrow">February prompt</div>
       <div class="split">
         <div>
-          <h2>Remember the prompt?</h2>
-          <p class="lead">We were not asking for a faster version of school. We asked people to dissolve the problem.</p>
+          <h2>We asked AI to dissolve problems.</h2>
+          <p class="lead">Not make school more efficient. Not add a faster worksheet. Design a world where the original friction point does not work the same way anymore.</p>
         </div>
-        <div class="prompt">
-          <p><strong>Your role:</strong> act as a lead architect and historian.</p>
-          <p><strong>Your task:</strong> dissolve the problem. Do not simply optimize the existing system.</p>
-          <p><strong>Output:</strong> describe 2036 in action, then name three radical decisions made in 2026.</p>
+        <div class="doc">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Prompt excerpt</span>
+            <h3>Act as a lead architect and historian.</h3>
+            <p><mark>Do not simply optimize or improve the existing system.</mark></p>
+            <p>Describe this in action in 2036.</p>
+            <p>List three radical decisions we made in 2026 to make this possible.</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Raw material</div>
+      <h2>The responses became a wall of possible futures.</h2>
+      <div class="wall">
+        <div class="tab"><span>Response</span><strong>Living Ledger</strong></div>
+        <div class="tab"><span>Response</span><strong>Biometric Responsive Environments</strong></div>
+        <div class="tab"><span>Response</span><strong>Fluid Commons</strong></div>
+        <div class="tab"><span>Response</span><strong>Dynamic Skill Ledger</strong></div>
+        <div class="tab"><span>Response</span><strong>Pattern Lab</strong></div>
+        <div class="tab"><span>Response</span><strong>Learning Commons</strong></div>
+        <div class="tab"><span>Response</span><strong>Neo-Amateur Era</strong></div>
+        <div class="tab"><span>Response</span><strong>Living Laboratory</strong></div>
       </div>
     </section>
 
@@ -368,54 +400,158 @@
       <img src="assets/imaginative-ai-future.png" alt="Surreal AI future school systems" />
       <div class="title-copy">
         <div class="eyebrow">First pass</div>
-        <h2>The AI got imaginative.</h2>
-        <p class="lead">Some of it was fascinating. Some of it was deeply unrealistic. That tension is useful.</p>
+        <h2>It got imaginative.</h2>
+        <p class="lead">Some of it was useful because it was extreme. Some of it was a warning label.</p>
       </div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">Examples from the responses</div>
-      <div class="cards">
-        <article class="card"><div><span>Living Ledger</span><h3>Behavior, home, school, and community fused into one system.</h3></div><p>Interesting because it attacks the disconnect. Unsettling because it can become surveillance.</p></article>
-        <article class="card"><div><span>Fluid Commons</span><h3>Students move by competency and agency, not bells and seat time.</h3></div><p>Useful because it names the schedule as part of the problem.</p></article>
-        <article class="card"><div><span>Living Laboratory</span><h3>Learning becomes part of the building’s real function.</h3></div><p>Powerful because assessment happens through maintaining an ecosystem.</p></article>
+      <div class="eyebrow">Example from the responses</div>
+      <div class="split reverse">
+        <div class="doc">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Living Ledger</span>
+            <h3>School discipline as an archaeological relic.</h3>
+            <p>A unified social and academic ecosystem spanning home, school, and community.</p>
+            <p><mark>Students do not argue with the system any more than they argue with gravity.</mark></p>
+          </div>
+        </div>
+        <div>
+          <h2>Interesting. Also unsettling.</h2>
+          <p class="lead">It names the disconnect between school, home, and community. It also shows how quickly "support" can become surveillance.</p>
+        </div>
       </div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">The critique</div>
-      <div class="cards">
-        <article class="card"><div><span>Problem 1</span><h3>Surveillance as solution</h3></div><p>Automated enforcement replacing relationship, judgment, and trust.</p></article>
-        <article class="card"><div><span>Problem 2</span><h3>Policy vacuums</h3></div><p>Large-scale laws with no local path from here to there.</p></article>
-        <article class="card"><div><span>Problem 3</span><h3>Tech magic</h3></div><p>Tools “dissolving” motivation, workload, dyslexia, and complexity overnight.</p></article>
+      <div class="eyebrow">Example from the responses</div>
+      <div class="split">
+        <div>
+          <h2>The room was broken, not the student.</h2>
+          <p class="lead">This is the kind of line worth keeping. It changes where we locate the problem.</p>
+        </div>
+        <div class="doc alt">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Biometric Responsive Environments</span>
+            <h3>Architecture first.</h3>
+            <p>Testing money redirected into responsive environments.</p>
+            <p><mark>If a student could not learn in a room, the room was broken, not the student.</mark></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Example from the responses</div>
+      <div class="split reverse">
+        <div class="doc">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Fluid Commons</span>
+            <h3>Leo does not have "Math" at 10:00.</h3>
+            <p>He has a mastery target: applying fluid dynamics to urban hydroponics.</p>
+            <p>When he hits a conceptual wall, the system pings a human lead mentor.</p>
+          </div>
+        </div>
+        <div>
+          <h2>Less schedule. More agency.</h2>
+          <p class="lead">This is not a tool idea yet. It is a direction of travel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Example from the responses</div>
+      <div class="split">
+        <div>
+          <h2>Learning as infrastructure.</h2>
+          <p class="lead">This one matters because assessment is not an event after the learning. It happens inside the work.</p>
+        </div>
+        <div class="doc alt">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Living Laboratory</span>
+            <h3>Biology is always on.</h3>
+            <p>The aquaponics unit is not a teaching tool. It is part of the building's filtration and air system.</p>
+            <p><mark>Assessment becomes "Action-to-Insight" evidence.</mark></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">The walkthrough</div>
+      <div class="split reverse">
+        <div class="doc">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Facilitator prompt</span>
+            <h3>I did not just accept the output.</h3>
+            <p>"The prompt made their answers pretty narrow... the AI sort of lasered in and was not very realistic."</p>
+            <ul>
+              <li>Surveillance as solution</li>
+              <li>Policy vacuums</li>
+              <li>Tech magic</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h2>The useful move was critique.</h2>
+          <p class="lead">The point is not that AI gave us the answer. The point is that the dialogue helped us find what was worth keeping.</p>
+        </div>
       </div>
     </section>
 
     <section class="slide">
       <div class="eyebrow">Attempt 1</div>
-      <h2>Outrageous. Interesting.</h2>
-      <div class="cards" style="margin-top: 34px;">
-        <article class="card"><div><span>Decision 1</span><h3>“Vines over Walls” Act</h3></div><p>Legally dissolving the 180-day / 6-hour seat-time requirement.</p></article>
-        <article class="card"><div><span>Decision 2</span><h3>Decoupling “Care” and “Clericals”</h3></div><p>Banning teachers from performing any task that could be automated.</p></article>
-        <article class="card"><div><span>Decision 3</span><h3>Radical Transparency Compact</h3></div><p>A shared “Success Ledger” between parents, students, and admins.</p></article>
+      <div class="split">
+        <div>
+          <h2>Outrageous. Interesting.</h2>
+          <p class="lead">The first synthesis still reached for moves that individual teachers cannot make tomorrow.</p>
+        </div>
+        <div class="doc alt">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Systemic draft</span>
+            <h3>Three radical decisions from 2026</h3>
+            <ul>
+              <li>"Vines over Walls" Act: dissolve seat-time requirements.</li>
+              <li>Decoupling "Care" and "Clericals": automate non-human tasks.</li>
+              <li>Radical Transparency Compact: shared success ledger.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">The turn</div>
-      <div class="center">
-        <h2>The useful version of a radical idea is testable.</h2>
-        <p class="lead">If a teacher cannot try it, revise it, or show it to someone else, it is not the right 2026 move yet.</p>
+      <div class="eyebrow">The correction</div>
+      <div class="split reverse">
+        <div class="doc">
+          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="doc-body">
+            <span class="tag">Facilitator prompt</span>
+            <h3>Feasibility changed the direction.</h3>
+            <p><mark>None of these things are within the power of an individual teacher at the moment.</mark></p>
+            <p>We need actions that are bold and scalable, but within their power to do.</p>
+          </div>
+        </div>
+        <div>
+          <h2>That is the hinge.</h2>
+          <p class="lead">Not "What should the system do someday?" but "What can an educator prototype now?"</p>
+        </div>
       </div>
     </section>
 
     <section class="slide">
       <div class="eyebrow">Attempt 2</div>
-      <h2>Re-architect for the classroom.</h2>
-      <div class="cards" style="margin-top: 34px;">
-        <article class="card"><div><span>01</span><h3>Shadow Curriculum Strike</h3></div><p>Student-owned work. Teacher as consultant-on-retainer.</p></article>
-        <article class="card"><div><span>02</span><h3>Feedback First Firewall</h3></div><p>Replace points-as-currency with evidence of impact.</p></article>
-        <article class="card"><div><span>03</span><h3>Open-Door Community Trojan Horse</h3></div><p>Invite the world in. Experts validate real work.</p></article>
+      <h2>Teacher-led pivots.</h2>
+      <div class="cards" style="margin-top: 30px;">
+        <article class="card"><div><span>Student-owned work</span><h3>20% of the week for real projects.</h3></div><p>Teacher as consultant instead of content delivery machine.</p></article>
+        <article class="card"><div><span>Evidence before points</span><h3>Replace points as currency.</h3></div><p>Students log proof of contribution, revision, growth, and impact.</p></article>
+        <article class="card"><div><span>Community feedback</span><h3>Invite the world in.</h3></div><p>Local experts validate real work and widen the audience.</p></article>
       </div>
     </section>
 
@@ -423,86 +559,17 @@
       <img src="assets/build-lab-educators.png" alt="Educators building together" />
       <div class="title-copy">
         <div class="eyebrow">Today</div>
-        <h2>Build one support beam.</h2>
-        <p class="lead">Not the whole bridge. One working artifact that makes the idea visible.</p>
+        <h2>We build one small test.</h2>
+        <p class="lead">Evidence before points becomes a tiny working prototype.</p>
+        <a class="button" href="build-lab.html">Leave slides: open Build Lab</a>
       </div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow">Shared build</div>
-      <div class="split">
-        <div>
-          <h2>Evidence of Impact Dashboard</h2>
-          <p class="lead">A first prototype for Feedback First Firewall.</p>
-        </div>
-        <div class="mock-app">
-          <div class="app-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="app-body">
-            <h3>Evidence of Impact</h3>
-            <div class="field"></div>
-            <div class="field short"></div>
-            <span class="button-look">Add Evidence</span>
-            <div class="entry">Revision: improved the prototype after peer feedback.</div>
-            <div class="entry">Contribution: helped another group test their tool.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Starter prompt</div>
-      <pre>Create a single-file HTML web app called "Evidence of Impact Dashboard."
-
-Let a student add evidence of something they contributed, revised, built, helped, or learned.
-
-Include evidence types: growth, contribution, revision, collaboration, reflection.
-
-Show entries as cards. Show a simple summary count.
-
-Use HTML, CSS, and JavaScript in one file. Store entries in localStorage for the demo.</pre>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Vibe coding 101</div>
-      <div class="cards">
-        <article class="card"><div><span>HTML</span><h3>Structure</h3></div><p>Words, forms, buttons, cards, links, and sections.</p></article>
-        <article class="card"><div><span>CSS</span><h3>Appearance</h3></div><p>Layout, spacing, color, type, polish, and responsive behavior.</p></article>
-        <article class="card"><div><span>JavaScript</span><h3>Behavior</h3></div><p>What happens when someone clicks, types, saves, sorts, or filters.</p></article>
-      </div>
-    </section>
-
-    <section class="slide image-slide">
-      <img src="assets/deployment-pathways.png" alt="Deployment paths map" />
-      <div class="title-copy">
-        <div class="eyebrow">After the first win</div>
-        <h2>Where should this live?</h2>
-        <p class="lead">Start simple. Only add complexity when the project needs it.</p>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Deployment paths</div>
-      <div class="cards">
-        <article class="card"><div><span>Draft</span><h3>Canvas link</h3></div><p>Best for collaboration, rough drafts, and showing the build process.</p></article>
-        <article class="card"><div><span>Classroom</span><h3>Google Site / LMS</h3></div><p>Best for simple embedded tools that do not need live AI or cloud storage.</p></article>
-        <article class="card"><div><span>Public</span><h3>GitHub Pages</h3></div><p>Best for a standalone URL, multiple files, and a real static website.</p></article>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Reality check</div>
+      <div class="eyebrow">When people need help</div>
       <div class="center">
-        <h2>Do not collect what you do not need.</h2>
-        <p class="lead">A static prototype is safe because it is small. Logins, rosters, grades, uploads, and shared records change the risk.</p>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Use the site</div>
-      <div class="cards">
-        <article class="card"><div><span>Build Lab</span><h3>Shared starter prompt</h3></div><p>Open the hands-on page when it is time to build together.</p></article>
-        <article class="card"><div><span>Playbook</span><h3>Prompt recipes and tool basics</h3></div><p>Use this when people need help making the next move.</p></article>
-        <article class="card"><div><span>Deployment</span><h3>Simple path to publish</h3></div><p>Compare Canvas, Google Sites, GitHub Pages, and IDE workflows.</p></article>
+        <h2>The site becomes the handout.</h2>
+        <p class="lead">Build Lab is for doing. Learn is for vocabulary and prompt recipes. Share & Store is for "where does it live?" Privacy is for "where does the data live?"</p>
       </div>
     </section>
 
@@ -516,7 +583,7 @@ Use HTML, CSS, and JavaScript in one file. Store entries in localStorage for the
     </section>
   </main>
   <div class="progress" id="progress"></div>
-  <div class="hint">← / →</div>
+  <div class="hint">Left / Right</div>
   <script>
     const slides = [...document.querySelectorAll('.slide')];
     const progress = document.getElementById('progress');

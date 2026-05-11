@@ -7,10 +7,9 @@ Static GitHub Pages site for the May Innovators Network session.
 - `index.html` - presentation hub and session path
 - `presentation.html` - full-screen slide mode
 - `build-lab.html` - shared hands-on build activity
-- `playbook.html` - vibe-coding help site / prompt recipes
-- `deployment.html` - publishing strategies
-- `files.html` - single-file vs multi-file project structures
-- `privacy.html` - data, storage, and student privacy guardrails
+- `playbook.html` - beginner reference manual and prompt recipes
+- `deployment.html` - sharing, file structures, storage, and next-step workflows
+- `privacy.html` - local storage, cloud storage, and student privacy guardrails
 
 ## GitHub Pages
 
