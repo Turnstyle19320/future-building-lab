@@ -380,6 +380,67 @@ details.guide[open] summary::after {
   box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
 }
 
+.visual-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr);
+  gap: 18px;
+  align-items: stretch;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: rgba(248, 240, 223, .08);
+}
+
+.visual-band.reverse {
+  grid-template-columns: minmax(260px, .8fr) minmax(0, 1fr);
+}
+
+.visual-band img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+}
+
+.visual-copy {
+  align-self: center;
+  padding: 12px;
+}
+
+.visual-copy p {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.42;
+}
+
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.sketch-card {
+  min-height: 150px;
+  border: 1px solid rgba(20, 32, 25, .14);
+  border-radius: 20px;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(113,242,189,.2), transparent 45%),
+    #fffaf0;
+  color: var(--paper-ink);
+}
+
+.sketch-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: #142019;
+  box-shadow: 54px 0 0 #71f2bd, 108px 0 0 #f4c95d;
+}
+
 .example-top {
   height: 38px;
   display: flex;
@@ -500,7 +561,10 @@ details.guide[open] summary::after {
 @media (max-width: 900px) {
   .manual-grid,
   .code-pair,
-  .path-row {
+  .path-row,
+  .visual-band,
+  .visual-band.reverse,
+  .sketch-grid {
     grid-template-columns: 1fr;
   }
 }
