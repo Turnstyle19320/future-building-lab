@@ -28,68 +28,132 @@
         <div>
           <div class="eyebrow">After it works</div>
           <h1>Share and Store</h1>
-          <p class="lede">The next question is not "How do I deploy?" The next question is: who needs to use this, and where does the data live?</p>
+          <p class="lede">Before choosing a platform, answer two questions: who needs to open it, and where does the data live?</p>
         </div>
-        <div class="image-card"><img src="assets/deployment-pathways.png" alt="A paper map of different sharing and hosting pathways." /></div>
+        <div class="image-card"><img src="assets/deployment-pathways.png" alt="A paper map of sharing and hosting pathways." /></div>
       </section>
 
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Decision path</div>
-            <h2>Pick the simplest safe home.</h2>
+            <div class="eyebrow">The ladder</div>
+            <h2>Do not overbuild the first version.</h2>
           </div>
-          <p>Beginners do not need every hosting option. They need a clear ladder from "I made something" to "people can use it safely."</p>
+          <p>Move down the ladder only when the project actually needs the next level. A flashcard tool does not need Firebase. A live join-code activity probably needs more than Google Sites.</p>
+        </div>
+
+        <div class="path-map">
+          <div class="path-row"><strong>Draft</strong><p>Keep it in Gemini Canvas, ChatGPT, Claude, or another AI workspace while you are still shaping the idea.</p></div>
+          <div class="path-row"><strong>Embed</strong><p>Use Google Sites or an LMS when the tool is one self-contained HTML file and belongs near class materials.</p></div>
+          <div class="path-row"><strong>Publish</strong><p>Use GitHub Pages when the project needs a clean public URL or multiple files.</p></div>
+          <div class="path-row"><strong>Develop</strong><p>Use VS Code plus an AI coding agent when the project becomes a folder you maintain.</p></div>
+          <div class="path-row"><strong>Connect</strong><p>Add Node.js, WebSockets, Cloudflare, Firebase, or another backend only when devices or users need to share live data.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">What it looks like</div>
+            <h2>Same tool. Different homes.</h2>
+          </div>
+          <p>The interface may look identical to the user. The difference is how it is shared and whether it stores data.</p>
         </div>
 
         <details class="guide" open>
-          <summary>1. Keep it in the AI workspace</summary>
-          <div class="guide-body">
-            <p><strong>Use when:</strong> it is still a rough draft, you are learning, or you want a colleague to see the build process.</p>
-            <p><strong>Examples:</strong> Gemini Canvas share link, ChatGPT conversation, Claude artifact, or another AI workspace preview.</p>
-            <p><strong>Limit:</strong> this is not always the best final home. It may depend on account access and may not feel like a clean classroom resource.</p>
+          <summary>AI workspace share link</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p><strong>Looks like:</strong> a preview inside the AI tool, with the conversation and code nearby.</p>
+              <p><strong>Use when:</strong> you are still iterating or want a colleague to understand how it was built.</p>
+              <p><strong>Watch for:</strong> account access, sharing permissions, and whether this is really the final place participants should go.</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">AI workspace preview</div></div>
+              <div class="example-body mini-tool">
+                <h3>Evidence Dashboard</h3>
+                <div class="mini-card">Preview pane</div>
+                <div class="mini-card">Prompt + code beside it</div>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>2. Embed a simple tool in Google Sites or an LMS</summary>
-          <div class="guide-body">
-            <p><strong>Use when:</strong> the tool is one self-contained HTML file and belongs near existing class materials.</p>
-            <p><strong>Good for:</strong> flashcards, calculators, practice tools, reflection prompts, simple dashboards, and no-login prototypes.</p>
-            <p><strong>Limit:</strong> embedding is best when the tool does not need server-side data, accounts, uploads, or shared records.</p>
+          <summary>Google Sites / LMS embed</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p><strong>Looks like:</strong> a small interactive tool embedded inside a page students or teachers already visit.</p>
+              <p><strong>Use when:</strong> the tool is simple, static, and classroom-facing.</p>
+              <p><strong>Best fit:</strong> one-file HTML tools with no accounts and no cloud database.</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">class-site.google.com/unit</div></div>
+              <div class="example-body">
+                <h3>Unit Resources</h3>
+                <p style="color:rgba(20,32,25,.7);margin-top:10px;">Embedded tool:</p>
+                <div class="mini-card" style="margin-top:12px;">Reflection Spinner</div>
+                <span class="mini-button" style="margin-top:14px;">New Prompt</span>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>3. Publish a static site with GitHub Pages</summary>
-          <div class="guide-body">
-            <p><strong>Use when:</strong> you want a permanent public URL or the project has multiple files.</p>
-            <p><strong>Works well with:</strong></p>
-            <pre><code>my-tool/
-  index.html
-  style.css
-  script.js
-  assets/
-    image.png</code></pre>
-            <p><strong>Limit:</strong> GitHub Pages publishes static files. It is not a private database or roster system.</p>
+          <summary>GitHub Pages static site</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p><strong>Looks like:</strong> a normal public website with its own URL.</p>
+              <p><strong>Use when:</strong> you want permanence, a clean link, multiple files, or a resource that lives outside an LMS.</p>
+              <p><strong>Boundary:</strong> static hosting is not a private database.</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">yourname.github.io/my-tool</div></div>
+              <div class="example-body">
+                <div class="folder-tree">my-tool/<br>  index.html<br>  style.css<br>  script.js<br>  assets/<br>    hero.png</div>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>4. Move into VS Code with an AI coding agent</summary>
-          <div class="guide-body">
-            <p><strong>Use when:</strong> copy-paste editing starts to break down, you need multiple files, or you want version history.</p>
-            <p><strong>Good for:</strong> Codex, Claude Code, or another agent working across a real project folder.</p>
-            <p><strong>Teacher-friendly rule:</strong> move to an IDE when you are maintaining a project, not when you are just trying to get the first version working.</p>
+          <summary>VS Code + AI coding agent</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p><strong>Looks like:</strong> a project folder on your computer, with an AI agent that can inspect and edit multiple files.</p>
+              <p><strong>Use when:</strong> the tool needs maintenance, repeated revisions, debugging, or more than one file.</p>
+              <p><strong>Common agents:</strong> Codex, Claude Code, or another coding assistant installed in your workflow.</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">VS Code project</div></div>
+              <div class="example-body">
+                <pre class="plain-pre"><code>Ask the agent:
+"Add localStorage.
+Keep the design.
+Explain the change."</code></pre>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>5. Add a server only when the tool needs one</summary>
-          <div class="guide-body">
-            <p><strong>Use when:</strong> devices need to communicate live, users need join codes, or data needs to sync across devices.</p>
-            <p><strong>Examples:</strong> a Node.js app with WebSockets for a live activity, a Cloudflare Worker for a lightweight serverless endpoint, Firebase for authentication or database-backed apps.</p>
-            <p><strong>Limit:</strong> servers and databases introduce privacy, security, account, retention, and district approval questions. This is not where beginners need to start.</p>
+          <summary>Server, join codes, or cloud database</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p><strong>Looks like:</strong> students join a live session, data syncs across devices, or a teacher sees a shared dashboard.</p>
+              <p><strong>Use when:</strong> the tool actually needs real-time collaboration, accounts, cross-device history, or shared records.</p>
+              <p><strong>Examples:</strong> Node.js with WebSockets, Cloudflare Workers, Firebase, Supabase, or another backend.</p>
+              <p><strong>Important:</strong> this is where privacy and district approval questions become real.</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">live activity</div></div>
+              <div class="example-body mini-tool">
+                <h3>Join Code: 4821</h3>
+                <div class="mini-card">Teacher device hosts the session.</div>
+                <div class="mini-card">Student devices send responses.</div>
+                <div class="mini-card">Question: is this stored, and where?</div>
+              </div>
+            </div>
           </div>
         </details>
       </section>
@@ -97,21 +161,42 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Storage ladder</div>
-            <h2>Saving data changes the project.</h2>
+            <div class="eyebrow">Storage examples</div>
+            <h2>Where the data goes matters more than how fancy the page looks.</h2>
           </div>
-          <p>A tool can look the same on screen while being very different underneath. The difference is where the data goes.</p>
+          <p>These three examples can look similar on screen, but they create very different responsibilities.</p>
         </div>
         <div class="grid three">
-          <article class="card"><strong>No storage</strong><h3>Safest first version</h3><p>The page runs, teaches, calculates, or simulates, then forgets everything.</p></article>
-          <article class="card"><strong>localStorage</strong><h3>Saved on this device</h3><p>Useful for demos and personal progress on one browser. Not a secure shared record.</p></article>
-          <article class="card"><strong>Cloud database</strong><h3>Shared across devices</h3><p>Useful for real apps, but student data now needs governance and district review.</p></article>
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>No Storage</h3>
+              <div class="mini-card">Timer resets when closed.</div>
+              <p style="color:rgba(20,32,25,.65);">Lowest risk.</p>
+            </div>
+          </article>
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>localStorage</h3>
+              <div class="mini-card">Saved on this browser.</div>
+              <p style="color:rgba(20,32,25,.65);">Good for demos and personal use.</p>
+            </div>
+          </article>
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>Cloud Database</h3>
+              <div class="mini-card">Shared across devices.</div>
+              <p style="color:rgba(20,32,25,.65);">Needs privacy review if student data is involved.</p>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="section paper source-list">
-        <div class="eyebrow">Useful documentation</div>
-        <h2>When you are ready to go deeper</h2>
+        <div class="eyebrow">Documentation</div>
+        <h2>For later, not day one</h2>
         <ul>
           <li><a href="https://docs.github.com/en/pages">GitHub Pages documentation</a></li>
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">MDN localStorage documentation</a></li>

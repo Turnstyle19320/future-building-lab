@@ -349,6 +349,147 @@ details.guide[open] summary::after {
   color: var(--mint);
 }
 
+.manual-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.example-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--paper);
+  color: var(--paper-ink);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+}
+
+.example-top {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  background: #e4dac8;
+}
+
+.example-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #e85c4a;
+}
+
+.example-dot:nth-child(2) {
+  background: #f4c95d;
+}
+
+.example-dot:nth-child(3) {
+  background: #71f2bd;
+}
+
+.example-body {
+  padding: 24px;
+}
+
+.mini-tool {
+  display: grid;
+  gap: 14px;
+}
+
+.mini-field {
+  min-height: 42px;
+  border: 1px solid rgba(20, 32, 25, .14);
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.mini-button {
+  display: inline-block;
+  width: fit-content;
+  padding: 12px 16px;
+  border-radius: 999px;
+  color: #07110d;
+  background: var(--mint);
+  font-weight: 900;
+}
+
+.mini-card {
+  padding: 14px;
+  border-radius: 16px;
+  background: #e8f5ec;
+  color: rgba(20, 32, 25, .78);
+}
+
+.code-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.plain-pre {
+  margin: 0;
+  max-height: 360px;
+  overflow: auto;
+  font-size: .95rem;
+}
+
+.path-map {
+  display: grid;
+  gap: 14px;
+}
+
+.path-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+}
+
+.path-row strong {
+  color: var(--gold);
+}
+
+.path-row p {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.browser-url {
+  min-height: 30px;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: rgba(20, 32, 25, .55);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.folder-tree {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  line-height: 1.55;
+  color: rgba(20, 32, 25, .82);
+  background: #fffaf0;
+  border: 1px solid rgba(20, 32, 25, .12);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+@media (max-width: 900px) {
+  .manual-grid,
+  .code-pair,
+  .path-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .feature {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);

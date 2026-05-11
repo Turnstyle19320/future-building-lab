@@ -27,48 +27,100 @@
       <section class="section">
         <div class="eyebrow">Reference manual</div>
         <h1>Vibe Coding for Educators</h1>
-        <p class="lede">You do not need to become a software developer to prototype a useful classroom tool. You do need a plain-language map of what you are asking the AI to make.</p>
+        <p class="lede">This is a field guide for making small web tools with AI. Start with what you want the learner or teacher to experience, then ask the AI to build the page that supports it.</p>
+      </section>
+
+      <section class="section manual-grid">
+        <div>
+          <div class="eyebrow">First mental model</div>
+          <h2>A web app is usually three things.</h2>
+          <p class="lede">Structure, style, and behavior. You do not have to memorize code. You just need enough vocabulary to ask for the next useful change.</p>
+        </div>
+        <div class="example-frame">
+          <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">classroom-tool.html</div></div>
+          <div class="example-body mini-tool">
+            <h3>Evidence of Impact</h3>
+            <div class="mini-field"></div>
+            <span class="mini-button">Add Evidence</span>
+            <div class="mini-card"><strong>Revision</strong><br>Improved the prototype after feedback.</div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Start here</div>
-            <h2>What are you actually making?</h2>
+            <div class="eyebrow">What the AI is building</div>
+            <h2>Plain language first. Code second.</h2>
           </div>
-          <p>Most first projects are small web apps: a page people open in a browser. The page may be one file or several files. It may save nothing, save locally, or connect to a server later.</p>
+          <p>Each layer has a job. If something looks wrong, ask about CSS. If something does not respond, ask about JavaScript. If the page is missing a section, ask about HTML.</p>
         </div>
 
         <details class="guide" open>
-          <summary>HTML: the structure</summary>
-          <div class="guide-body">
-            <p>HTML is the page skeleton: headings, paragraphs, buttons, forms, cards, links, images, and sections.</p>
-            <p>Prompt move: "Create the page structure first. Include a title, a short instruction section, an input form, and an area where results will appear."</p>
+          <summary>HTML creates the pieces on the page</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p>HTML is the page structure: title, directions, input box, button, and the area where evidence cards appear.</p>
+              <p><strong>Prompt move:</strong> "Create the HTML structure first. Include a title, instructions, a form, and a results area."</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+              <div class="example-body">
+                <pre class="plain-pre"><code>&lt;h1&gt;Evidence of Impact&lt;/h1&gt;
+&lt;p&gt;Add one example of learning or contribution.&lt;/p&gt;
+&lt;textarea&gt;&lt;/textarea&gt;
+&lt;button&gt;Add Evidence&lt;/button&gt;
+&lt;section id="entries"&gt;&lt;/section&gt;</code></pre>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>CSS: the appearance</summary>
-          <div class="guide-body">
-            <p>CSS controls the visual design: color, spacing, fonts, layout, cards, shadows, and mobile behavior. Tailwind CSS is a popular shortcut that lets the AI style quickly with reusable class names.</p>
-            <p>Prompt move: "Make this feel like a calm professional classroom tool, not a game. Use clear spacing, large readable type, and a simple card layout."</p>
+          <summary>CSS changes how it feels</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p>CSS controls the visual design: spacing, colors, fonts, cards, shadows, and mobile layout.</p>
+              <p><strong>Prompt move:</strong> "Make this feel like a calm professional classroom tool, not a worksheet or a game."</p>
+            </div>
+            <div class="code-pair">
+              <div class="example-frame">
+                <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+                <div class="example-body mini-tool">
+                  <h3 style="font-family: Arial, sans-serif;">Before</h3>
+                  <div class="mini-field" style="border-radius:0;background:white;"></div>
+                  <span style="display:inline-block;border:1px solid #333;padding:6px;">Add</span>
+                </div>
+              </div>
+              <div class="example-frame">
+                <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+                <div class="example-body mini-tool">
+                  <h3>After</h3>
+                  <div class="mini-field"></div>
+                  <span class="mini-button">Add Evidence</span>
+                </div>
+              </div>
+            </div>
           </div>
         </details>
 
         <details class="guide">
-          <summary>JavaScript: the behavior</summary>
-          <div class="guide-body">
-            <p>JavaScript is what makes the page respond: save an entry, calculate a score, flip a card, filter a list, draw on a canvas, or update a dashboard.</p>
-            <p>Prompt move: "Add the JavaScript logic. When someone clicks the Add Evidence button, create a new card and update the summary counts."</p>
-          </div>
-        </details>
-
-        <details class="guide">
-          <summary>Gemini Canvas vs. the HTML canvas element</summary>
-          <div class="guide-body">
-            <p><strong>Gemini Canvas</strong> is the AI workspace where you chat, edit, preview, and iterate.</p>
-            <p><strong>The HTML <code>&lt;canvas&gt;</code> element</strong> is a specific piece of web code used for drawing, games, simulations, and animations.</p>
-            <p>Beginner rule: if you are building a form, checklist, flashcard set, or dashboard, you probably do not need the HTML canvas element. If you are building a game, animation, physics simulation, or free-drawing tool, you might.</p>
+          <summary>JavaScript makes it respond</summary>
+          <div class="guide-body manual-grid">
+            <div>
+              <p>JavaScript is the behavior: click a button, save an entry, update a count, flip a card, filter a list, or draw something.</p>
+              <p><strong>Prompt move:</strong> "When the user clicks Add Evidence, create a new card and update the summary counts."</p>
+            </div>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+              <div class="example-body">
+                <pre class="plain-pre"><code>button.addEventListener("click", () =&gt; {
+  // read the form
+  // create a card
+  // update the summary
+});</code></pre>
+              </div>
+            </div>
           </div>
         </details>
       </section>
@@ -76,26 +128,36 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Single file or folder?</div>
-            <h2>Keep it simple until simple gets annoying.</h2>
+            <div class="eyebrow">Examples</div>
+            <h2>What can a beginner make?</h2>
           </div>
-          <p>For most beginners, a single HTML file is the right first win. Multi-file projects become useful when you are ready to publish, reuse assets, or edit with an agent in VS Code.</p>
+          <p>Start with tools that do one useful thing. Avoid accounts, databases, and complicated dashboards until the basic interaction works.</p>
         </div>
-        <div class="grid two">
-          <article class="paper">
-            <h2>Single-file HTML</h2>
-            <p>Best for first prototypes, Google Sites embeds, quick classroom tools, and activities where everything can live in one page.</p>
-            <pre><code>evidence-dashboard.html</code></pre>
+        <div class="grid three">
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>Flashcard Set</h3>
+              <div class="mini-card" style="text-align:center;font-size:1.4rem;">Mitochondria</div>
+              <span class="mini-button">Flip Card</span>
+            </div>
           </article>
-          <article class="paper">
-            <h2>Multi-file project</h2>
-            <p>Best for GitHub Pages, larger tools, multiple images, separate styling, and projects you want an AI coding agent to maintain.</p>
-            <pre><code>my-tool/
-  index.html
-  style.css
-  script.js
-  assets/
-    image.png</code></pre>
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>Reflection Spinner</h3>
+              <div class="mini-card">What changed because of your work today?</div>
+              <span class="mini-button">New Prompt</span>
+            </div>
+          </article>
+          <article class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
+            <div class="example-body mini-tool">
+              <h3>Choice Board</h3>
+              <div class="mini-card">Create</div>
+              <div class="mini-card">Explain</div>
+              <div class="mini-card">Revise</div>
+            </div>
           </article>
         </div>
       </section>
@@ -104,43 +166,36 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Prompt recipes</div>
-            <h2>Ask for the next useful move.</h2>
+            <h2>Ask for one move at a time.</h2>
           </div>
-          <p>Good vibe coding is not one magic prompt. It is a conversation: build, test, describe what is wrong, ask for one improvement, test again.</p>
+          <p>Copy these when you are stuck. The pattern is: describe the audience, describe the job, describe the interaction, then ask for a complete first version.</p>
         </div>
 
         <details class="guide" open>
-          <summary>Ask for a simple classroom tool</summary>
+          <summary>Simple classroom tool</summary>
           <div class="guide-body">
             <p>"Create a single-file HTML tool for vocabulary practice. Students should see one term at a time, guess the definition, click to reveal the answer, and track how many they got right. Make it clean and readable for middle school."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Ask for an interactive dashboard</summary>
+          <summary>Interactive dashboard</summary>
           <div class="guide-body">
             <p>"Create a dashboard where students can add evidence of learning, tag it as growth, revision, contribution, collaboration, or reflection, and see a simple summary. Store entries in localStorage for this demo."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Ask for better styling</summary>
+          <summary>Better styling</summary>
           <div class="guide-body">
             <p>"This works, but it looks generic. Redesign it for teachers. Use warm neutral colors, clear hierarchy, readable font sizes, strong spacing, and buttons that are easy to find. Do not make it childish."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Ask for debugging help</summary>
+          <summary>Debugging</summary>
           <div class="guide-body">
             <p>"The Add button does not create a new card. Read the code, explain the likely cause in plain language, then give me a corrected full file."</p>
-          </div>
-        </details>
-
-        <details class="guide">
-          <summary>Ask for a multi-file version</summary>
-          <div class="guide-body">
-            <p>"Split this into three files: <code>index.html</code> for structure, <code>style.css</code> for design, and <code>script.js</code> for behavior. Keep the same functionality."</p>
           </div>
         </details>
       </section>
@@ -148,29 +203,16 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Toolkit</div>
-            <h2>Optional ingredients, not requirements.</h2>
+            <div class="eyebrow">When you are ready</div>
+            <h2>Single file, folder, or real app?</h2>
           </div>
-          <p>These are useful words to recognize. Nobody needs all of them on day one.</p>
+          <p>Do not start with a complex setup. Start with the smallest version that lets you test the idea.</p>
         </div>
-        <div class="grid three">
-          <article class="card"><strong>Tailwind CSS</strong><h3>Fast styling</h3><p>Useful when you want the AI to make a page look polished quickly.</p></article>
-          <article class="card"><strong>Lucide Icons</strong><h3>Simple icons</h3><p>Useful for buttons, sections, and navigation when text alone feels flat.</p></article>
-          <article class="card"><strong>Google Fonts</strong><h3>Better typography</h3><p>Useful when the page needs to stop looking like a default document.</p></article>
-          <article class="card"><strong>SVG</strong><h3>Diagrams and shapes</h3><p>Useful for static diagrams, game boards, and icons that scale cleanly.</p></article>
-          <article class="card"><strong>Canvas</strong><h3>Drawing and games</h3><p>Useful for simulations, animations, and pixel-based movement.</p></article>
-          <article class="card"><strong>Three.js</strong><h3>3D in the browser</h3><p>Advanced. Useful for 3D scenes, but not necessary for normal classroom tools.</p></article>
-        </div>
-      </section>
-
-      <section class="section paper">
-        <div class="eyebrow">What comes later</div>
-        <h2>When the project grows up</h2>
-        <p class="lede" style="color: rgba(20,32,25,.78);">After a first static prototype, some tools need live collaboration, join codes, cloud databases, or a real development environment. That is a new stage, not the starting line.</p>
-        <div class="steps" style="margin-top: 28px;">
-          <div class="step"><h3>VS Code + an agent</h3><p>Use this when the project has folders, multiple files, repeated changes, or needs careful debugging.</p></div>
-          <div class="step"><h3>Node.js + WebSockets</h3><p>Useful for live join-code activities where devices need to talk to each other in real time.</p></div>
-          <div class="step"><h3>Cloudflare or Firebase</h3><p>Useful for real hosted backends and databases, but this is where data privacy and district approval questions become serious.</p></div>
+        <div class="path-map">
+          <div class="path-row"><strong>One HTML file</strong><p>Best for first prototypes, Google Sites embeds, and tools that do one job.</p></div>
+          <div class="path-row"><strong>Project folder</strong><p>Best when you have separate HTML, CSS, JavaScript, and images.</p></div>
+          <div class="path-row"><strong>VS Code + agent</strong><p>Best when you need help managing multiple files, debugging, and publishing.</p></div>
+          <div class="path-row"><strong>Server or database</strong><p>Best only when the tool needs live collaboration, join codes, accounts, or cloud storage.</p></div>
         </div>
       </section>
     </main>
