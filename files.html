@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Structures | Future Building Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Future Building Lab</a>
+      <div class="nav-links">
+        <a href="index.html">Path</a>
+        <a href="presentation.html">Slides</a>
+        <a href="build-lab.html">Build Lab</a>
+        <a href="playbook.html">Playbook</a>
+        <a href="deployment.html">Deployment</a>
+        <a class="active" href="files.html">Files</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="eyebrow">How web projects are organized</div>
+        <h1>File Structures</h1>
+        <p class="lede">A single HTML file is fine for the first win. Separate files become useful when the project needs to be easier to edit, share, debug, and deploy.</p>
+      </section>
+
+      <section class="section grid two">
+        <article class="paper">
+          <h2>Single file</h2>
+          <p class="lede" style="color: rgba(20,32,25,.78);">Everything lives in one `.html` file: structure, style, and behavior.</p>
+          <pre><code>evidence-dashboard.html</code></pre>
+          <p>Best for demos, Google Sites embeds, one-page tools, and first attempts.</p>
+        </article>
+        <article class="paper">
+          <h2>Multi-file</h2>
+          <p class="lede" style="color: rgba(20,32,25,.78);">The project gets separated into clear parts.</p>
+          <pre><code>my-tool/
+  index.html
+  style.css
+  script.js
+  assets/
+    hero.png</code></pre>
+          <p>Best for GitHub Pages, larger projects, reusable assets, and agent-assisted editing.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="grid three">
+          <article class="card"><strong>HTML</strong><h3>The structure</h3><p>Headings, forms, buttons, links, sections, and the words people see.</p></article>
+          <article class="card"><strong>CSS</strong><h3>The appearance</h3><p>Color, typography, spacing, layout, visual hierarchy, and responsiveness.</p></article>
+          <article class="card"><strong>JavaScript</strong><h3>The behavior</h3><p>What happens when someone clicks, types, saves, filters, sorts, or navigates.</p></article>
+        </div>
+      </section>
+
+      <section class="section paper">
+        <div class="eyebrow">When to move into VS Code</div>
+        <h2>Use an IDE when copy-paste starts costing you time.</h2>
+        <div class="steps" style="margin-top: 28px;">
+          <div class="step"><h3>You have more than one file</h3><p>Folders, assets, and reusable styles are easier to manage locally.</p></div>
+          <div class="step"><h3>You want an agent to edit across files</h3><p>Codex, Claude, or another coding agent can inspect the project, make patches, and explain tradeoffs.</p></div>
+          <div class="step"><h3>You need version history</h3><p>Git lets you try changes without losing the last working version.</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

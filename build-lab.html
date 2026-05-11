@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Lab | Future Building Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Future Building Lab</a>
+      <div class="nav-links">
+        <a href="index.html">Path</a>
+        <a href="presentation.html">Slides</a>
+        <a class="active" href="build-lab.html">Build Lab</a>
+        <a href="playbook.html">Playbook</a>
+        <a href="deployment.html">Deployment</a>
+        <a href="files.html">Files</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Shared build</div>
+          <h1>Evidence of Impact Dashboard</h1>
+          <p class="lede">A small prototype for the Feedback First Firewall: move from points as currency to evidence as currency.</p>
+        </div>
+        <div class="image-card"><img src="assets/build-lab-educators.png" alt="Educators collaborating around laptops during a build lab." /></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><div class="eyebrow">Starter prompt</div><h2>Build version one.</h2></div>
+          <p>Use this in Gemini Canvas, ChatGPT, Claude, or the AI coding tool available to you. The goal is not the perfect app. The goal is a working first artifact.</p>
+        </div>
+        <pre><code>Create a single-file HTML web app called "Evidence of Impact Dashboard."
+
+Audience: middle or high school students.
+
+Purpose: replace points-as-currency with evidence-as-currency.
+
+The app should let a student:
+1. Add a short description of something they contributed, revised, built, helped, or learned.
+2. Choose an evidence type: growth, contribution, revision, collaboration, or reflection.
+3. Choose an impact level: small, medium, or big.
+4. See their entries appear as cards on the page.
+5. See a simple summary count by evidence type.
+
+Make it polished but not childish. Use HTML, CSS, and JavaScript in one file.
+Do not use external databases or accounts.
+Store entries in localStorage so the demo works on one device.</code></pre>
+      </section>
+
+      <section class="section">
+        <div class="grid three">
+          <article class="card">
+            <strong>Step one</strong>
+            <h3>Get one working thing</h3>
+            <p>If it accepts an entry, shows the entry, and summarizes evidence types, version one is successful.</p>
+          </article>
+          <article class="card">
+            <strong>Step two</strong>
+            <h3>Make the process visible</h3>
+            <p>Ask the AI what each part does. Have it label HTML, CSS, and JavaScript in plain language.</p>
+          </article>
+          <article class="card">
+            <strong>Step three</strong>
+            <h3>Bend it toward your goal</h3>
+            <p>Change the evidence types, language, dashboard, or audience so it supports your actual work.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><div class="eyebrow">Remix prompts</div><h2>Make it yours.</h2></div>
+          <p>These prompts keep beginners moving without needing to understand the whole codebase yet.</p>
+        </div>
+        <div class="grid two">
+          <div class="card"><h3>Change the audience</h3><p>“Revise this for elementary students. Use simpler language, fewer fields, and a more visual summary.”</p></div>
+          <div class="card"><h3>Add reflection</h3><p>“Add a reflection prompt that asks: What changed because of this work?”</p></div>
+          <div class="card"><h3>Make it teacher-facing</h3><p>“Turn this into a teacher conference tool for collecting evidence before student check-ins.”</p></div>
+          <div class="card"><h3>Improve the design</h3><p>“Make the interface feel like a serious portfolio tool, not a behavior tracker.”</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

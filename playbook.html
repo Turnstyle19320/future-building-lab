@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Educator's AI Playbook</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Import Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Import Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            color: #4b5563;
+            font-weight: 700;
+        }
+
+        .site-nav a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .site-nav-links a {
+            padding: .5rem .7rem;
+            border-radius: 999px;
+        }
+
+        .site-nav-links a:hover {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        /* Styles for the "Prompt Recipes" accordions */
+        summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary .icon-plus { display: inline-block; }
+        summary .icon-minus { display: none; }
+        details[open] summary .icon-plus { display: none; }
+        details[open] summary .icon-minus { display: inline-block; }
+
+        /* Styles for the mockups */
+        .mockup-window {
+            border: 1px solid #e5e7eb; /* gray-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            background: #ffffff; /* bg-white */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            overflow: hidden;
+            width: 100%;
+            height: 280px;
+        }
+        .mockup-header {
+            background: #f3f4f6; /* bg-gray-100 */
+            padding: 0.5rem;
+            border-bottom: 1px solid #e5e7eb; /* border-b */
+        }
+        .mockup-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .mockup-dot {
+            width: 0.75rem; /* w-3 */
+            height: 0.75rem; /* h-3 */
+            border-radius: 9999px; /* rounded-full */
+        }
+        .mockup-body {
+            padding: 1rem; /* p-4 */
+            font-size: 0.875rem; /* text-sm */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Main Container -->
+    <div class="container max-w-6xl mx-auto p-4 sm:p-8">
+        <nav class="site-nav">
+            <a href="index.html">← Future Building Lab</a>
+            <div class="site-nav-links">
+                <a href="presentation.html">Slides</a>
+                <a href="build-lab.html">Build Lab</a>
+                <a href="deployment.html">Deployment</a>
+                <a href="files.html">Files</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                The Educator's AI Playbook
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                A guide on *when* and *how* to share your Gemini Canvas creations.
+            </p>
+        </header>
+
+        <!-- Section 1: The "Sharing Playbook" -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Your "Sharing Playbook"</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Option 1: Gemini Canvas Share Link -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="flex-shrink-0 bg-purple-100 p-2 rounded-lg">
+                            <i data-lucide="share-2" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">1. Share the Canvas Link</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">This is the "live doc" link from the Gemini Canvas interface.</p>
+                    
+                    <h4 class="font-semibold mb-2 text-sm">When to Use It:</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
+                        <li>Live collaboration with colleagues.</li>
+                        <li>Rapid prototyping and "vibe coding."</li>
+                        <li>You want others to see the code *and* the AI.</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2 text-sm">Best For:</h4>
+                    <p class="text-sm text-gray-700 p-3 bg-gray-50 rounded-md mb-4">"Working with a co-teacher to build an AI-powered rubric generator together."</p>
+                    
+                    <!-- Visual Mockup -->
+                    <div class="mockup-window">
+                        <div class="mockup-header"><div class="mockup-dots"><div class="mockup-dot bg-red-400"></div><div class="mockup-dot bg-yellow-400"></div><div class="mockup-dot bg-green-400"></div></div></div>
+                        <div class="mockup-body">
+                            <h3 class="font-bold mb-2">AI Rubric Generator</h3>
+                            <label class="font-medium text-xs">Prompt:</label>
+                            <textarea class="w-full border rounded p-1 text-xs" rows="2" readonly>5-paragraph essay...</textarea>
+                            <button class="w-full bg-blue-500 text-white p-1 rounded-md text-xs mt-2">Generate</button>
+                            <div class="mt-2 p-2 border rounded-md bg-gray-50 text-xs text-gray-500 italic">...AI output appears here...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Option 2: Embed in Google Site / LMS -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg">
+                            <i data-lucide="layout-template" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">2. Embed in Google Site</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Export the code and paste it into an "Embed" or "HTML" widget on your class site.</p>
+                    
+                    <h4 class="font-semibold mb-2 text-sm">When to Use It:</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
+                        <li>You have a *finished, static* tool.</li>
+                        <li>It *does not* need the AI to run.</li>
+                        <li>You want it inside your existing LMS or class site.</li>
+                    </ul>
+                    <h4 class="font-semibold mb-2 text-sm">Best For:</h4>
+                    <p class="text-sm text-gray-700 p-3 bg-gray-50 rounded-md mb-4">"A set of flashcards, a 'Meet the Teacher' page, or a simple study guide."</p>
+                    
+                    <!-- Visual Mockup -->
+                    <div class="mockup-window">
+                        <div class="mockup-header"><div class="mockup-dots"><div class="mockup-dot bg-red-400"></div><div class="mockup-dot bg-yellow-400"></div><div class="mockup-dot bg-green-400"></div></div></div>
+                        <div class="mockup-body flex items-center justify-center flex-col">
+                            <h3 class="font-bold mb-4">Biology Flashcard</h3>
+                            <div class="w-48 h-32 bg-blue-100 border border-blue-300 rounded-lg flex items-center justify-center shadow-lg">
+                                <p class="text-lg font-semibold text-blue-800">Mitochondria</p>
+                            </div>
+                            <button class="bg-gray-200 text-gray-800 p-1 px-3 rounded-full text-xs mt-3">Flip Card</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 3: Host on GitHub Pages -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="flex-shrink-0 bg-green-100 p-2 rounded-lg">
+                            <i data-lucide="github" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">3. Host on GitHub Pages</h3>
+                    </div>
+    <p class="text-gray-600 text-sm mb-4">Upload your exported files to a GitHub repository to get a *permanent, public URL*.</p>
+                    
+                    <h4 class="font-semibold mb-2 text-sm">When to Use It:</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
+                        <li>You have a *complex* app with multiple files.</li>
+                        <li>You want to keep your HTML, CSS, and JavaScript separate.</li>
+                        <li>You want a standalone site to share widely.</li>
+                    </ul>
+    <h4 class="font-semibold mb-2 text-sm">Best For:</h4>
+    <p class="text-sm text-gray-700 p-3 bg-gray-50 rounded-md mb-4">"A complex app where the logic (`script.js`) and styling (`style.css`) are kept separate from the content (`index.html`)."</p>
+                    
+                    <!-- NEW Visual Mockup for multi-file -->
+                    <div class="mockup-window" style="height: auto;">
+                        <div class="mockup-header"><div class="mockup-dots"><div class="mockup-dot bg-red-400"></div><div class="mockup-dot bg-yellow-400"></div><div class="mockup-dot bg-green-400"></div></div></div>
+                        <div class="mockup-body">
+                            <h3 class="font-bold mb-3">File Structure:</h3>
+                            <div class="text-sm font-mono bg-gray-100 p-4 rounded">
+                                <p class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i>my-game/</p>
+                                <div class="ml-4 border-l pl-2">
+                                    <p class="flex items-center gap-2"><i data-lucide="file-code" class="w-4 h-4 text-red-600"></i>index.html</p>
+                                    <p class="flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-blue-600"></i>style.css</p>
+                                    <p class="flex items-center gap-2"><i data-lucide="brain-circuit" class="w-4 h-4 text-yellow-500"></i>script.js</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-2">Keeping files separate is the best way to build large projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: "What Am I Actually Making?" -->
+        <section class="mb-16 bg-white p-8 rounded-2xl shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-8">What Am I Actually Making?</h2>
+            
+            <!-- NEW CLARIFICATION BOX -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md mb-8 max-w-3xl mx-auto">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="alert-triangle" class="h-5 w-5 text-yellow-700"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-lg font-medium text-yellow-800">A Crucial Clarification!</h3>
+                        <div class="mt-2 text-sm text-yellow-700 space-y-2">
+                            <p><strong>Gemini "Canvas" (The Tool):</strong> This is the entire web page on gemini.google.com where you select the Canvas tool - the chat, the code editor, and the preview. It's the *environment* where you "vibe code" with the AI.</p>
+                            <p><strong>The HTML <code>&lt;canvas&gt;</code> (The Code):</strong> This is a *specific HTML element* (like <code>&lt;p&gt;</code> or <code>&lt;button&gt;</code>) that you ask the AI to put *into* your web page. Think of it as a blank digital 'canvas' (like for painting) that JavaScript can draw on. It's the *ingredient* you use to make games.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">When you "vibe code" a web app, you're teaching the AI to write in three main languages. Understanding them helps you ask for *better* things.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- HTML -->
+                <div class="bg-gray-50 p-6 rounded-xl border">
+                    <i data-lucide="file-code" class="w-10 h-10 text-red-600 mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">HTML: The Skeleton</h3>
+                    <p class="text-gray-700 text-sm">This is the *structure* and *content*. It's the text, the buttons, the inputs, and the images. It's the "what."</p>
+                </div>
+                <!-- CSS -->
+                <div class="bg-gray-50 p-6 rounded-xl border">
+                    <i data-lucide="palette" class="w-10 h-10 text-blue-600 mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">CSS: The Clothes</h3>
+                    <p class="text-gray-700 text-sm">This is the *style*. It's the colors, fonts, layout, and shadows. (Tailwind CSS is just a fast way to write CSS!)</p>
+                </div>
+                <!-- JavaScript -->
+                <div class="bg-gray-50 p-6 rounded-xl border">
+                    <i data-lucide="brain-circuit" class="w-10 h-10 text-yellow-500 mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">JavaScript: The Brains</h3>
+                    <p class="text-gray-700 text-sm">This is the *interactivity*. It's the "what happens when I click this?" It handles game logic, calculations, and fetching data.</p>
+                </div>
+            </div>
+            <div class="mt-6 bg-green-50 p-6 rounded-xl border border-green-200">
+                <h4 class="text-xl font-bold mb-2 flex items-center gap-2"><i data-lucide="puzzle" class="w-6 h-6 text-green-700"></i>What about complex games or drawings?</h4>
+                <p class="text-gray-700 text-sm mb-2">
+                </video>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <h5 class="font-bold">1. The &lt;canvas&gt; Element</h5>
+                        <!-- NEW CLARIFICATION NOTE -->
+                        <p class="text-xs text-gray-600 italic mb-2">(Note: This is the HTML <code>&lt;canvas&gt;</code> element, a piece of code. It's different from the "Gemini Canvas" environment you're using right now!)</p>
+                        <p class="text-gray-700 text-sm mb-2">
+                            Think of this as a blank digital 'canvas' (like for painting). Its *real power* comes from **JavaScript**, which acts as the 'paintbrush.' JavaScript tells the canvas what to draw, pixel by pixel.
+                        </p>
+                        <p class="text-gray-700 text-sm"><b>Best for:</b> Fast-moving action games, physics simulations, or anything where you need to draw and redraw thousands of objects quickly.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold">2. SVG (Scalable Vector Graphics)</h5>
+                        <p class="text-gray-700 text-sm mb-2">
+                           This is another 'language' that works with HTML to draw shapes *with code*. Instead of drawing pixels, you define objects (like a `<circle>` or `<path>`).
+                        </p>
+                        <p class="text-gray-700 text-sm"><b>Best for:</b> Sharp, scalable diagrams, charts, puzzle games, or board games (like a chess or tic-tac-toe board) where each piece is a distinct object.</p>
+                    </div>
+                </div>
+                <h5 class="font-semibold text-center mt-6 mb-2">Example of an SVG Diagram:</h5>
+                <!-- Embedded SVG of a Water Cycle -->
+                <div class="w-full bg-white p-4 rounded-lg border border-gray-300">
+                    <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                        <text x="100" y="10" font-family="Inter, sans-serif" font-size="8" text-anchor="middle" font-weight="bold">The Water Cycle</text>
+                        
+                        <!-- Sun -->
+                        <circle cx="10" cy="10" r="8" fill="orange"/>
+                        
+                        <!-- Cloud -->
+                        <path d="M 120 30 a 10 10 0 0 1 0 20 H 100 a 10 10 0 0 1 -20 -10 a 12 12 0 0 1 25 -8" fill="#e0f2fe"/>
+                        <text x="105" y="40" font-family="Inter, sans-serif" font-size="5" text-anchor="middle">Condensation</text>
+
+                        <!-- Water / Collection -->
+                        <rect x="0" y="80" width="200" height="20" fill="#60a5fa"/>
+                        <text x="100" y="90" font-family="Inter, sans-serif" font-size="5" text-anchor="middle" fill="white">Collection</text>
+                        
+                        <!-- Evaporation -->
+                        <path d="M 50 75 q 5 -10 10 0 q 5 -10 10 0 q 5 -10 10 0" fill="none" stroke="#93c5fd" stroke-width="1" stroke-dasharray="2 1"/>
+                        <path d="M 75 45 l -5 -5 l 5 5 l 5 -5" fill="none" stroke="#93c5fd" stroke-width="1"/>
+                        <text x="65" y="50" font-family="Inter, sans-serif" font-size="5" text-anchor="middle" transform="rotate(-90 65 50)">Evaporation</text>
+                        
+                        <!-- Precipitation -->
+                        <path d="M 105 55 l 0 20 M 110 55 l 0 20 M 115 55 l 0 20" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="2 1"/>
+                        <path d="M 110 78 l -2 -3 l 2 3 l 2 -3" fill="none" stroke="#60a5fa" stroke-width="1"/>
+                        <text x="130" y="65" font-family="Inter, sans-serif" font-size="5" text-anchor="middle" transform="rotate(90 130 65)">Precipitation</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        
+        <!-- NEW Section 3: "Your 'Vibe Coder's' Toolkit" -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Your "Vibe Coder's" Toolkit</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">You'll see the AI use these (and other) free, open-source tools to build your app. Here's what they are and why they're used.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Tailwind CSS -->
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="wind" class="w-6 h-6 text-cyan-600"></i>
+                        <h3 class="text-xl font-bold">Tailwind CSS</h3>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-2"><b>What it is:</b> A CSS framework that provides thousands of tiny "utility classes" like `bg-blue-500` or `font-bold`.</p>
+                    <p class="text-gray-700 text-sm"><b>Why use it:</b> It lets the AI (or you) style the app *incredibly fast* right in the HTML, without writing a separate CSS file. It's why the apps look good so quickly.</p>
+                </div>
+                <!-- Lucide Icons -->
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-yellow-500"></i>
+                        <h3 class="text-xl font-bold">Lucide Icons</h3>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-2"><b>What it is:</b> A free library of simple, beautiful icons (like all the ones on this page!).</p>
+                    <p class="text-gray-700 text-sm"><b>Why use it:</b> Icons make buttons and sections much clearer than just text. You can ask the AI to "add a 'book' icon from Lucide next to the 'Study' button."</p>
+                </div>
+                <!-- Google Fonts -->
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="type" class="w-6 h-6 text-gray-700"></i>
+                        <h3 class="text-xl font-bold">Google Fonts (e.g., Inter)</h3>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-2"><b>What it is:</b> A giant library of free, professional fonts you can load with one line of code.</p>
+                    <p class="text-gray-700 text-sm"><b>Why use it:</b> Good typography is the easiest way to make your app look professional. This page uses a font called "Inter."</p>
+                </div>
+                <!-- Three.js -->
+                <div class="bg-white p-6 rounded-xl border shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="box" class="w-6 h-6 text-purple-600"></i>
+                        <h3 class="text-xl font-bold">Three.js (Next Level)</h3>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-2"><b>What it is:</b> A JavaScript library for creating 3D graphics in the browser. It's like a super-powered 'paintbrush' for the `<canvas>` element.</p>
+                    <p class="text-gray-700 text-sm"><b>Why use it:</b> If you want to move beyond 2D and ask for "a 3D model of the solar system" or "a spinning cube," the AI will use this.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: "Prompt Recipes" -->
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-8">"Prompt Recipes" for Your Next Level</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">You don't need to learn code. You just need to learn how to *ask* for it. Try these prompts in Gemini Canvas!</p>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <!-- Recipe 1: Static Tool (Flashcards) -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <summary class="font-medium text-lg p-4 flex justify-between items-center">
+                        Asking for a... Static Tool
+                        <span>
+                            <i data-lucide="plus-circle" class="icon-plus w-5 h-5 text-blue-600"></i>
+                            <i data-lucide="minus-circle" class="icon-minus w-5 h-5 text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-700 mb-4">This is perfect for embedding in a Google Site. It's self-contained and doesn't need AI to run. The "data" (questions and answers) is stored right in the code.</p>
+                        <h4 class="font-semibold mb-2">Example Prompt:</h4>
+                        <p class="text-gray-700 p-3 bg-gray-100 rounded-md">"Create a set of 5 flashcards for biology terms. Each card should have a term on the front and a definition on the back. Add a 'Flip' button to flip the card and 'Next'/'Previous' buttons to cycle through the cards. The terms are: Mitochondria, Nucleus, Ribosome, Cell Membrane, Cytoplasm."</p>
+                    </div>
+                </details>
+                
+                <!-- Recipe 2: Interactive Game (Canvas) -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <summary class="font-medium text-lg p-4 flex justify-between items-center">
+                        Asking for a... Canvas Game
+                        <span>
+                            <i data-lucide="plus-circle" class="icon-plus w-5 h-5 text-blue-600"></i>
+                            <i data-lucide="minus-circle" class="icon-minus w-5 h-5 text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-200">
+                        <!-- ADDED THIS TEXT BACK IN -->
+                        <p class="text-sm text-gray-700 mb-4">This is perfect for hosting on GitHub Pages. Here, you're asking for logic, not just content. This prompt specifically asks for an <strong>HTML <code>&lt;canvas&gt;</code></strong> which is the right tool for this kind of game.</p>
+                        <h4 class="font-semibold mb-2">Example Prompt:</h4>
+                        <!-- FIXED THE TYPO HERE -->
+                        <p class="text-gray-700 p-3 bg-gray-100 rounded-md">"Create a simple game using an <strong>HTML <code>&lt;canvas&gt;</code></strong>. Make a small red square that I can move around with the arrow keys. Add a blue square at a random location. When the red square touches the blue one, the score should go up by one, and the blue square should move to a new random spot."</p>
+                    </div>
+                </details>
+
+                <!-- UPDATED RECIPE: Asking for an SVG Diagram or Game Board -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <summary class="font-medium text-lg p-4 flex justify-between items-center">
+                        Asking for an... SVG Diagram or Game Board
+                        <span>
+                            <i data-lucide="plus-circle" class="icon-plus w-5 h-5 text-blue-600"></i>
+                            <i data-lucide="minus-circle" class="icon-minus w-5 h-5 text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-700 mb-4">SVG is great for static diagrams or interactive, turn-based games where objects are clearly defined. This is good for embedding in a Google Site or hosting on GitHub.</p>
+                        <h4 class="font-semibold mb-2">Example Prompt:</h4>
+                        <p class="text-gray-700 p-3 bg-gray-100 rounded-md">"Create a 3x3 tic-tac-toe game board using **SVG**. When I click on a square, draw an 'X' in it. Then, make the computer (AI) draw an 'O' in a random empty square."</p>
+                    </div>
+                </details>
+
+                <!-- Recipe 4: Better UI -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <summary class="font-medium text-lg p-4 flex justify-between items-center">
+                        Asking for... Better Styling
+                        <span>
+                            <i data-lucide="plus-circle" class="icon-plus w-5 h-5 text-blue-600"></i>
+                            <i data-lucide="minus-circle" class="icon-minus w-5 h-5 text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-700 mb-4">Once your app works, you can ask the AI to make it look better. Use descriptive words.</p>
+                        <h4 class="font-semibold mb-2">Example Prompt:</h4>
+                        <p class="text-gray-700 p-3 bg-gray-100 rounded-md">"This looks boring. Let's make it look more professional. Use **Tailwind CSS**. Put the whole app in a container in the center of the screen. Give the container a white background, rounded corners, and a soft shadow. Make the title text larger and blue. Make the button green with white text."</p>
+                    </div>
+                </details>
+
+                <!-- NEW RECIPE 5: Multi-file project -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <summary class="font-medium text-lg p-4 flex justify-between items-center">
+                        Asking for... A Multi-File Project
+                        <span>
+                            <i data-lucide="plus-circle" class="icon-plus w-5 h-5 text-blue-600"></i>
+                            <i data-lucide="minus-circle" class="icon-minus w-5 h-5 text-blue-600"></i>
+                        </span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-700 mb-4">This is the best practice for building a "real" app and is perfect for hosting on GitHub Pages. It keeps your project organized and easy to edit.</p>
+                        <h4 class="font-semibold mb-2">Example Prompt:</h4>
+                        <p class="text-gray-700 p-3 bg-gray-100 rounded-md">"Create a 'Todo List' application. But, I want you to put the code into **three separate files**:
+                        <br>1. <strong>`index.html`</strong> for the page structure (the title, the input box, and the list).
+                        <br>2. <strong>`style.css`</strong> for the styling (make it look modern and clean).
+                        <br>3. <strong>`script.js`</strong> for all the JavaScript logic (adding a todo, removing a todo, and crossing one out)."</p>
+                    </div>
+                </details>
+                
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 mt-16">
+            <p>A "Vibe Coder's" resource. Happy building!</p>
+        </footer>
+
+    </div>
+    
+    <!-- JavaScript for Icons -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Init Lucide Icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error('Lucide icons script not loaded.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+

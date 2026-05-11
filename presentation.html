@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentation | Future Building Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07110d;
+      --ink: #f8f0df;
+      --muted: rgba(248, 240, 223, .7);
+      --line: rgba(248, 240, 223, .18);
+      --panel: rgba(248, 240, 223, .085);
+      --mint: #71f2bd;
+      --gold: #f4c95d;
+      --cyan: #72d9ff;
+      --paper: #f7efe0;
+      --paper-ink: #142019;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      background: var(--bg);
+    }
+
+    .deck {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(113, 242, 189, .18), transparent 26rem),
+        radial-gradient(circle at 82% 86%, rgba(244, 201, 93, .14), transparent 24rem),
+        linear-gradient(135deg, #07110d, #10251c 56%, #070b0f);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 28px;
+      padding: clamp(42px, 5.7vw, 88px);
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity .28s ease, transform .28s ease;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 {
+      font-family: "Newsreader", serif;
+      letter-spacing: -.085em;
+    }
+
+    h1 {
+      font-size: clamp(5.2rem, 11vw, 11rem);
+      line-height: .82;
+      max-width: 1120px;
+    }
+
+    h2 {
+      font-size: clamp(4rem, 7vw, 8rem);
+      line-height: .88;
+      max-width: 1180px;
+    }
+
+    h3 {
+      font-size: clamp(1.7rem, 3vw, 3.2rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+
+    .eyebrow {
+      color: var(--mint);
+      font-size: clamp(.82rem, 1.2vw, 1.15rem);
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 900px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(1.4rem, 2.35vw, 2.7rem);
+      line-height: 1.14;
+      letter-spacing: -.045em;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+      height: 100%;
+    }
+
+    .image-slide {
+      padding: 0;
+      display: block;
+      overflow: hidden;
+    }
+
+    .image-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 72% 45%, rgba(248,240,223,.08), transparent 18%),
+        linear-gradient(90deg, rgba(7,17,13,.9), rgba(7,17,13,.62) 44%, rgba(7,17,13,.12));
+    }
+
+    .title-copy {
+      position: absolute;
+      z-index: 2;
+      left: clamp(44px, 6vw, 100px);
+      bottom: clamp(54px, 7vw, 104px);
+      max-width: 1040px;
+    }
+
+    .paper {
+      color: var(--paper-ink);
+      background: var(--paper);
+      border-radius: 30px;
+      padding: clamp(28px, 4vw, 54px);
+      box-shadow: 0 34px 100px rgba(0,0,0,.34);
+      transform: rotate(-1deg);
+    }
+
+    .paper h3 { color: var(--paper-ink); }
+    .paper p {
+      margin-top: 18px;
+      color: rgba(20,32,25,.78);
+      font-size: clamp(1.25rem, 1.8vw, 2rem);
+      line-height: 1.27;
+      letter-spacing: -.035em;
+    }
+
+    .prompt {
+      color: var(--paper-ink);
+      background: var(--paper);
+      border-radius: 30px;
+      padding: clamp(30px, 4vw, 58px);
+      box-shadow: 0 34px 100px rgba(0,0,0,.3);
+      font-size: clamp(1.35rem, 2vw, 2.25rem);
+      line-height: 1.32;
+      letter-spacing: -.035em;
+    }
+
+    .prompt strong { color: #08785a; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-self: center;
+    }
+
+    .cards.two { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: clamp(26px, 3vw, 42px);
+      background: var(--panel);
+      box-shadow: 0 24px 70px rgba(0,0,0,.24);
+    }
+
+    .card span {
+      display: block;
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: clamp(1.1rem, 1.65vw, 1.8rem);
+      line-height: 1.2;
+      letter-spacing: -.035em;
+      margin-top: 20px;
+    }
+
+    .mock-app {
+      color: var(--paper-ink);
+      background: var(--paper);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 34px 100px rgba(0,0,0,.35);
+    }
+
+    .app-top {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      background: #e4dac8;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e85c4a;
+    }
+
+    .dot:nth-child(2) { background: #f4c95d; }
+    .dot:nth-child(3) { background: #71f2bd; }
+
+    .app-body { padding: 34px; }
+    .field {
+      height: 44px;
+      margin-top: 16px;
+      border-radius: 12px;
+      background: #e3dbcd;
+    }
+
+    .field.short { width: 62%; }
+    .button-look {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 13px 18px;
+      border-radius: 14px;
+      color: white;
+      background: #142019;
+      font-weight: 800;
+    }
+
+    .entry {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 16px;
+      background: #e8f5ec;
+      color: rgba(20,32,25,.72);
+    }
+
+    pre {
+      align-self: center;
+      overflow: hidden;
+      white-space: pre-wrap;
+      margin: 0;
+      padding: clamp(24px, 3vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      color: rgba(248,240,223,.92);
+      background: rgba(0,0,0,.34);
+      font-size: clamp(1rem, 1.42vw, 1.55rem);
+      line-height: 1.42;
+    }
+
+    .home-link {
+      position: fixed;
+      z-index: 30;
+      top: 18px;
+      left: 22px;
+      color: rgba(248,240,223,.58);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .home-link:hover { color: var(--ink); }
+
+    .progress {
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      bottom: 0;
+      height: 5px;
+      width: 0;
+      background: linear-gradient(90deg, var(--mint), var(--cyan));
+      transition: width .2s ease;
+    }
+
+    .hint {
+      position: fixed;
+      z-index: 21;
+      right: 22px;
+      bottom: 18px;
+      color: rgba(248,240,223,.3);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      html, body { overflow: auto; }
+      .deck { height: auto; }
+      .slide {
+        position: relative;
+        min-height: 100vh;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+      .slide:not(.active) { display: none; }
+      .split, .cards, .cards.two { grid-template-columns: 1fr; }
+      .card { min-height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="home-link" href="index.html">Future Building Lab</a>
+  <main class="deck" id="deck">
+    <section class="slide image-slide active">
+      <img src="assets/future-learning-hero.png" alt="Future learning collage" />
+      <div class="title-copy">
+        <div class="eyebrow">517 EdTech Innovators Network</div>
+        <h1>Future Building Lab</h1>
+        <p class="lead">From radical ideas to working artifacts.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">February</div>
+      <div class="split">
+        <div>
+          <h2>Remember the prompt?</h2>
+          <p class="lead">We were not asking for a faster version of school. We asked people to dissolve the problem.</p>
+        </div>
+        <div class="prompt">
+          <p><strong>Your role:</strong> act as a lead architect and historian.</p>
+          <p><strong>Your task:</strong> dissolve the problem. Do not simply optimize the existing system.</p>
+          <p><strong>Output:</strong> describe 2036 in action, then name three radical decisions made in 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide image-slide">
+      <img src="assets/imaginative-ai-future.png" alt="Surreal AI future school systems" />
+      <div class="title-copy">
+        <div class="eyebrow">First pass</div>
+        <h2>The AI got imaginative.</h2>
+        <p class="lead">Some of it was fascinating. Some of it was deeply unrealistic. That tension is useful.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Examples from the responses</div>
+      <div class="cards">
+        <article class="card"><div><span>Living Ledger</span><h3>Behavior, home, school, and community fused into one system.</h3></div><p>Interesting because it attacks the disconnect. Unsettling because it can become surveillance.</p></article>
+        <article class="card"><div><span>Fluid Commons</span><h3>Students move by competency and agency, not bells and seat time.</h3></div><p>Useful because it names the schedule as part of the problem.</p></article>
+        <article class="card"><div><span>Living Laboratory</span><h3>Learning becomes part of the building’s real function.</h3></div><p>Powerful because assessment happens through maintaining an ecosystem.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">The critique</div>
+      <div class="cards">
+        <article class="card"><div><span>Problem 1</span><h3>Surveillance as solution</h3></div><p>Automated enforcement replacing relationship, judgment, and trust.</p></article>
+        <article class="card"><div><span>Problem 2</span><h3>Policy vacuums</h3></div><p>Large-scale laws with no local path from here to there.</p></article>
+        <article class="card"><div><span>Problem 3</span><h3>Tech magic</h3></div><p>Tools “dissolving” motivation, workload, dyslexia, and complexity overnight.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Attempt 1</div>
+      <h2>Outrageous. Interesting.</h2>
+      <div class="cards" style="margin-top: 34px;">
+        <article class="card"><div><span>Decision 1</span><h3>“Vines over Walls” Act</h3></div><p>Legally dissolving the 180-day / 6-hour seat-time requirement.</p></article>
+        <article class="card"><div><span>Decision 2</span><h3>Decoupling “Care” and “Clericals”</h3></div><p>Banning teachers from performing any task that could be automated.</p></article>
+        <article class="card"><div><span>Decision 3</span><h3>Radical Transparency Compact</h3></div><p>A shared “Success Ledger” between parents, students, and admins.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">The turn</div>
+      <div class="center">
+        <h2>The useful version of a radical idea is testable.</h2>
+        <p class="lead">If a teacher cannot try it, revise it, or show it to someone else, it is not the right 2026 move yet.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Attempt 2</div>
+      <h2>Re-architect for the classroom.</h2>
+      <div class="cards" style="margin-top: 34px;">
+        <article class="card"><div><span>01</span><h3>Shadow Curriculum Strike</h3></div><p>Student-owned work. Teacher as consultant-on-retainer.</p></article>
+        <article class="card"><div><span>02</span><h3>Feedback First Firewall</h3></div><p>Replace points-as-currency with evidence of impact.</p></article>
+        <article class="card"><div><span>03</span><h3>Open-Door Community Trojan Horse</h3></div><p>Invite the world in. Experts validate real work.</p></article>
+      </div>
+    </section>
+
+    <section class="slide image-slide">
+      <img src="assets/build-lab-educators.png" alt="Educators building together" />
+      <div class="title-copy">
+        <div class="eyebrow">Today</div>
+        <h2>Build one support beam.</h2>
+        <p class="lead">Not the whole bridge. One working artifact that makes the idea visible.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Shared build</div>
+      <div class="split">
+        <div>
+          <h2>Evidence of Impact Dashboard</h2>
+          <p class="lead">A first prototype for Feedback First Firewall.</p>
+        </div>
+        <div class="mock-app">
+          <div class="app-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="app-body">
+            <h3>Evidence of Impact</h3>
+            <div class="field"></div>
+            <div class="field short"></div>
+            <span class="button-look">Add Evidence</span>
+            <div class="entry">Revision: improved the prototype after peer feedback.</div>
+            <div class="entry">Contribution: helped another group test their tool.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Starter prompt</div>
+      <pre>Create a single-file HTML web app called "Evidence of Impact Dashboard."
+
+Let a student add evidence of something they contributed, revised, built, helped, or learned.
+
+Include evidence types: growth, contribution, revision, collaboration, reflection.
+
+Show entries as cards. Show a simple summary count.
+
+Use HTML, CSS, and JavaScript in one file. Store entries in localStorage for the demo.</pre>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Vibe coding 101</div>
+      <div class="cards">
+        <article class="card"><div><span>HTML</span><h3>Structure</h3></div><p>Words, forms, buttons, cards, links, and sections.</p></article>
+        <article class="card"><div><span>CSS</span><h3>Appearance</h3></div><p>Layout, spacing, color, type, polish, and responsive behavior.</p></article>
+        <article class="card"><div><span>JavaScript</span><h3>Behavior</h3></div><p>What happens when someone clicks, types, saves, sorts, or filters.</p></article>
+      </div>
+    </section>
+
+    <section class="slide image-slide">
+      <img src="assets/deployment-pathways.png" alt="Deployment paths map" />
+      <div class="title-copy">
+        <div class="eyebrow">After the first win</div>
+        <h2>Where should this live?</h2>
+        <p class="lead">Start simple. Only add complexity when the project needs it.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Deployment paths</div>
+      <div class="cards">
+        <article class="card"><div><span>Draft</span><h3>Canvas link</h3></div><p>Best for collaboration, rough drafts, and showing the build process.</p></article>
+        <article class="card"><div><span>Classroom</span><h3>Google Site / LMS</h3></div><p>Best for simple embedded tools that do not need live AI or cloud storage.</p></article>
+        <article class="card"><div><span>Public</span><h3>GitHub Pages</h3></div><p>Best for a standalone URL, multiple files, and a real static website.</p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Reality check</div>
+      <div class="center">
+        <h2>Do not collect what you do not need.</h2>
+        <p class="lead">A static prototype is safe because it is small. Logins, rosters, grades, uploads, and shared records change the risk.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Use the site</div>
+      <div class="cards">
+        <article class="card"><div><span>Build Lab</span><h3>Shared starter prompt</h3></div><p>Open the hands-on page when it is time to build together.</p></article>
+        <article class="card"><div><span>Playbook</span><h3>Prompt recipes and tool basics</h3></div><p>Use this when people need help making the next move.</p></article>
+        <article class="card"><div><span>Deployment</span><h3>Simple path to publish</h3></div><p>Compare Canvas, Google Sites, GitHub Pages, and IDE workflows.</p></article>
+      </div>
+    </section>
+
+    <section class="slide image-slide">
+      <img src="assets/future-learning-hero.png" alt="Future learning collage" />
+      <div class="title-copy">
+        <div class="eyebrow">517 EdTech Innovators Network</div>
+        <h2>Build something small enough to test.</h2>
+        <p class="lead">Then let the evidence change the conversation.</p>
+      </div>
+    </section>
+  </main>
+  <div class="progress" id="progress"></div>
+  <div class="hint">← / →</div>
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const progress = document.getElementById('progress');
+    let current = 0;
+
+    function show(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === current));
+      progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === ' ') show(current + 1);
+      if (event.key === 'ArrowLeft') show(current - 1);
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+    });
+
+    show(0);
+  </script>
+</body>
+</html>
