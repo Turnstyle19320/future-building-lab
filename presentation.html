@@ -460,6 +460,43 @@
       line-height: 1.45;
     }
 
+    .target-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .target-list li {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.2vw, 1.18rem);
+      line-height: 1.4;
+      padding-left: 26px;
+      position: relative;
+    }
+
+    .target-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      font-size: .78rem;
+      font-weight: 800;
+      line-height: 1;
+      background: var(--clay-soft);
+      color: var(--clay-deep);
+    }
+
+    .pillar.sage .target-list li::before { background: var(--sage-soft); color: var(--sage-deep); }
+    .pillar.gold .target-list li::before { background: var(--gold-soft); color: var(--gold-deep); }
+
     /* ============== Critique slide (quote + pillars) ============== */
     .critique-layout {
       display: grid;
@@ -950,7 +987,45 @@
       </div>
     </section>
 
-    <!-- Slide 12: Today, the build -->
+    <!-- Slide 12: Learning targets -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow">Learning targets for today</span>
+        <span class="progress-tag">three tiers · no pressure</span>
+      </div>
+      <h2>What you can leave saying.</h2>
+      <div class="pillars" style="margin-top: 32px;">
+        <article class="pillar sage">
+          <span class="tag">Must Do</span>
+          <h3>If I learn nothing else.</h3>
+          <ul class="target-list">
+            <li>I can make one small web thing today.</li>
+            <li>I can point at HTML, CSS, and JS in the output.</li>
+            <li>I can name what a "folder of files" is.</li>
+          </ul>
+        </article>
+        <article class="pillar">
+          <span class="tag">Could Do</span>
+          <h3>If I get into the flow.</h3>
+          <ul class="target-list">
+            <li>I can save my file and run it from my desktop.</li>
+            <li>I can name tools to ask AI for — Tailwind, Lucide, Chart.js.</li>
+            <li>I can add a chart, confetti, or an icon.</li>
+          </ul>
+        </article>
+        <article class="pillar gold">
+          <span class="tag">Aspire to Do</span>
+          <h3>If I'm running ahead.</h3>
+          <ul class="target-list">
+            <li>I can put my tool online with GitHub Pages.</li>
+            <li>I can add something that remembers things.</li>
+            <li>I can start my second tool.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Slide 13: Today, the build -->
     <section class="slide image-slide">
       <img src="assets/build-lab-educators.png" alt="Educators building together at a workshop." />
       <div class="title-copy">
@@ -960,7 +1035,7 @@
       </div>
     </section>
 
-    <!-- Slide 13: Closing -->
+    <!-- Slide 14: Closing -->
     <section class="slide image-slide">
       <img src="assets/future-learning-hero.png" alt="Future learning collage" />
       <div class="title-copy">

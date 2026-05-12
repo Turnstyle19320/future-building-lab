@@ -1244,6 +1244,72 @@ mark {
   .stuck-grid { grid-template-columns: 1fr; }
 }
 
+/* Learning targets — tiered "I can" statements */
+.learning-target {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 4px solid var(--clay-deep);
+}
+
+.learning-target.target-must { border-top-color: var(--sage-deep); }
+.learning-target.target-could { border-top-color: var(--clay-deep); }
+.learning-target.target-aspire { border-top-color: var(--gold-deep); }
+
+.target-tier {
+  display: block;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.target-must .target-tier { color: var(--sage-deep); }
+.target-could .target-tier { color: var(--clay-deep); }
+.target-aspire .target-tier { color: var(--gold-deep); }
+
+.learning-target h3 {
+  margin: 0;
+}
+
+.target-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.target-list li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.target-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  font-size: .82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.target-must .target-list li::before { background: var(--sage-soft); color: var(--sage-deep); }
+.target-could .target-list li::before { background: var(--clay-soft); color: var(--clay-deep); }
+.target-aspire .target-list li::before { background: var(--gold-soft); color: var(--gold-deep); }
+
 /* Inline tag pill */
 .tag-pill {
   display: inline-block;
