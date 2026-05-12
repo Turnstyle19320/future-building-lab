@@ -396,8 +396,6 @@ details.guide summary::after {
   font-weight: 700;
 }
 
-details.guide[open] summary::after { content: "−"; }
-
 .guide-body {
   padding: 0 22px 22px;
   color: var(--muted);
@@ -412,6 +410,44 @@ details.guide[open] summary::after { content: "−"; }
 .guide-body p + p { margin-top: 12px; }
 
 .guide-body ul { margin: 12px 0 0; padding-left: 21px; }
+
+details.guide summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+details.guide summary span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+details.guide summary svg {
+  width: 20px;
+  height: 20px;
+  color: var(--clay-deep);
+  flex: 0 0 auto;
+}
+
+details.guide[open] summary::after { content: "-"; }
+
+.guide-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.guide-chips span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  color: var(--quiet);
+  font-size: .78rem;
+  font-weight: 700;
+}
 
 .callout {
   border-left: 4px solid var(--clay-deep);
@@ -693,10 +729,169 @@ mark {
   line-height: 1.45;
 }
 
+.privacy-snapshot {
+  display: grid;
+  grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr);
+  gap: 22px;
+  align-items: stretch;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 250, 240, .72);
+  box-shadow: 0 14px 38px rgba(42, 31, 21, .07);
+}
+
+.snapshot-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.snapshot-copy h2 {
+  font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+}
+
+.snapshot-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.snapshot-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.snapshot-card strong {
+  font-size: .94rem;
+  line-height: 1.2;
+}
+
+.snapshot-card p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.snapshot-icon,
+.privacy-ladder .icon {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.snapshot-icon svg,
+.privacy-ladder svg {
+  width: 20px;
+  height: 20px;
+}
+
+.snapshot-card.safe .snapshot-icon,
+.level-safe .icon {
+  background: var(--sage-soft);
+  color: var(--sage-deep);
+}
+
+.snapshot-card.caution .snapshot-icon,
+.level-caution .icon {
+  background: var(--gold-soft);
+  color: var(--gold-deep);
+}
+
+.snapshot-card.approval .snapshot-icon,
+.level-approval .icon {
+  background: var(--clay-soft);
+  color: var(--clay-deep);
+}
+
+.privacy-ladder {
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 24px;
+}
+
+.privacy-ladder .flow-step {
+  position: relative;
+}
+
+.privacy-ladder .flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  right: -16px;
+  width: 18px;
+  height: 2px;
+  background: var(--line-strong);
+}
+
+.privacy-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.decision-node {
+  position: relative;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+}
+
+.decision-node:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  right: -14px;
+  width: 14px;
+  height: 2px;
+  background: var(--line-strong);
+}
+
+.decision-num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--panel);
+  font-family: "Newsreader", serif;
+  font-weight: 700;
+}
+
+.decision-node h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.decision-node p {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.48;
+}
+
 @media (max-width: 900px) {
   .flow.diagram-3,
   .flow.steps-4,
-  .flow.ladder { grid-template-columns: 1fr; }
+  .flow.ladder,
+  .privacy-ladder,
+  .privacy-snapshot,
+  .snapshot-cards,
+  .privacy-flow { grid-template-columns: 1fr; }
+
+  .privacy-ladder .flow-step:not(:last-child)::after,
+  .decision-node:not(:last-child)::after { display: none; }
+
+  .decision-node { min-height: auto; }
 }
 
 /* Dramatic before/after grid */

@@ -358,6 +358,44 @@
       text-transform: uppercase;
     }
 
+    .doc-card.dialogue {
+      transform: rotate(.6deg);
+    }
+
+    .doc-card.dialogue .doc-body {
+      display: grid;
+      gap: 18px;
+      font-size: clamp(1rem, 1.24vw, 1.18rem);
+    }
+
+    .prompt-line {
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .prompt-line strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--clay-deep);
+      font-size: .74rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .prompt-line.ai strong { color: var(--sage-deep); }
+
+    .prompt-line.ai {
+      background: var(--sage-soft);
+    }
+
+    .prompt-line p {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
     mark {
       background: var(--mark);
       color: var(--ink);
@@ -805,7 +843,7 @@
             </div>
             <div class="idea-panel overreach">
               <span class="idea-label">AI overreach</span>
-              <p class="idea-line">A "blockchain-verified" Living Ledger adjusts recreational tech, transportation, and privileges in real time.</p>
+              <p class="idea-line">A "blockchain-verified" Living Ledger adjusts privileges in real time. Students don't argue with it any more than gravity.</p>
             </div>
           </div>
         </div>
@@ -877,7 +915,41 @@
       </div>
     </section>
 
-    <!-- Slide 6: Fluid Commons pull quote -->
+    <!-- Slide 6: Dyslexia and access pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow">Vision 02 — Access and Intelligence</span>
+        <span class="quote-byline">by Gabe</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <div class="idea-pair">
+            <div class="idea-panel">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">Stop treating printed text as the only legitimate path to intelligence.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">AI-audio and haptic-symbolic systems "dissolved" dyslexia and visual processing disorders overnight.</p>
+            </div>
+          </div>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="28" y="28" width="244" height="244" rx="28" fill="#f6dcc9"/>
+            <path d="M80 92h94M80 124h140M80 156h104M80 188h128" stroke="#a04a1f" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="210" cy="106" r="18" fill="none" stroke="#b85c2c" stroke-width="5"/>
+            <path d="M200 154c18-24 54-12 54 18s-36 42-54 18" fill="none" stroke="#b85c2c" stroke-width="5" stroke-linecap="round"/>
+            <path d="M200 154v36" stroke="#b85c2c" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="104" cy="216" r="8" fill="#a04a1f"/>
+            <circle cx="132" cy="216" r="8" fill="#a04a1f"/>
+            <circle cx="160" cy="216" r="8" fill="#a04a1f"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Fluid Commons pull quote -->
     <section class="slide quote-slide">
       <div class="quote-header">
         <span class="eyebrow gold">Vision 03 — Fluid Commons</span>
@@ -913,7 +985,38 @@
       </div>
     </section>
 
-    <!-- Slide 7: Living Laboratory pull quote -->
+    <!-- Slide 8: Grades and portfolios pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow">Vision 04 — Dynamic Skill Ledger</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <div class="idea-pair">
+            <div class="idea-panel">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">Artifacts and portfolios can show learning better than a GPA.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">Cryptographic skill ledgers, MIT matching by node-pattern, and cheating becoming "structurally impossible."</p>
+            </div>
+          </div>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="138" fill="#e0eee5"/>
+            <path d="M82 82h136v136H82z" fill="none" stroke="#2f6b50" stroke-width="6" rx="8"/>
+            <path d="M112 122h76M112 150h52M112 178h86" stroke="#4a8c6f" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="218" cy="94" r="16" fill="#4a8c6f"/>
+            <path d="M218 78v32M202 94h32" stroke="#e0eee5" stroke-width="5" stroke-linecap="round"/>
+            <path d="M92 230c32-28 84-28 116 0" fill="none" stroke="#2f6b50" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Living Laboratory pull quote -->
     <section class="slide quote-slide">
       <div class="quote-header">
         <span class="eyebrow sage">Vision 08 — Living Laboratory</span>
@@ -949,16 +1052,69 @@
       </div>
     </section>
 
-    <!-- Slide 8: The critique -->
+    <!-- Slide 10: The synthesis prompt -->
     <section class="slide">
       <div class="top-row">
-        <span class="eyebrow">Then I pushed back on the AI</span>
+        <span class="eyebrow">First, I tried to synthesize</span>
+        <span class="progress-tag">before the pushback</span>
+      </div>
+      <div class="split-layout">
+        <div>
+          <h2>The first move was not correction. It was coherence.</h2>
+          <p class="lead" style="margin-top: 24px;">I asked AI to merge the group's February responses into one realistic, irresistible ten-year outlook.</p>
+        </div>
+        <div class="doc-card dialogue">
+          <div class="doc-top"><span class="doc-dot"></span><span class="doc-dot"></span><span class="doc-dot"></span></div>
+          <div class="doc-body">
+            <span class="doc-tag">My prompt</span>
+            <div class="prompt-line">
+              <strong>Facilitator</strong>
+              <p>Take a swing at merging these responses into one cohesive future that coalesces the best ideas, and gives us a realistic, irresistible, 10 year outlook where redefining school the way this group hopes looks like a reality.</p>
+            </div>
+            <div class="prompt-line ai">
+              <strong>AI response</strong>
+              <p>It generated an "Eco-Systemic School" future, then named three radical decisions from 2026.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: First systemic draft -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow">Attempt 1 — bold, but out of reach</span>
+      </div>
+      <h2>Three "radical decisions" — for someone else to make.</h2>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="tag">Decision 1</span>
+          <h3>"Vines over Walls" Act</h3>
+          <p>Legally dissolving the 180-day, 6-hour seat-time requirement. A federal lift.</p>
+        </article>
+        <article class="pillar sage">
+          <span class="tag">Decision 2</span>
+          <h3>Decoupling of Care and Clericals</h3>
+          <p>Banning teachers from performing any task that could be automated. Union and policy turf.</p>
+        </article>
+        <article class="pillar gold">
+          <span class="tag">Decision 3</span>
+          <h3>Radical Transparency Compact</h3>
+          <p>A shared "Success Ledger" between parents, students, and admins. Years of buy-in.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Slide 12: The critique -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow">Then I had to push back</span>
       </div>
       <div class="critique-layout">
         <div class="critique-quote">
           <div class="critique-text">
             <p class="pull-quote">The AI was not useless. It found the nerve. Then it confused a powerful principle with a <span class="accent">total system redesign</span>.</p>
-            <p class="attribution"><span class="author">Facilitator,</span> reviewing the responses</p>
+            <p class="attribution"><span class="author">Facilitator,</span> reviewing the synthesis</p>
           </div>
           <div class="quote-visual">
             <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -990,52 +1146,29 @@
       </div>
     </section>
 
-    <!-- Slide 9: First systemic draft -->
-    <section class="slide">
-      <div class="top-row">
-        <span class="eyebrow">Attempt 1 — bold, but out of reach</span>
-      </div>
-      <h2>Three "radical decisions" — for someone else to make.</h2>
-      <div class="pillars">
-        <article class="pillar">
-          <span class="tag">Decision 1</span>
-          <h3>"Vines over Walls" Act</h3>
-          <p>Legally dissolving the 180-day, 6-hour seat-time requirement. A federal lift.</p>
-        </article>
-        <article class="pillar sage">
-          <span class="tag">Decision 2</span>
-          <h3>Decoupling of Care and Clericals</h3>
-          <p>Banning teachers from performing any task that could be automated. Union and policy turf.</p>
-        </article>
-        <article class="pillar gold">
-          <span class="tag">Decision 3</span>
-          <h3>Radical Transparency Compact</h3>
-          <p>A shared "Success Ledger" between parents, students, and admins. Years of buy-in.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Slide 10: The correction (hinge) -->
+    <!-- Slide 13: The correction (hinge) -->
     <section class="slide quote-slide">
       <div class="quote-header">
-        <span class="eyebrow gold">So I pushed back again — the hinge</span>
+        <span class="eyebrow gold">Then I pushed back - the hinge</span>
       </div>
       <div class="quote-grid">
         <div class="quote-text">
           <p class="pull-quote gold">None of these are within the power of an individual teacher. We need actions that are bold and scalable — <span class="accent">and within their power to do</span>.</p>
           <p class="attribution"><span class="author">Facilitator</span> · the pivot point</p>
         </div>
-        <div class="quote-visual">
-          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="150" cy="150" r="138" fill="#f5e6c2"/>
-            <path d="M 150 70 L 150 150" stroke="#87651a" stroke-width="7" stroke-linecap="round"/>
-            <path d="M 150 150 L 95 225" stroke="#87651a" stroke-width="7" stroke-linecap="round" stroke-dasharray="8 6" opacity=".5"/>
-            <path d="M 150 150 L 205 225" stroke="#c9933a" stroke-width="7" stroke-linecap="round"/>
-            <path d="M 205 225 L 194 217 M 205 225 L 213 215" stroke="#c9933a" stroke-width="7" stroke-linecap="round"/>
-            <circle cx="150" cy="70" r="10" fill="#87651a"/>
-            <text x="95" y="248" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#87651a" opacity=".6">SOMEDAY</text>
-            <text x="205" y="248" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#c9933a">NOW</text>
-          </svg>
+        <div class="doc-card dialogue">
+          <div class="doc-top"><span class="doc-dot"></span><span class="doc-dot"></span><span class="doc-dot"></span></div>
+          <div class="doc-body">
+            <span class="doc-tag">The pushback</span>
+            <div class="prompt-line">
+              <strong>Facilitator</strong>
+              <p>I love this. It's great. But the 3 radical decisions in 2026... none of these things are within the power of an individual teacher at the moment.</p>
+            </div>
+            <div class="prompt-line">
+              <strong>The redirect</strong>
+              <p>We need actionable steps that day to day teachers and teacher leaders can take. Bold and scalable, but within their power to do.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
