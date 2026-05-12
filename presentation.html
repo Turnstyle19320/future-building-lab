@@ -232,6 +232,49 @@
       padding-left: .6em;
     }
 
+    .idea-pair {
+      display: grid;
+      gap: clamp(18px, 2vw, 28px);
+      max-width: 720px;
+    }
+
+    .idea-panel {
+      padding-left: clamp(18px, 2vw, 28px);
+      border-left: 5px solid var(--sage);
+    }
+
+    .idea-panel.overreach {
+      border-left-color: var(--clay);
+    }
+
+    .idea-panel.gold {
+      border-left-color: var(--gold);
+    }
+
+    .idea-label {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(.82rem, .95vw, .98rem);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--quiet);
+    }
+
+    .idea-line {
+      margin: 0;
+      font-family: "Newsreader", serif;
+      font-weight: 500;
+      font-size: clamp(1.65rem, 2.55vw, 2.75rem);
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .idea-panel.overreach .idea-line {
+      color: var(--clay-deep);
+    }
+
     .quote-visual {
       display: flex;
       align-items: center;
@@ -593,6 +636,9 @@
       .critique-quote {
         grid-template-columns: 1fr;
       }
+      .idea-line {
+        font-size: clamp(1.45rem, 5vw, 2.35rem);
+      }
       .quote-visual { display: none; }
     }
 
@@ -752,8 +798,16 @@
       </div>
       <div class="quote-grid">
         <div class="quote-text">
-          <p class="pull-quote">The good idea: home, school, and community should stop operating from <span class="accent">three different rulebooks</span>.</p>
-          <p class="quote-context">Then the AI leapt to a "blockchain-verified" Living Ledger where recreational tech, transportation, and privileges adjust in real time. Useful seed. Wild machinery.</p>
+          <div class="idea-pair">
+            <div class="idea-panel">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">Home, school, and community should stop operating from three different rulebooks.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">A "blockchain-verified" Living Ledger adjusts recreational tech, transportation, and privileges in real time.</p>
+            </div>
+          </div>
         </div>
         <div class="quote-visual">
           <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -788,8 +842,16 @@
       </div>
       <div class="quote-grid">
         <div class="quote-text">
-          <p class="pull-quote">If a student couldn't learn in a room, <span class="accent">the room was broken, not the student</span>.</p>
-          <p class="quote-context">That statement is strong. The AI's next move was the problem: redirect every testing dollar into "Biometric Responsive Environments" and shift performance from the child's brain to the architect's design.</p>
+          <div class="idea-pair">
+            <div class="idea-panel">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">If a student couldn't learn in a room, the room was broken, not the student.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">Redirect every testing dollar into "Biometric Responsive Environments" and shift performance to architectural design.</p>
+            </div>
+          </div>
         </div>
         <div class="quote-visual">
           <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -822,8 +884,16 @@
       </div>
       <div class="quote-grid">
         <div class="quote-text">
-          <p class="pull-quote gold">The good idea: stop treating seat time as proof that <span class="accent">learning happened</span>.</p>
-          <p class="quote-context">Then the AI jumped to federal legislation, a Universal Skill Ledger, legally recognized micro-credentials, and AI systems deciding when to ping a human mentor.</p>
+          <div class="idea-pair">
+            <div class="idea-panel gold">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">Stop treating seat time as proof that learning happened.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">Federal legislation, a Universal Skill Ledger, legal micro-credentials, and AI deciding when to ping a mentor.</p>
+            </div>
+          </div>
         </div>
         <div class="quote-visual">
           <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -850,8 +920,16 @@
       </div>
       <div class="quote-grid">
         <div class="quote-text">
-          <p class="pull-quote sage">The good idea: learning can live inside <span class="accent">real environments</span>, not just assignments about real environments.</p>
-          <p class="quote-context">Then the AI escalated to haptic wearables, AI-vision, environmental sensors, and Continuous Mastery Tracking as students adjust flow rates and identify fungal growth.</p>
+          <div class="idea-pair">
+            <div class="idea-panel">
+              <span class="idea-label">Good idea</span>
+              <p class="idea-line">Learning can live inside real environments, not just assignments about real environments.</p>
+            </div>
+            <div class="idea-panel overreach">
+              <span class="idea-label">AI overreach</span>
+              <p class="idea-line">Haptic wearables, AI-vision, environmental sensors, and Continuous Mastery Tracking log every action.</p>
+            </div>
+          </div>
         </div>
         <div class="quote-visual">
           <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
