@@ -541,6 +541,51 @@
       line-height: 1.45;
     }
 
+    .pattern-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.05fr) minmax(320px, .95fr);
+      gap: clamp(28px, 4vw, 60px);
+      align-items: stretch;
+      margin-top: 30px;
+    }
+
+    .pattern-photo {
+      position: relative;
+      min-height: 480px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 31, 21, .12);
+      box-shadow: 0 22px 54px rgba(42, 31, 21, .16);
+      background: var(--panel);
+    }
+
+    .pattern-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.94) contrast(1.04);
+    }
+
+    .pattern-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(42, 31, 21, .04), rgba(42, 31, 21, .28));
+      pointer-events: none;
+    }
+
+    .pattern-layout .pillars {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 0;
+    }
+
+    .pattern-layout .pillar {
+      padding: clamp(18px, 1.8vw, 26px);
+      gap: 10px;
+    }
+
     .target-list {
       list-style: none;
       padding: 0;
@@ -693,10 +738,12 @@
       .slide:not(.active) { display: none; }
       .split-layout,
       .split-layout.reverse,
+      .pattern-layout,
       .pillars,
       .wall {
         grid-template-columns: 1fr;
       }
+      .pattern-photo { min-height: 340px; }
     }
 
     @media (max-width: 1200px) {
@@ -1111,22 +1158,27 @@
         <span class="eyebrow">The problem with the first pass</span>
       </div>
       <h2>It leaned on three familiar moves.</h2>
-      <div class="pillars">
-        <article class="pillar">
-          <span class="tag">Pattern 1</span>
-          <h3>Surveillance as solution</h3>
-          <p>Shared responsibility becomes automated enforcement: ledgers, biometric dashboards, real-time restrictions.</p>
-        </article>
-        <article class="pillar sage">
-          <span class="tag">Pattern 2</span>
-          <h3>Policy vacuums</h3>
-          <p>Radical laws and mandates that ignore the distance between a big idea and a teacher's actual lever.</p>
-        </article>
-        <article class="pillar gold">
-          <span class="tag">Pattern 3</span>
-          <h3>Tech magic</h3>
-          <p>"Dissolving" dyslexia, workload, motivation, or assessment overnight skips the hard human part.</p>
-        </article>
+      <div class="pattern-layout">
+        <div class="pattern-photo">
+          <img src="assets/ai-overreach-classroom.png" alt="A classroom overloaded with glowing monitoring screens and futuristic control-room technology." />
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <span class="tag">Pattern 1</span>
+            <h3>Surveillance as solution</h3>
+            <p>Shared responsibility becomes automated enforcement: ledgers, biometric dashboards, real-time restrictions.</p>
+          </article>
+          <article class="pillar sage">
+            <span class="tag">Pattern 2</span>
+            <h3>Policy vacuums</h3>
+            <p>Radical laws and mandates that ignore the distance between a big idea and a teacher's actual lever.</p>
+          </article>
+          <article class="pillar gold">
+            <span class="tag">Pattern 3</span>
+            <h3>Tech magic</h3>
+            <p>"Dissolving" dyslexia, workload, motivation, or assessment overnight skips the hard human part.</p>
+          </article>
+        </div>
       </div>
     </section>
 
