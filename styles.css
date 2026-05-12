@@ -472,6 +472,51 @@ details.guide[open] summary::after { content: "-"; }
   background: var(--gold-soft);
 }
 
+.infrastructure-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: start;
+  border: 1px solid rgba(42, 31, 21, .18);
+  border-left: 8px solid var(--clay);
+  border-radius: 24px;
+  padding: clamp(22px, 3vw, 34px);
+  background: linear-gradient(135deg, #2a1f15 0%, #4a2b1c 100%);
+  color: var(--paper);
+  box-shadow: 0 22px 54px rgba(42, 31, 21, .24);
+}
+
+.infrastructure-callout .callout-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(250, 243, 227, .14);
+  color: var(--gold);
+  border: 1px solid rgba(250, 243, 227, .2);
+}
+
+.infrastructure-callout .callout-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.4;
+}
+
+.infrastructure-callout strong {
+  display: block;
+  color: var(--paper);
+  font-family: "Newsreader", serif;
+  font-size: clamp(1.45rem, 2vw, 2.05rem);
+  line-height: 1.08;
+}
+
+.infrastructure-callout p {
+  color: rgba(250, 243, 227, .84);
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  line-height: 1.52;
+}
+
 .source-list a {
   color: var(--clay-deep);
   font-weight: 600;
