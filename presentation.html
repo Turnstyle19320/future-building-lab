@@ -3,26 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presentation | Future Building Lab</title>
+  <title>Slides | Future Building Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #07110d;
-      --ink: #f8f0df;
-      --muted: rgba(248, 240, 223, .72);
-      --line: rgba(248, 240, 223, .18);
-      --panel: rgba(248, 240, 223, .085);
-      --mint: #71f2bd;
-      --gold: #f4c95d;
-      --cyan: #72d9ff;
-      --paper: #f7efe0;
-      --paper-ink: #142019;
-      --mark: #fff06a;
+      --paper: #faf3e3;
+      --paper-2: #f3e8cf;
+      --panel: #fffaf0;
+      --ink: #2a1f15;
+      --muted: rgba(42, 31, 21, .78);
+      --quiet: rgba(42, 31, 21, .55);
+      --line: rgba(42, 31, 21, .14);
+      --line-strong: rgba(42, 31, 21, .28);
+      --sage: #4a8c6f;
+      --sage-deep: #2f6b50;
+      --sage-soft: #e0eee5;
+      --gold: #c9933a;
+      --gold-deep: #87651a;
+      --gold-soft: #f5e6c2;
+      --clay: #b85c2c;
+      --clay-deep: #a04a1f;
+      --clay-soft: #f6dcc9;
+      --ink-on-clay: #fff8e8;
+      --mark: #ffe27a;
     }
 
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       width: 100%;
@@ -30,7 +39,7 @@
       overflow: hidden;
       color: var(--ink);
       font-family: "Space Grotesk", sans-serif;
-      background: var(--bg);
+      background: var(--paper);
     }
 
     .deck {
@@ -38,22 +47,20 @@
       width: 100vw;
       height: 100vh;
       background:
-        radial-gradient(circle at 18% 12%, rgba(113, 242, 189, .18), transparent 26rem),
-        radial-gradient(circle at 82% 86%, rgba(244, 201, 93, .14), transparent 24rem),
-        linear-gradient(135deg, #07110d, #10251c 56%, #070b0f);
+        radial-gradient(circle at 14% 8%, rgba(198, 107, 61, .12), transparent 30rem),
+        radial-gradient(circle at 86% 92%, rgba(74, 140, 111, .10), transparent 28rem),
+        var(--paper);
     }
 
     .slide {
       position: absolute;
       inset: 0;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 28px;
-      padding: clamp(42px, 5.7vw, 88px);
+      padding: clamp(40px, 5vw, 88px);
       opacity: 0;
       transform: translateX(24px);
       transition: opacity .28s ease, transform .28s ease;
       pointer-events: none;
+      overflow: hidden;
     }
 
     .slide.active {
@@ -62,252 +69,462 @@
       pointer-events: auto;
     }
 
-    h1, h2, h3, p { margin: 0; }
-    h1, h2 {
+    h1, h2, h3, h4, p { margin: 0; }
+
+    h1, h2, h3 {
       font-family: "Newsreader", serif;
-      letter-spacing: -.08em;
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: -.02em;
     }
 
     h1 {
-      font-size: clamp(5.2rem, 11vw, 11rem);
-      line-height: .82;
-      max-width: 1120px;
+      font-size: clamp(4rem, 7.5vw, 7rem);
+      line-height: 1.02;
+      max-width: 1180px;
     }
 
     h2 {
-      font-size: clamp(3.8rem, 6.7vw, 7.6rem);
-      line-height: .88;
+      font-size: clamp(2.4rem, 4vw, 4.4rem);
+      line-height: 1.06;
       max-width: 1180px;
     }
 
     h3 {
-      font-size: clamp(1.55rem, 2.65vw, 3rem);
-      line-height: .98;
-      letter-spacing: -.055em;
+      font-size: clamp(1.4rem, 2.1vw, 2.1rem);
+      line-height: 1.12;
     }
 
     .eyebrow {
-      color: var(--mint);
-      font-size: clamp(.82rem, 1.15vw, 1.08rem);
-      font-weight: 800;
+      color: var(--clay-deep);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(.78rem, 1vw, .98rem);
+      font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
     }
 
+    .eyebrow.sage { color: var(--sage-deep); }
+    .eyebrow.gold { color: var(--gold-deep); }
+
     .lead {
-      max-width: 940px;
-      margin-top: 24px;
+      max-width: 760px;
       color: var(--muted);
-      font-size: clamp(1.35rem, 2.25vw, 2.55rem);
-      line-height: 1.14;
-      letter-spacing: -.045em;
+      font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+      line-height: 1.42;
     }
 
-    .center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100%;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 54px;
-      align-items: center;
-      height: 100%;
-    }
-
-    .split.reverse { grid-template-columns: 1.1fr .9fr; }
-
+    /* ============== Title / image-overlay slides ============== */
     .image-slide {
       padding: 0;
       display: block;
-      overflow: hidden;
     }
 
     .image-slide img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .image-slide::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 72% 45%, rgba(248,240,223,.08), transparent 18%),
-        linear-gradient(90deg, rgba(7,17,13,.9), rgba(7,17,13,.62) 44%, rgba(7,17,13,.12));
+      background: linear-gradient(100deg,
+        rgba(250, 243, 227, .55) 0%,
+        rgba(250, 243, 227, .25) 50%,
+        rgba(250, 243, 227, .08) 100%);
     }
 
     .title-copy {
       position: absolute;
       z-index: 2;
-      left: clamp(44px, 6vw, 100px);
-      bottom: clamp(54px, 7vw, 104px);
-      max-width: 1040px;
+      left: clamp(36px, 5vw, 88px);
+      bottom: clamp(48px, 6vw, 96px);
+      max-width: clamp(560px, 60vw, 920px);
+      padding: clamp(28px, 3vw, 44px) clamp(32px, 3.5vw, 52px);
+      background: rgba(250, 243, 227, .94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(42, 31, 21, .08);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(42, 31, 21, .18);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .doc {
-      color: var(--paper-ink);
-      background: var(--paper);
-      border-radius: 26px;
+    .title-copy .lead { margin-top: 0; }
+
+    /* ============== Quote slide layout ============== */
+    .quote-slide {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: clamp(28px, 3vw, 44px);
+      height: 100%;
+    }
+
+    .quote-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .quote-byline {
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      color: var(--quiet);
+      font-size: clamp(1rem, 1.15vw, 1.2rem);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: clamp(40px, 5vw, 84px);
+      align-items: center;
+      height: 100%;
+    }
+
+    .quote-text {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 2.4vw, 34px);
+    }
+
+    .pull-quote {
+      font-family: "Newsreader", serif;
+      font-weight: 500;
+      font-size: clamp(2.2rem, 3.6vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      position: relative;
+      padding-left: .6em;
+    }
+
+    .pull-quote::before {
+      content: "“";
+      position: absolute;
+      left: -0.1em;
+      top: -0.15em;
+      color: var(--clay);
+      font-size: 1.5em;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .pull-quote.sage::before { color: var(--sage); }
+    .pull-quote.gold::before { color: var(--gold); }
+
+    .pull-quote .accent {
+      background: linear-gradient(180deg, transparent 64%, var(--mark) 64%);
+      padding: 0 .04em;
+    }
+
+    .quote-context {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 1.55vw, 1.55rem);
+      line-height: 1.5;
+      padding-left: .6em;
+    }
+
+    .quote-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .vision-illust {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      aspect-ratio: 1;
+      filter: drop-shadow(0 18px 36px rgba(42, 31, 21, .12));
+    }
+
+    /* ============== Prompt document layout ============== */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 5vw, 72px);
+      align-items: center;
+      height: 100%;
+    }
+
+    .split-layout.reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .doc-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 30px 80px rgba(42, 31, 21, .18);
       overflow: hidden;
-      box-shadow: 0 34px 100px rgba(0,0,0,.34);
       transform: rotate(-1deg);
-      border: 1px solid rgba(20,32,25,.12);
     }
-
-    .doc.alt { transform: rotate(1deg); }
 
     .doc-top {
-      height: 40px;
+      height: 36px;
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 0 16px;
-      background: #e4dac8;
+      background: var(--paper-2);
+      border-bottom: 1px solid var(--line);
     }
 
-    .dot {
-      width: 12px;
-      height: 12px;
+    .doc-dot {
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       background: #e85c4a;
     }
 
-    .dot:nth-child(2) { background: #f4c95d; }
-    .dot:nth-child(3) { background: #71f2bd; }
+    .doc-dot:nth-child(2) { background: #f4c95d; }
+    .doc-dot:nth-child(3) { background: #71d3a6; }
 
     .doc-body {
-      padding: clamp(24px, 3vw, 42px);
-      font-size: clamp(1.05rem, 1.55vw, 1.7rem);
-      line-height: 1.32;
-      letter-spacing: -.025em;
+      padding: clamp(28px, 3.4vw, 48px);
+      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+      line-height: 1.45;
+      color: var(--ink);
     }
 
-    .doc-body h3 { color: var(--paper-ink); margin-bottom: 18px; }
-    .doc-body p + p { margin-top: 14px; }
-    .doc-body ul { margin: 14px 0 0; padding-left: 24px; }
-    .doc-body li + li { margin-top: 10px; }
-    .tag {
+    .doc-body h3 { margin-bottom: 16px; }
+    .doc-body p + p { margin-top: 12px; }
+    .doc-body ol { margin: 14px 0 0; padding-left: 22px; }
+    .doc-body li + li { margin-top: 8px; }
+
+    .doc-tag {
       display: inline-block;
       margin-bottom: 14px;
-      padding: 7px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      color: #07110d;
-      background: var(--mint);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .1em;
+      background: var(--clay-soft);
+      color: var(--clay-deep);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
     mark {
       background: var(--mark);
-      color: #141414;
+      color: var(--ink);
       padding: 0 5px;
-      -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
+    /* ============== Wall of 8 visions ============== */
     .wall {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      align-self: center;
+      gap: 18px;
+      margin-top: 32px;
     }
 
-    .tab {
-      min-height: 132px;
+    .vision-tile {
+      min-height: 168px;
+      padding: 22px;
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 18px;
+      border-radius: 20px;
+      background: var(--panel);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: var(--panel);
+      gap: 14px;
+      box-shadow: 0 12px 30px rgba(42, 31, 21, .07);
+      position: relative;
+      overflow: hidden;
     }
 
-    .tab span {
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: .08em;
+    .vision-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      right: 22px;
+      height: 4px;
+      border-radius: 0 0 4px 4px;
+      background: var(--clay);
+    }
+
+    .vision-tile.sage::before { background: var(--sage); }
+    .vision-tile.gold::before { background: var(--gold); }
+
+    .tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .vision-tile .num {
+      font-family: "Newsreader", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--quiet);
+    }
+
+    .tile-icon {
+      width: 30px;
+      height: 30px;
+      color: var(--clay-deep);
+    }
+
+    .vision-tile.sage .tile-icon { color: var(--sage-deep); }
+    .vision-tile.gold .tile-icon { color: var(--gold-deep); }
+
+    .vision-tile .name {
+      font-family: "Newsreader", serif;
+      font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .vision-tile.featured::after {
+      content: "Featured →";
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--quiet);
+      letter-spacing: .1em;
       text-transform: uppercase;
-      font-size: .72rem;
     }
 
-    .tab strong {
-      font-size: clamp(1.2rem, 1.8vw, 2rem);
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
-
-    .cards {
+    /* ============== 3 pillars ============== */
+    .pillars {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
-      align-self: center;
+      margin-top: 32px;
+      width: 100%;
     }
 
-    .card {
-      min-height: 280px;
+    .pillar {
+      padding: clamp(22px, 2.4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: 0 16px 38px rgba(42, 31, 21, .08);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: clamp(24px, 3vw, 40px);
-      background: var(--panel);
-      box-shadow: 0 24px 70px rgba(0,0,0,.24);
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card span {
-      display: block;
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: .15em;
+    .pillar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--clay);
+    }
+
+    .pillar.sage::before { background: var(--sage); }
+    .pillar.gold::before { background: var(--gold); }
+
+    .pillar .tag {
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      color: var(--clay-deep);
     }
 
-    .card p {
+    .pillar.sage .tag { color: var(--sage-deep); }
+    .pillar.gold .tag { color: var(--gold-deep); }
+
+    .pillar h3 {
+      font-size: clamp(1.35rem, 1.8vw, 1.85rem);
+      line-height: 1.12;
+    }
+
+    .pillar p {
       color: var(--muted);
-      font-size: clamp(1.05rem, 1.55vw, 1.7rem);
-      line-height: 1.2;
-      letter-spacing: -.035em;
-      margin-top: 20px;
+      font-size: clamp(1rem, 1.25vw, 1.18rem);
+      line-height: 1.45;
     }
 
-    .button {
-      display: inline-flex;
+    /* ============== Critique slide (quote + pillars) ============== */
+    .critique-layout {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 32px;
+      height: 100%;
+    }
+
+    .critique-quote {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: clamp(32px, 4vw, 64px);
       align-items: center;
-      justify-content: center;
-      min-height: 62px;
-      margin-top: 34px;
-      padding: 0 28px;
-      border-radius: 999px;
-      color: #07110d;
-      background: var(--mint);
-      text-decoration: none;
-      font-weight: 900;
-      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
     }
 
+    .critique-text {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .critique-text .pull-quote {
+      font-size: clamp(1.85rem, 3vw, 3rem);
+    }
+
+    .attribution {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding-left: .6em;
+    }
+
+    .attribution .author {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ============== Top row ============== */
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .top-row .progress-tag {
+      font-family: "Newsreader", serif;
+      font-style: italic;
+      color: var(--quiet);
+      font-size: .98rem;
+    }
+
+    /* ============== Chrome ============== */
     .home-link {
       position: fixed;
       z-index: 30;
       top: 18px;
       left: 22px;
-      color: rgba(248,240,223,.58);
+      color: var(--quiet);
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: .08em;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
@@ -320,17 +537,26 @@
       bottom: 0;
       height: 5px;
       width: 0;
-      background: linear-gradient(90deg, var(--mint), var(--cyan));
-      transition: width .2s ease;
+      background: linear-gradient(90deg, var(--clay), var(--gold));
+      transition: width .25s ease;
     }
 
     .hint {
       position: fixed;
       z-index: 21;
       right: 22px;
-      bottom: 18px;
-      color: rgba(248,240,223,.3);
-      font-size: 13px;
+      bottom: 16px;
+      color: var(--quiet);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    @media (max-width: 1100px) {
+      .quote-grid,
+      .critique-quote {
+        grid-template-columns: 1fr;
+      }
+      .quote-visual { display: none; }
     }
 
     @media (max-width: 900px) {
@@ -344,14 +570,24 @@
         pointer-events: auto;
       }
       .slide:not(.active) { display: none; }
-      .split, .split.reverse, .cards, .wall { grid-template-columns: 1fr; }
-      .card { min-height: 220px; }
+      .split-layout,
+      .split-layout.reverse,
+      .pillars,
+      .wall {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .wall { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-  <a class="home-link" href="index.html">Future Building Lab</a>
+  <a class="home-link" href="index.html">← Back to site</a>
   <main class="deck" id="deck">
+
+    <!-- Slide 1: Title -->
     <section class="slide image-slide active">
       <img src="assets/future-learning-hero.png" alt="Future learning collage" />
       <div class="title-copy">
@@ -361,229 +597,382 @@
       </div>
     </section>
 
+    <!-- Slide 2: The prompt -->
     <section class="slide">
-      <div class="eyebrow">February prompt</div>
-      <div class="split">
+      <div class="top-row">
+        <span class="eyebrow">February — the prompt</span>
+        <span class="progress-tag">eight people answered</span>
+      </div>
+      <div class="split-layout">
         <div>
-          <h2>We asked AI to dissolve problems.</h2>
-          <p class="lead">Not make school more efficient. Not add a faster worksheet. Design a world where the original friction point does not work the same way anymore.</p>
+          <h2>Don't optimize. Dissolve.</h2>
+          <p class="lead" style="margin-top: 24px;">The prompt sent out to the group, asking them to design a future in which today's friction simply doesn't exist anymore.</p>
         </div>
-        <div class="doc">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="doc-card">
+          <div class="doc-top"><span class="doc-dot"></span><span class="doc-dot"></span><span class="doc-dot"></span></div>
           <div class="doc-body">
-            <span class="tag">Prompt excerpt</span>
+            <span class="doc-tag">The prompt</span>
             <h3>Act as a lead architect and historian.</h3>
             <p><mark>Do not simply optimize or improve the existing system.</mark></p>
-            <p>Describe this in action in 2036.</p>
-            <p>List three radical decisions we made in 2026 to make this possible.</p>
+            <p>Design the system so the original problem no longer exists.</p>
+            <ol>
+              <li>Describe this in action in 2036.</li>
+              <li>List three radical decisions we made in 2026 to make this possible.</li>
+            </ol>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Slide 3: The wall of 8 visions -->
     <section class="slide">
-      <div class="eyebrow">Raw material</div>
-      <h2>The responses became a wall of possible futures.</h2>
+      <div class="top-row">
+        <span class="eyebrow sage">What came back</span>
+        <span class="progress-tag">eight worlds for 2036</span>
+      </div>
+      <h2>Eight visions, in their own words.</h2>
       <div class="wall">
-        <div class="tab"><span>Response</span><strong>Living Ledger</strong></div>
-        <div class="tab"><span>Response</span><strong>Biometric Responsive Environments</strong></div>
-        <div class="tab"><span>Response</span><strong>Fluid Commons</strong></div>
-        <div class="tab"><span>Response</span><strong>Dynamic Skill Ledger</strong></div>
-        <div class="tab"><span>Response</span><strong>Pattern Lab</strong></div>
-        <div class="tab"><span>Response</span><strong>Learning Commons</strong></div>
-        <div class="tab"><span>Response</span><strong>Neo-Amateur Era</strong></div>
-        <div class="tab"><span>Response</span><strong>Living Laboratory</strong></div>
+        <div class="vision-tile featured">
+          <div class="tile-top">
+            <span class="num">01</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="16" cy="16" r="3"/><circle cx="6" cy="6" r="2"/><circle cx="26" cy="6" r="2"/><circle cx="6" cy="26" r="2"/><circle cx="26" cy="26" r="2"/><line x1="6" y1="6" x2="14" y2="14"/><line x1="26" y1="6" x2="18" y2="14"/><line x1="6" y1="26" x2="14" y2="18"/><line x1="26" y1="26" x2="18" y2="18"/>
+            </svg>
+          </div>
+          <span class="name">Living Ledger</span>
+        </div>
+        <div class="vision-tile sage featured">
+          <div class="tile-top">
+            <span class="num">02</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="5" width="22" height="22" rx="2"/><line x1="5" y1="16" x2="27" y2="16"/><line x1="16" y1="5" x2="16" y2="27"/>
+            </svg>
+          </div>
+          <span class="name">Biometric Responsive Environments</span>
+        </div>
+        <div class="vision-tile gold featured">
+          <div class="tile-top">
+            <span class="num">03</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12 Q9 6, 16 12 T29 12"/><path d="M3 20 Q9 14, 16 20 T29 20"/>
+            </svg>
+          </div>
+          <span class="name">Fluid Commons</span>
+        </div>
+        <div class="vision-tile">
+          <div class="tile-top">
+            <span class="num">04</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="26" x2="6" y2="14"/><line x1="13" y1="26" x2="13" y2="10"/><line x1="20" y1="26" x2="20" y2="18"/><line x1="27" y1="26" x2="27" y2="6"/>
+            </svg>
+          </div>
+          <span class="name">Dynamic Skill Ledger</span>
+        </div>
+        <div class="vision-tile sage">
+          <div class="tile-top">
+            <span class="num">05</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+              <circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="24" cy="8" r="2"/><circle cx="8" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><circle cx="24" cy="16" r="2"/><circle cx="8" cy="24" r="2"/><circle cx="16" cy="24" r="2"/><circle cx="24" cy="24" r="2"/>
+            </svg>
+          </div>
+          <span class="name">Pattern Lab</span>
+        </div>
+        <div class="vision-tile gold">
+          <div class="tile-top">
+            <span class="num">06</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="5"/><circle cx="21" cy="11" r="5"/><circle cx="16" cy="21" r="5"/>
+            </svg>
+          </div>
+          <span class="name">Learning Commons</span>
+        </div>
+        <div class="vision-tile">
+          <div class="tile-top">
+            <span class="num">07</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 4 L19 13 L29 13 L21 19 L24 28 L16 23 L8 28 L11 19 L3 13 L13 13 Z"/>
+            </svg>
+          </div>
+          <span class="name">Neo-Amateur Era</span>
+        </div>
+        <div class="vision-tile sage featured">
+          <div class="tile-top">
+            <span class="num">08</span>
+            <svg class="tile-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 4 Q8 10, 8 18 Q8 26, 16 28 Q24 26, 24 18 Q24 10, 16 4 Z"/><line x1="16" y1="4" x2="16" y2="28"/>
+            </svg>
+          </div>
+          <span class="name">Living Laboratory</span>
+        </div>
       </div>
     </section>
 
+    <!-- Slide 4: Living Ledger pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow">Vision 01 — Living Ledger</span>
+        <span class="quote-byline">by Cheyenne Lewellyn</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <p class="pull-quote">Students don't argue with the system any more than they <span class="accent">argue with gravity</span>.</p>
+          <p class="quote-context">"A unified social and academic ecosystem that spans a student's entire life — home, school, and community. The walls of 'school' have effectively been dissolved into the community."</p>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="138" fill="#e0eee5" />
+            <line x1="80" y1="90" x2="150" y2="150" stroke="#2f6b50" stroke-width="2"/>
+            <line x1="220" y1="90" x2="150" y2="150" stroke="#2f6b50" stroke-width="2"/>
+            <line x1="80" y1="210" x2="150" y2="150" stroke="#2f6b50" stroke-width="2"/>
+            <line x1="220" y1="210" x2="150" y2="150" stroke="#2f6b50" stroke-width="2"/>
+            <line x1="80" y1="90" x2="80" y2="210" stroke="#4a8c6f" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="220" y1="90" x2="220" y2="210" stroke="#4a8c6f" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="80" y1="90" x2="220" y2="90" stroke="#4a8c6f" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="80" y1="210" x2="220" y2="210" stroke="#4a8c6f" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <circle cx="150" cy="150" r="16" fill="#2f6b50"/>
+            <circle cx="80" cy="90" r="10" fill="#4a8c6f"/>
+            <circle cx="220" cy="90" r="10" fill="#4a8c6f"/>
+            <circle cx="80" cy="210" r="10" fill="#4a8c6f"/>
+            <circle cx="220" cy="210" r="10" fill="#4a8c6f"/>
+            <text x="80" y="72" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#2f6b50" letter-spacing="1">HOME</text>
+            <text x="220" y="72" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#2f6b50" letter-spacing="1">SCHOOL</text>
+            <text x="80" y="232" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#2f6b50" letter-spacing="1">CIVIC</text>
+            <text x="220" y="232" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#2f6b50" letter-spacing="1">PARENT</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Biometric Responsive Environments pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow">Vision 02 — Biometric Responsive Environments</span>
+        <span class="quote-byline">by Gabe</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <p class="pull-quote">If a student couldn't learn in a room, <span class="accent">the room was broken, not the student</span>.</p>
+          <p class="quote-context">"Every dollar previously spent on standardized testing, redirected into Biometric Responsive Environments. The burden of performance shifts from the child's brain to the architect's design."</p>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="14" y="14" width="272" height="272" fill="#f6dcc9" rx="22" />
+            <rect x="60" y="60" width="180" height="180" fill="none" stroke="#a04a1f" stroke-width="3" rx="6"/>
+            <line x1="60" y1="150" x2="240" y2="150" stroke="#a04a1f" stroke-width="3"/>
+            <line x1="150" y1="60" x2="150" y2="240" stroke="#a04a1f" stroke-width="3"/>
+            <rect x="125" y="125" width="50" height="50" fill="#b85c2c" rx="4"/>
+            <circle cx="80" cy="80" r="5" fill="#a04a1f"/>
+            <circle cx="220" cy="80" r="5" fill="#a04a1f"/>
+            <circle cx="80" cy="220" r="5" fill="#a04a1f"/>
+            <circle cx="220" cy="220" r="5" fill="#a04a1f"/>
+            <circle cx="105" cy="105" r="3" fill="#b85c2c"/>
+            <circle cx="195" cy="105" r="3" fill="#b85c2c"/>
+            <circle cx="105" cy="195" r="3" fill="#b85c2c"/>
+            <circle cx="195" cy="195" r="3" fill="#b85c2c"/>
+            <line x1="80" y1="80" x2="125" y2="125" stroke="#a04a1f" stroke-width="1.5" stroke-dasharray="3 3" opacity=".6"/>
+            <line x1="220" y1="80" x2="175" y2="125" stroke="#a04a1f" stroke-width="1.5" stroke-dasharray="3 3" opacity=".6"/>
+            <line x1="80" y1="220" x2="125" y2="175" stroke="#a04a1f" stroke-width="1.5" stroke-dasharray="3 3" opacity=".6"/>
+            <line x1="220" y1="220" x2="175" y2="175" stroke="#a04a1f" stroke-width="1.5" stroke-dasharray="3 3" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Fluid Commons pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow gold">Vision 03 — Fluid Commons</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <p class="pull-quote gold">Leo doesn't have "Math" at 10:00. He has a Mastery Target: <span class="accent">applying fluid dynamics to urban hydroponics</span>.</p>
+          <p class="quote-context">"When Leo hits a conceptual wall the AI identifies as socially critical, it pings a human Lead Mentor. We stopped measuring time and started measuring demonstrated agency."</p>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="138" fill="#f5e6c2"/>
+            <path d="M 30 130 Q 75 100, 150 130 T 270 130" fill="none" stroke="#87651a" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 30 160 Q 75 130, 150 160 T 270 160" fill="none" stroke="#c9933a" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 30 190 Q 75 160, 150 190 T 270 190" fill="none" stroke="#87651a" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="80" cy="80" r="7" fill="#c9933a"/>
+            <circle cx="150" cy="60" r="9" fill="#c9933a"/>
+            <circle cx="220" cy="80" r="7" fill="#c9933a"/>
+            <circle cx="60" cy="240" r="6" fill="#87651a"/>
+            <circle cx="240" cy="240" r="6" fill="#87651a"/>
+            <line x1="80" y1="80" x2="150" y2="60" stroke="#c9933a" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>
+            <line x1="150" y1="60" x2="220" y2="80" stroke="#c9933a" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Living Laboratory pull quote -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow sage">Vision 08 — Living Laboratory</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <p class="pull-quote sage">The aquaponics unit isn't a teaching tool. It is <span class="accent">the classroom's lungs and lighting</span>.</p>
+          <p class="quote-context">"Biology is 'always on.' Assessment dissolved into Continuous Mastery Tracking — Action-to-Insight evidence captured as students adjust flow rates and identify fungal growth."</p>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="138" fill="#e0eee5"/>
+            <path d="M 150 50 Q 80 90, 80 165 Q 80 230, 150 250 Q 220 230, 220 165 Q 220 90, 150 50 Z" fill="#4a8c6f"/>
+            <line x1="150" y1="50" x2="150" y2="250" stroke="#2f6b50" stroke-width="2.5"/>
+            <path d="M 150 90 Q 125 105, 100 130" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <path d="M 150 90 Q 175 105, 200 130" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <path d="M 150 130 Q 120 148, 95 178" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <path d="M 150 130 Q 180 148, 205 178" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <path d="M 150 170 Q 130 188, 110 215" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <path d="M 150 170 Q 170 188, 190 215" fill="none" stroke="#2f6b50" stroke-width="1.5"/>
+            <circle cx="245" cy="80" r="12" fill="#4a8c6f" opacity=".7"/>
+            <circle cx="245" cy="80" r="5" fill="#fffaf0"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: The critique -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow">Then I pushed back on the AI</span>
+      </div>
+      <div class="critique-layout">
+        <div class="critique-quote">
+          <div class="critique-text">
+            <p class="pull-quote">The prompt made their answers <span class="accent">pretty narrow</span>. The AI sort of lasered in and wasn't very realistic.</p>
+            <p class="attribution"><span class="author">Facilitator,</span> reviewing the responses</p>
+          </div>
+          <div class="quote-visual">
+            <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="150" cy="150" r="138" fill="#f6dcc9"/>
+              <circle cx="130" cy="130" r="62" fill="none" stroke="#a04a1f" stroke-width="9"/>
+              <line x1="174" y1="174" x2="226" y2="226" stroke="#a04a1f" stroke-width="11" stroke-linecap="round"/>
+              <circle cx="115" cy="115" r="22" fill="none" stroke="#b85c2c" stroke-width="2" opacity=".55"/>
+              <circle cx="145" cy="145" r="10" fill="none" stroke="#b85c2c" stroke-width="2" opacity=".4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <span class="tag">Pattern 1</span>
+            <h3>Surveillance as solution</h3>
+            <p>Replacing relationships with automated enforcement — "Living Ledgers" that punish behavior in real time.</p>
+          </article>
+          <article class="pillar sage">
+            <span class="tag">Pattern 2</span>
+            <h3>Policy vacuums</h3>
+            <p>Radical laws that ignore political and social complexity. Years of lobbying. Not a teacher's lever.</p>
+          </article>
+          <article class="pillar gold">
+            <span class="tag">Pattern 3</span>
+            <h3>Tech magic</h3>
+            <p>"Dissolving" dyslexia, workload, or motivation overnight. Skips the hard human part.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: First systemic draft -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow">Attempt 1 — bold, but out of reach</span>
+      </div>
+      <h2>Three "radical decisions" — for someone else to make.</h2>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="tag">Decision 1</span>
+          <h3>"Vines over Walls" Act</h3>
+          <p>Legally dissolving the 180-day, 6-hour seat-time requirement. A federal lift.</p>
+        </article>
+        <article class="pillar sage">
+          <span class="tag">Decision 2</span>
+          <h3>Decoupling of Care and Clericals</h3>
+          <p>Banning teachers from performing any task that could be automated. Union and policy turf.</p>
+        </article>
+        <article class="pillar gold">
+          <span class="tag">Decision 3</span>
+          <h3>Radical Transparency Compact</h3>
+          <p>A shared "Success Ledger" between parents, students, and admins. Years of buy-in.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Slide 10: The correction (hinge) -->
+    <section class="slide quote-slide">
+      <div class="quote-header">
+        <span class="eyebrow gold">So I pushed back again — the hinge</span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-text">
+          <p class="pull-quote gold">None of these are within the power of an individual teacher. We need actions that are bold and scalable — <span class="accent">and within their power to do</span>.</p>
+          <p class="attribution"><span class="author">Facilitator</span> · the pivot point</p>
+        </div>
+        <div class="quote-visual">
+          <svg class="vision-illust" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="150" r="138" fill="#f5e6c2"/>
+            <path d="M 150 70 L 150 150" stroke="#87651a" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 150 150 L 95 225" stroke="#87651a" stroke-width="7" stroke-linecap="round" stroke-dasharray="8 6" opacity=".5"/>
+            <path d="M 150 150 L 205 225" stroke="#c9933a" stroke-width="7" stroke-linecap="round"/>
+            <path d="M 205 225 L 194 217 M 205 225 L 213 215" stroke="#c9933a" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="150" cy="70" r="10" fill="#87651a"/>
+            <text x="95" y="248" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#87651a" opacity=".6">SOMEDAY</text>
+            <text x="205" y="248" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#c9933a">NOW</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11: The teacher-led pivot -->
+    <section class="slide">
+      <div class="top-row">
+        <span class="eyebrow sage">Attempt 2 — what a teacher can do this year</span>
+      </div>
+      <h2>Subversive. Local. Immediate.</h2>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="tag">Pivot 1</span>
+          <h3>Shadow Curriculum Strike</h3>
+          <p>Dedicate 20% of the week to student-owned projects. The teacher becomes a "consultant on retainer," engaging only when pinged.</p>
+        </article>
+        <article class="pillar sage">
+          <span class="tag">Pivot 2</span>
+          <h3>Feedback First Firewall</h3>
+          <p>Unilaterally replace points as currency with <strong>evidence of impact</strong>. A shared dashboard. Proof unlocks privileges.</p>
+        </article>
+        <article class="pillar gold">
+          <span class="tag">Pivot 3</span>
+          <h3>Open-Door Community</h3>
+          <p>Stop asking permission for field trips. Invite the world in. Local experts become "mastery validators."</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Slide 12: Today, the build -->
     <section class="slide image-slide">
-      <img src="assets/imaginative-ai-future.png" alt="Surreal AI future school systems" />
+      <img src="assets/build-lab-educators.png" alt="Educators building together at a workshop." />
       <div class="title-copy">
-        <div class="eyebrow">First pass</div>
-        <h2>It got imaginative.</h2>
-        <p class="lead">Some of it was useful because it was extreme. Some of it was a warning label.</p>
+        <div class="eyebrow">Today, together</div>
+        <h2>Pick the smallest version. Build it.</h2>
+        <p class="lead">We'll vibe code one small artifact side by side. Then I'll show how it could turn into a real app. Then you'll go build the thing you've been wishing existed.</p>
       </div>
     </section>
 
-    <section class="slide">
-      <div class="eyebrow">Example from the responses</div>
-      <div class="split reverse">
-        <div class="doc">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Living Ledger</span>
-            <h3>School discipline as an archaeological relic.</h3>
-            <p>A unified social and academic ecosystem spanning home, school, and community.</p>
-            <p><mark>Students do not argue with the system any more than they argue with gravity.</mark></p>
-          </div>
-        </div>
-        <div>
-          <h2>Interesting. Also unsettling.</h2>
-          <p class="lead">It names the disconnect between school, home, and community. It also shows how quickly "support" can become surveillance.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Example from the responses</div>
-      <div class="split">
-        <div>
-          <h2>The room was broken, not the student.</h2>
-          <p class="lead">This is the kind of line worth keeping. It changes where we locate the problem.</p>
-        </div>
-        <div class="doc alt">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Biometric Responsive Environments</span>
-            <h3>Architecture first.</h3>
-            <p>Testing money redirected into responsive environments.</p>
-            <p><mark>If a student could not learn in a room, the room was broken, not the student.</mark></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Example from the responses</div>
-      <div class="split reverse">
-        <div class="doc">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Fluid Commons</span>
-            <h3>Leo does not have "Math" at 10:00.</h3>
-            <p>He has a mastery target: applying fluid dynamics to urban hydroponics.</p>
-            <p>When he hits a conceptual wall, the system pings a human lead mentor.</p>
-          </div>
-        </div>
-        <div>
-          <h2>Less schedule. More agency.</h2>
-          <p class="lead">This is not a tool idea yet. It is a direction of travel.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Example from the responses</div>
-      <div class="split">
-        <div>
-          <h2>Learning as infrastructure.</h2>
-          <p class="lead">This one matters because assessment is not an event after the learning. It happens inside the work.</p>
-        </div>
-        <div class="doc alt">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Living Laboratory</span>
-            <h3>Biology is always on.</h3>
-            <p>The aquaponics unit is not a teaching tool. It is part of the building's filtration and air system.</p>
-            <p><mark>Assessment becomes "Action-to-Insight" evidence.</mark></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">The walkthrough</div>
-      <div class="split reverse">
-        <div class="doc">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Facilitator prompt</span>
-            <h3>I did not just accept the output.</h3>
-            <p>"The prompt made their answers pretty narrow... the AI sort of lasered in and was not very realistic."</p>
-            <ul>
-              <li>Surveillance as solution</li>
-              <li>Policy vacuums</li>
-              <li>Tech magic</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <h2>The useful move was critique.</h2>
-          <p class="lead">The point is not that AI gave us the answer. The point is that the dialogue helped us find what was worth keeping.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Attempt 1</div>
-      <div class="split">
-        <div>
-          <h2>Outrageous. Interesting.</h2>
-          <p class="lead">The first synthesis still reached for moves that individual teachers cannot make tomorrow.</p>
-        </div>
-        <div class="doc alt">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Systemic draft</span>
-            <h3>Three radical decisions from 2026</h3>
-            <ul>
-              <li>"Vines over Walls" Act: dissolve seat-time requirements.</li>
-              <li>Decoupling "Care" and "Clericals": automate non-human tasks.</li>
-              <li>Radical Transparency Compact: shared success ledger.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">The correction</div>
-      <div class="split reverse">
-        <div class="doc">
-          <div class="doc-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="doc-body">
-            <span class="tag">Facilitator prompt</span>
-            <h3>Feasibility changed the direction.</h3>
-            <p><mark>None of these things are within the power of an individual teacher at the moment.</mark></p>
-            <p>We need actions that are bold and scalable, but within their power to do.</p>
-          </div>
-        </div>
-        <div>
-          <h2>That is the hinge.</h2>
-          <p class="lead">Not "What should the system do someday?" but "What can an educator prototype now?"</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">Attempt 2</div>
-      <h2>Teacher-led pivots.</h2>
-      <div class="cards" style="margin-top: 30px;">
-        <article class="card"><div><span>Student-owned work</span><h3>20% of the week for real projects.</h3></div><p>Teacher as consultant instead of content delivery machine.</p></article>
-        <article class="card"><div><span>Evidence before points</span><h3>Replace points as currency.</h3></div><p>Students log proof of contribution, revision, growth, and impact.</p></article>
-        <article class="card"><div><span>Community feedback</span><h3>Invite the world in.</h3></div><p>Local experts validate real work and widen the audience.</p></article>
-      </div>
-    </section>
-
-    <section class="slide image-slide">
-      <img src="assets/build-lab-educators.png" alt="Educators building together" />
-      <div class="title-copy">
-        <div class="eyebrow">Today</div>
-        <h2>We build one small test.</h2>
-        <p class="lead">Evidence before points becomes a tiny working prototype.</p>
-        <a class="button" href="build-lab.html">Leave slides: open Build Lab</a>
-      </div>
-    </section>
-
-    <section class="slide">
-      <div class="eyebrow">When people need help</div>
-      <div class="center">
-        <h2>The site becomes the handout.</h2>
-        <p class="lead">Build Lab is for doing. Learn is for vocabulary and prompt recipes. Share & Store is for "where does it live?" Privacy is for "where does the data live?"</p>
-      </div>
-    </section>
-
+    <!-- Slide 13: Closing -->
     <section class="slide image-slide">
       <img src="assets/future-learning-hero.png" alt="Future learning collage" />
       <div class="title-copy">
         <div class="eyebrow">517 EdTech Innovators Network</div>
-        <h2>Build something small enough to test.</h2>
+        <h2>Make something small enough to test.</h2>
         <p class="lead">Then let the evidence change the conversation.</p>
       </div>
     </section>
+
   </main>
   <div class="progress" id="progress"></div>
-  <div class="hint">Left / Right</div>
+  <div class="hint">← / →</div>
   <script>
     const slides = [...document.querySelectorAll('.slide')];
     const progress = document.getElementById('progress');

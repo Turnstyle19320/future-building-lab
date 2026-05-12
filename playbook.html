@@ -3,261 +3,885 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learn Vibe Coding | Future Building Lab</title>
+  <title>From Idea to Folder | Future Building Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
   <div class="site-shell">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="index.html">Future Building Lab</a>
       <div class="nav-links">
-        <a href="index.html">Path</a>
+        <a href="index.html">Home</a>
         <a href="presentation.html">Slides</a>
-        <a href="build-lab.html">Build Lab</a>
-        <a class="active" href="playbook.html">Learn</a>
-        <a href="deployment.html">Share &amp; Store</a>
-        <a href="privacy.html">Privacy</a>
+        <a href="build-lab.html">Build Together</a>
+        <a class="active" href="playbook.html">From Idea to Folder</a>
+        <a href="deployment.html">Where It Lives</a>
+        <a href="privacy.html">Student Data</a>
       </div>
     </nav>
 
     <main>
       <section class="section">
-        <div class="eyebrow">Reference manual</div>
-        <h1>Vibe Coding for Educators</h1>
-        <p class="lede">This is a field guide for making small web tools with AI. Start with what you want the learner or teacher to experience, then ask the AI to build the page that supports it.</p>
-        <div class="callout" style="margin-top: 24px;">If you are new to AI tools, start here. You do not need to know code. You need enough language to describe what you want, test what the AI gives you, and ask for the next change.</div>
+        <div class="eyebrow">Reference page</div>
+        <h1>What you're looking at when the AI gives you code.</h1>
+        <p class="lede">This page is a handout. Skim it now. Come back to the section you need when you get stuck. Each piece stands alone — you don't have to read it top to bottom.</p>
       </section>
 
-      <section class="section manual-grid">
-        <div>
-          <div class="eyebrow">First mental model</div>
-          <h2>A web app is usually three things.</h2>
-          <p class="lede">Structure, style, and behavior. You do not have to memorize code. You just need enough vocabulary to ask for the next useful change.</p>
-        </div>
-        <div class="example-frame">
-          <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">classroom-tool.html</div></div>
-          <div class="example-body mini-tool">
-            <h3>Evidence of Impact</h3>
-            <div class="mini-field"></div>
-            <span class="mini-button">Add Evidence</span>
-            <div class="mini-card"><strong>Revision</strong><br>Improved the prototype after feedback.</div>
-          </div>
-        </div>
-      </section>
+      <nav class="toc" aria-label="On this page">
+        <span class="toc-label">Jump to</span>
+        <a href="#three-layers">Three layers</a>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#javascript">JavaScript</a>
+        <a href="#tools">Toolkit</a>
+        <a href="#drawing">Pictures &amp; games</a>
+        <a href="#make-files">Make the files</a>
+        <a href="#git">Git &amp; GitHub</a>
+        <a href="#ladder">Canvas to live site</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#recipes">Prompt recipes</a>
+      </nav>
 
-      <section class="section visual-band">
-        <div class="visual-copy">
-          <div class="eyebrow">The working posture</div>
-          <h2>Describe, test, revise.</h2>
-          <p>Vibe coding is less like writing perfect instructions and more like coaching a draft into shape. You ask for a first version, try it, then tell the AI what needs to change.</p>
-        </div>
-        <img src="assets/build-lab-educators.png" alt="Educators collaborating around laptops during a build lab." />
-      </section>
-
-      <section class="section">
+      <section class="section" id="three-layers">
         <div class="section-head">
           <div>
-            <div class="eyebrow">First three steps</div>
-            <h2>Start small enough to finish.</h2>
+            <div class="eyebrow">Mental model</div>
+            <h2>Three layers, three different problems.</h2>
           </div>
-          <p>These steps work whether you use Gemini Canvas, ChatGPT, Claude, or another AI tool that can generate HTML.</p>
+          <p>Every web page is built from three things stacked together. You don't have to write any of them — the AI does that. You just need to know which one to ask about when something is off.</p>
         </div>
-        <div class="path-map">
-          <div class="path-row"><strong>1. Describe the user</strong><p>Who is this for: students, teachers, families, coaches, or your own planning?</p></div>
-          <div class="path-row"><strong>2. Describe the action</strong><p>What should the person do: click, reflect, sort, enter evidence, practice, choose, compare, or build?</p></div>
-          <div class="path-row"><strong>3. Test one thing</strong><p>Run the first version and ask: does the main button, form, or interaction work?</p></div>
+        <div class="callout sage">
+          <strong>The diagnostic move.</strong>
+          <p style="margin-top: 6px;">If a section is missing from the page, ask about <strong>HTML</strong>. If something looks wrong or feels generic, ask about <strong>CSS</strong>. If a button or input doesn't do anything when you interact with it, ask about <strong>JavaScript</strong>.</p>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="html">
         <div class="section-head">
           <div>
-            <div class="eyebrow">What the AI is building</div>
-            <h2>Plain language first. Code second.</h2>
+            <div class="eyebrow">Layer 1</div>
+            <h2>HTML — the pieces on the page.</h2>
           </div>
-          <p>Each layer has a job. If something looks wrong, ask about CSS. If something does not respond, ask about JavaScript. If the page is missing a section, ask about HTML.</p>
+          <p>HTML is the structure. Title, paragraph, input box, button, image, list. Everything you see is an HTML element.</p>
         </div>
-        <div class="paper" style="margin-bottom: 18px;">
-          <div class="sketch-grid">
-            <div class="sketch-card"><div class="sketch-icon"></div><h3>Prompt</h3><p>Say what the tool should help someone do.</p></div>
-            <div class="sketch-card"><div class="sketch-icon"></div><h3>Preview</h3><p>Open the first version and click around.</p></div>
-            <div class="sketch-card"><div class="sketch-icon"></div><h3>Notice</h3><p>Name what works and what feels wrong.</p></div>
-            <div class="sketch-card"><div class="sketch-icon"></div><h3>Revise</h3><p>Ask for one specific improvement.</p></div>
+        <div class="manual-grid">
+          <div>
+            <p>Think of HTML as the bones. The AI writes it in tags that look like <code>&lt;h1&gt;</code> for headings, <code>&lt;p&gt;</code> for paragraphs, <code>&lt;button&gt;</code> for clickable things. You don't need to memorize them. You just need to recognize them when you see them.</p>
+            <p style="margin-top: 14px;"><strong>What to ask for:</strong> <em>"Create the structure first. I need a title, a short instruction, a text area for input, a submit button, and a section below where the entries will appear."</em></p>
           </div>
-        </div>
-
-        <details class="guide" open>
-          <summary>HTML creates the pieces on the page</summary>
-          <div class="guide-body manual-grid">
-            <div>
-              <p>HTML is the page structure: title, directions, input box, button, and the area where evidence cards appear.</p>
-              <p><strong>Prompt move:</strong> "Create the HTML structure first. Include a title, instructions, a form, and a results area."</p>
-            </div>
-            <div class="example-frame">
-              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-              <div class="example-body">
-                <pre class="plain-pre"><code>&lt;h1&gt;Evidence of Impact&lt;/h1&gt;
-&lt;p&gt;Add one example of learning or contribution.&lt;/p&gt;
+          <div class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my-tool.html</div></div>
+            <div class="example-body">
+              <pre><code>&lt;h1&gt;Evidence of Impact&lt;/h1&gt;
+&lt;p&gt;Add one example.&lt;/p&gt;
 &lt;textarea&gt;&lt;/textarea&gt;
 &lt;button&gt;Add Evidence&lt;/button&gt;
 &lt;section id="entries"&gt;&lt;/section&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="css">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Layer 2</div>
+            <h2>CSS — how it looks and feels.</h2>
+          </div>
+          <p>CSS controls everything visual: colors, fonts, spacing, rounded corners, shadows, layout. Same HTML, different CSS — completely different experience.</p>
+        </div>
+
+        <div class="before-after">
+          <div>
+            <span class="frame-label">Before — no CSS</span>
+            <div class="example-frame raw-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my-tool.html</div></div>
+              <div class="raw-body">
+                <h3>Evidence of Impact</h3>
+                <p>Add one example of learning or contribution.</p>
+                <textarea>What happened?</textarea>
+                <button>Add Evidence</button>
               </div>
             </div>
           </div>
-        </details>
-
-        <details class="guide">
-          <summary>CSS changes how it feels</summary>
-          <div class="guide-body manual-grid">
-            <div>
-              <p>CSS controls the visual design: spacing, colors, fonts, cards, shadows, and mobile layout.</p>
-              <p><strong>Prompt move:</strong> "Make this feel like a calm professional classroom tool, not a worksheet or a game."</p>
-            </div>
-            <div class="code-pair">
-              <div class="example-frame">
-                <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-                <div class="example-body mini-tool">
-                  <h3 style="font-family: Arial, sans-serif;">Before</h3>
-                  <div class="mini-field" style="border-radius:0;background:white;"></div>
-                  <span style="display:inline-block;border:1px solid #333;padding:6px;">Add</span>
-                </div>
-              </div>
-              <div class="example-frame">
-                <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-                <div class="example-body mini-tool">
-                  <h3>After</h3>
-                  <div class="mini-field"></div>
-                  <span class="mini-button">Add Evidence</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="guide">
-          <summary>JavaScript makes it respond</summary>
-          <div class="guide-body manual-grid">
-            <div>
-              <p>JavaScript is the behavior: click a button, save an entry, update a count, flip a card, filter a list, or draw something.</p>
-              <p><strong>Prompt move:</strong> "When the user clicks Add Evidence, create a new card and update the summary counts."</p>
-            </div>
+          <div>
+            <span class="frame-label after">After — with CSS</span>
             <div class="example-frame">
-              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-              <div class="example-body">
-                <pre class="plain-pre"><code>button.addEventListener("click", () =&gt; {
-  // read the form
-  // create a card
-  // update the summary
-});</code></pre>
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my-tool.html</div></div>
+              <div class="example-body polished-form">
+                <h3>Evidence of Impact</h3>
+                <p>Add one example of learning or contribution.</p>
+                <textarea placeholder="What happened?"></textarea>
+                <button class="pill-btn">Add Evidence</button>
               </div>
             </div>
           </div>
-        </details>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+          <strong>Same HTML. Different CSS.</strong>
+          <p style="margin-top: 6px;">The two boxes above contain the exact same headings, the exact same words, and the exact same buttons. CSS is everything that makes the right one feel like a tool you'd actually use. CSS is also what made this site look the way it does — a few hours ago it was dark and slogan-heavy. Same content. Different CSS. Different world.</p>
+        </div>
+
+        <p style="margin-top: 18px;"><strong>What to ask for:</strong> <em>"Restyle this. Warm cream background, terracotta and sage accents, Newsreader serif for headings, Space Grotesk for body text. Generous spacing. Rounded corners. Calm and professional — not childish, not corporate."</em></p>
       </section>
 
-      <section class="section">
+      <section class="section" id="javascript">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Examples</div>
-            <h2>What can a beginner make?</h2>
+            <div class="eyebrow">Layer 3</div>
+            <h2>JavaScript — making the page respond.</h2>
           </div>
-          <p>Start with tools that do one useful thing. Avoid accounts, databases, and complicated dashboards until the basic interaction works.</p>
+          <p>JavaScript runs when you click, type, or hover. It listens for things and changes the page in response.</p>
         </div>
-        <div class="grid three">
-          <article class="example-frame">
-            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-            <div class="example-body mini-tool">
-              <h3>Flashcard Set</h3>
-              <div class="mini-card" style="text-align:center;font-size:1.4rem;">Mitochondria</div>
-              <span class="mini-button">Flip Card</span>
+
+        <div class="callout gold">
+          <strong>Try it.</strong>
+          <p style="margin-top: 6px;">Click the button below. The way the message appears — that's JavaScript. It listened for your click and changed what's on the page.</p>
+          <div class="js-demo">
+            <button class="demo-btn" id="js-demo-btn" aria-expanded="false" aria-controls="js-demo-msg">Click me</button>
+            <div class="demo-msg" id="js-demo-msg">You clicked. That's it. That's the whole idea — wait for something to happen, then change something on the page.</div>
+          </div>
+        </div>
+
+        <div class="manual-grid" style="margin-top: 24px;">
+          <div>
+            <p>That's all JavaScript is, at its simplest: listen for an action, then change something. The fancy stuff is just more of that, stacked.</p>
+            <p style="margin-top: 14px;"><strong>What to ask for:</strong> <em>"When the user clicks Add Evidence, read what's in the textarea, create a new card on the page with that text, and clear the textarea so they can add another."</em></p>
+          </div>
+          <div class="example-frame">
+            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">script.js</div></div>
+            <div class="example-body">
+              <pre><code>const button = document.getElementById("js-demo-btn");
+const message = document.getElementById("js-demo-msg");
+
+button.addEventListener("click", () =&gt; {
+  message.classList.toggle("visible");
+});</code></pre>
             </div>
-          </article>
-          <article class="example-frame">
-            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-            <div class="example-body mini-tool">
-              <h3>Reflection Spinner</h3>
-              <div class="mini-card">What changed because of your work today?</div>
-              <span class="mini-button">New Prompt</span>
-            </div>
-          </article>
-          <article class="example-frame">
-            <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span></div>
-            <div class="example-body mini-tool">
-              <h3>Choice Board</h3>
-              <div class="mini-card">Create</div>
-              <div class="mini-card">Explain</div>
-              <div class="mini-card">Revise</div>
-            </div>
-          </article>
+          </div>
         </div>
       </section>
 
-      <section class="section visual-band reverse">
-        <img src="assets/future-learning-hero.png" alt="Future learning collage with students working in future-facing learning environments." />
-        <div class="visual-copy">
-          <div class="eyebrow">Why this matters</div>
-          <h2>Small tools make big ideas visible.</h2>
-          <p>The goal is not to become a software company. The goal is to make a classroom idea concrete enough that other people can react to it, test it, and improve it.</p>
-        </div>
-      </section>
-
-      <section class="section">
+      <section class="section" id="tools">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Prompt recipes</div>
-            <h2>Ask for one move at a time.</h2>
+            <div class="eyebrow">Tell AI to use these</div>
+            <h2>The vibe coder's toolkit.</h2>
           </div>
-          <p>Copy these when you are stuck. The pattern is: describe the audience, describe the job, describe the interaction, then ask for a complete first version.</p>
+          <p>Each of these is a free, well-known building block. Naming them in your prompt makes a real difference in what you get back.</p>
+        </div>
+
+        <h3 class="toolkit-group">For how it looks</h3>
+        <div class="tool-grid">
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="wind"></i></span>
+              <strong>Tailwind CSS</strong>
+            </div>
+            <p>A CSS shorthand. Instead of writing styles in a separate file, you add little class names like <code>bg-amber-50</code> directly in your HTML.</p>
+            <div class="tool-demo">
+              <div class="demo-code">class="bg-orange-600 text-white px-4 py-2 rounded-full font-bold"</div>
+              <div class="demo-render">
+                <span class="tw-pill-demo">Press me</span>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Tailwind CSS for all styling."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="sparkles"></i></span>
+              <strong>Lucide Icons</strong>
+            </div>
+            <p>A free library of clean modern icons. Tiny addition, huge effect on how polished a tool feels.</p>
+            <div class="tool-demo">
+              <div class="demo-render">
+                <div class="lucide-row">
+                  <i data-lucide="book-open"></i>
+                  <i data-lucide="calendar"></i>
+                  <i data-lucide="bar-chart-3"></i>
+                  <i data-lucide="users"></i>
+                  <i data-lucide="check-circle-2"></i>
+                  <i data-lucide="award"></i>
+                </div>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Lucide icons. Add a book icon next to the Study button."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="type"></i></span>
+              <strong>Google Fonts</strong>
+            </div>
+            <p>A free library of professional fonts you load with one line of code. This site uses Newsreader for headings and Space Grotesk for body.</p>
+            <div class="tool-demo">
+              <div class="demo-render font-samples">
+                <div class="font-sample">
+                  <span class="word" style="font-family: 'Times New Roman', serif; font-size: 1.35rem;">Hello.</span>
+                  <small>default</small>
+                </div>
+                <div class="font-sample">
+                  <span class="word" style="font-family: 'Inter', sans-serif; font-size: 1.35rem; font-weight: 600;">Hello.</span>
+                  <small>Inter</small>
+                </div>
+                <div class="font-sample">
+                  <span class="word" style="font-family: 'Newsreader', serif; font-size: 1.5rem;">Hello.</span>
+                  <small>Newsreader</small>
+                </div>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Google Fonts. Load Inter for body text."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="layout-grid"></i></span>
+              <strong>Hero Patterns</strong>
+            </div>
+            <p>A free library of subtle SVG background patterns. Drop one into your CSS for instant visual texture, no image file required.</p>
+            <div class="tool-demo">
+              <div class="demo-render" style="padding: 12px;">
+                <div class="pattern-demo"></div>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Add a subtle Hero Patterns SVG background. Keep it light so text stays readable."</p>
+          </article>
+        </div>
+
+        <h3 class="toolkit-group">For moments and feedback</h3>
+        <div class="tool-grid">
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="zap"></i></span>
+              <strong>Animate.css</strong>
+            </div>
+            <p>A library of pre-made entrance, exit, and attention animations. Add a class name like <code>animate__bounce</code> and the element moves.</p>
+            <div class="tool-demo">
+              <div class="demo-render">
+                <div class="animate-bounce-demo" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Animate.css. Bounce the score when it goes up."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="party-popper"></i></span>
+              <strong>canvas-confetti</strong>
+            </div>
+            <p>Drops confetti on the page in two lines of JavaScript. Tiny library, huge emotional payoff — perfect for "you got it right" or "task complete."</p>
+            <div class="tool-demo">
+              <div class="demo-render">
+                <button class="try-btn" id="confetti-btn" type="button">Click for confetti</button>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use canvas-confetti to fire confetti when the user gets the answer right."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="volume-2"></i></span>
+              <strong>Howler.js</strong>
+            </div>
+            <p>A small library for playing audio in the browser — click chimes, success dings, ambient background music. Works on every device.</p>
+            <p>You bring the audio file (or grab a free one from somewhere like <a href="https://freesound.org" target="_blank" rel="noopener">Freesound</a>). Howler handles the rest.</p>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Howler.js to play a soft chime when the form submits."</p>
+          </article>
+        </div>
+
+        <h3 class="toolkit-group">For what it does</h3>
+        <div class="tool-grid">
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="database"></i></span>
+              <strong>localStorage</strong>
+            </div>
+            <p>A way for a web page to remember things between visits — on the same browser, on the same device.</p>
+            <p>Lets your tool persist user input without a server or a database. Good for personal tools and one-device demos.</p>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Save entries to localStorage and reload them when the page opens."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="cloud"></i></span>
+              <strong>Apps Script + Drive</strong>
+            </div>
+            <p>A free Google trick. Your web page talks to a file in your own Google Drive through Apps Script.</p>
+            <p>The simplest way to sync data across your own devices without setting up a real cloud database. This is exactly what taskFlow uses.</p>
+            <p class="tool-prompt"><strong>The prompt:</strong> "What's the simplest way to sync this across my devices without a complicated cloud setup, using tools I already have?"</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="bar-chart-2"></i></span>
+              <strong>Chart.js</strong>
+            </div>
+            <p>A simple JavaScript library for making charts — bar, line, pie, scatter. Animated and interactive out of the box.</p>
+            <div class="tool-demo">
+              <div class="demo-render" style="padding: 12px; height: 150px;">
+                <canvas id="chart-demo" aria-label="Bar chart showing practice minutes Monday through Friday"></canvas>
+              </div>
+            </div>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use Chart.js to show the results as a bar chart."</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="mail"></i></span>
+              <strong>EmailJS</strong>
+            </div>
+            <p>Lets a form on your page send an email — no backend, no server. Submitted form data lands in your inbox.</p>
+            <p>Great for feedback forms, parent-contact submissions, "ask the teacher a question." Free tier covers most classroom use.</p>
+            <p class="tool-prompt"><strong>Tell the AI:</strong> "Use EmailJS so the feedback form sends to my email instead of saving locally."</p>
+          </article>
+        </div>
+
+        <h3 class="toolkit-group">For where it lives and how you build it</h3>
+        <div class="tool-grid">
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="github"></i></span>
+              <strong>GitHub Pages</strong>
+            </div>
+            <p>Free web hosting from GitHub for static sites — HTML, CSS, JavaScript, and images.</p>
+            <p>The whole site you're reading lives on GitHub Pages. Free and permanent for public projects.</p>
+            <p class="tool-prompt">See <a href="deployment.html">Where It Lives</a> for the how-to.</p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="code-2"></i></span>
+              <strong>VS Code</strong>
+            </div>
+            <p>A free code editor for your computer, made by Microsoft.</p>
+            <p>The thing you graduate to when one HTML file isn't enough. Treats every file as code by default — no fighting with Notepad.</p>
+            <p class="tool-prompt">Download free at <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">code.visualstudio.com</a></p>
+          </article>
+
+          <article class="tool-item">
+            <div class="tool-head">
+              <span class="tool-icon"><i data-lucide="bot"></i></span>
+              <strong>Claude Code / Cursor / Codex</strong>
+            </div>
+            <p>AI coding helpers that work on your whole project folder, not just one file. They read and edit across multiple files at once.</p>
+            <p>The natural next step after Gemini Canvas, when you're juggling more than one file.</p>
+            <p class="tool-prompt"><strong>Try:</strong> Claude Code (terminal), Cursor (full editor), or Codex.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="drawing">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Beyond text and buttons</div>
+            <h2>When you need pictures, games, or diagrams.</h2>
+          </div>
+          <p>HTML buttons and text inputs handle most classroom tools. When you need something that draws shapes or moves, name one of these two ingredients in your prompt.</p>
+        </div>
+
+        <div class="callout" style="margin-bottom: 22px;">
+          <strong>First, the confusing word.</strong>
+          <p style="margin-top: 6px;"><strong>"Gemini Canvas"</strong> is the environment on gemini.google.com — the chat plus the live preview. <strong><code>&lt;canvas&gt;</code></strong> is a specific HTML element you can put inside your page. Same word, two completely different things. From here, "canvas" means the HTML element.</p>
+        </div>
+
+        <div class="grid two">
+          <article class="card" style="border-top: 4px solid var(--gold-deep);">
+            <strong style="color: var(--gold-deep);">SVG — shapes drawn with code</strong>
+            <h3>For diagrams, charts, and turn-based games.</h3>
+            <p>SVG draws with code: circles, lines, paths, text. Each shape is its own object you can click, color, or animate. Stays sharp at any size.</p>
+
+            <div class="example-frame" style="margin-top: 14px;">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">A diagram built with SVG</div></div>
+              <div class="example-body" style="background: var(--paper);">
+                <svg viewBox="0 0 240 100" aria-hidden="true" style="width: 100%; height: auto; display: block;">
+                  <line x1="60" y1="40" x2="100" y2="40" stroke="rgba(42,31,21,.42)" stroke-width="2" stroke-dasharray="4 3"/>
+                  <line x1="140" y1="40" x2="180" y2="40" stroke="rgba(42,31,21,.42)" stroke-width="2" stroke-dasharray="4 3"/>
+                  <circle cx="40" cy="40" r="20" fill="#4a8c6f"/>
+                  <circle cx="120" cy="40" r="20" fill="#b85c2c"/>
+                  <circle cx="200" cy="40" r="20" fill="#c9933a"/>
+                  <text x="40" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="600" fill="#2a1f15">Input</text>
+                  <text x="120" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="600" fill="#2a1f15">Process</text>
+                  <text x="200" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="600" fill="#2a1f15">Output</text>
+                </svg>
+              </div>
+            </div>
+
+            <ul style="margin-top: 14px; padding-left: 20px; color: var(--muted); font-size: .95rem; line-height: 1.55;">
+              <li>Best for diagrams, charts, board games, drawing apps.</li>
+              <li>Every shape is clickable — easy to make interactive.</li>
+              <li><a href="https://unscripted.fit" target="_blank" rel="noopener">UnscriptED.fit</a> is built on SVG.</li>
+            </ul>
+
+            <p class="tool-prompt" style="margin-top: 14px !important;"><strong>Tell the AI:</strong> "Use SVG to draw this — not <code>&lt;canvas&gt;</code>."</p>
+          </article>
+
+          <article class="card" style="border-top: 4px solid var(--clay-deep);">
+            <strong style="color: var(--clay-deep);">&lt;canvas&gt; — fast pixel surface</strong>
+            <h3>For action games and lots of moving things.</h3>
+            <p>A blank rectangle inside your page that JavaScript paints on, pixel by pixel. Made to redraw thousands of times per second.</p>
+
+            <div class="example-frame" style="margin-top: 14px;">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">A game built with &lt;canvas&gt;</div></div>
+              <div class="canvas-mockup">
+                <span class="cv-square cv-red" aria-hidden="true"></span>
+                <span class="cv-square cv-blue" aria-hidden="true"></span>
+                <span class="cv-score">Score: 3</span>
+              </div>
+            </div>
+
+            <ul style="margin-top: 14px; padding-left: 20px; color: var(--muted); font-size: .95rem; line-height: 1.55;">
+              <li>Best for arcade-style games, physics, particle effects.</li>
+              <li>Fast — but pixels, not clickable shapes.</li>
+              <li><strong>Three.js</strong> builds on canvas for 3D graphics.</li>
+            </ul>
+
+            <p class="tool-prompt" style="margin-top: 14px !important;"><strong>Tell the AI:</strong> "Use an HTML <code>&lt;canvas&gt;</code> element. Draw and animate with JavaScript."</p>
+          </article>
+        </div>
+
+        <p style="margin-top: 18px; color: var(--muted); font-size: .95rem;">Two ready-made prompts for these are in the <a href="#recipes">recipes</a> further down — one for an SVG board game, one for a <code>&lt;canvas&gt;</code> game.</p>
+      </section>
+
+      <section class="section" id="make-files">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Putting it together</div>
+            <h2>How to turn the AI's code into actual files.</h2>
+          </div>
+          <p>The AI gives you code. You need to get that code into a file (or files) on your computer. The whole journey is four moves.</p>
+        </div>
+
+        <div class="flow steps-4" style="margin-bottom: 28px;">
+          <div class="flow-step">
+            <div class="icon">1</div>
+            <h4>Copy from Canvas</h4>
+            <p>In Gemini, Claude, or ChatGPT, click the copy button on the code block the AI gave you.</p>
+          </div>
+          <div class="flow-step">
+            <div class="icon">2</div>
+            <h4>Open a text editor</h4>
+            <p>TextEdit on Mac, Notepad on Windows, or VS Code if you have it. Any plain-text editor works.</p>
+          </div>
+          <div class="flow-step">
+            <div class="icon">3</div>
+            <h4>Paste and save</h4>
+            <p>Paste the code. Save the file with the right name and extension (see the paper-cut below).</p>
+          </div>
+          <div class="flow-step">
+            <div class="icon">4</div>
+            <h4>Double-click it</h4>
+            <p>The file opens in your browser. That's your tool, running on your computer.</p>
+          </div>
+        </div>
+
+        <div class="fork">
+          <div class="fork-question">
+            <span class="tag-pill clay">Decision point</span>
+            <h3>Which shape fits your project right now?</h3>
+            <p>Pick the one that matches what the AI handed you. Both work — and you can switch later.</p>
+          </div>
+          <svg class="fork-lines" viewBox="0 0 400 72" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path d="M 200 0 C 200 36, 100 36, 100 72" stroke="#2f6b50" stroke-width="2" fill="none" stroke-dasharray="6 4" stroke-linecap="round" />
+            <path d="M 200 0 C 200 36, 300 36, 300 72" stroke="#a04a1f" stroke-width="2" fill="none" stroke-dasharray="6 4" stroke-linecap="round" />
+            <circle cx="100" cy="72" r="5" fill="#2f6b50" />
+            <circle cx="300" cy="72" r="5" fill="#a04a1f" />
+          </svg>
+          <div class="fork-signposts">
+            <div class="fork-signpost sage">One chunk of code? Go here ↓</div>
+            <div class="fork-signpost clay">Already juggling more? Go here ↓</div>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <article class="card path-a">
+            <strong>Path A — easiest</strong>
+            <h3>Everything in one .html file.</h3>
+            <p>HTML, CSS, and JavaScript all live inside the same file. The CSS goes inside a <code>&lt;style&gt;</code> tag at the top. The JavaScript goes inside a <code>&lt;script&gt;</code> tag at the bottom. One file. Everything included.</p>
+
+            <p class="visual-label">What it looks like on your desktop</p>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">Desktop</div></div>
+              <div class="desktop-view">
+                <div class="file-tile">
+                  <svg viewBox="0 0 56 70" aria-hidden="true">
+                    <path d="M 4 4 L 38 4 L 52 18 L 52 64 L 4 64 Z" fill="#ffffff" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M 38 4 L 38 18 L 52 18" fill="rgba(42,31,21,.05)" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="9" y="44" width="32" height="6" rx="2" fill="#b85c2c"/>
+                  </svg>
+                  <span class="filename">my_new_app.html</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="visual-label">What's inside that one file</p>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my_new_app.html</div></div>
+              <div class="example-body">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+      /* your CSS lives here */
+      body { background: cream; }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My Tool&lt;/h1&gt;
+    &lt;button&gt;Click&lt;/button&gt;
+
+    &lt;script&gt;
+      // your JavaScript lives here
+      const btn = document.querySelector('button');
+      btn.onclick = () =&gt; alert('hi');
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+            </div>
+
+            <ul style="margin-top: 14px; padding-left: 20px; color: var(--muted); font-size: .95rem; line-height: 1.55;">
+              <li>This is usually what Gemini Canvas hands you by default.</li>
+              <li>Easiest to share — one file, attach it anywhere.</li>
+              <li>You'll outgrow it when the file gets long, or when you want to reuse the same CSS across multiple pages.</li>
+            </ul>
+          </article>
+
+          <article class="card path-b">
+            <strong>Path B — when one file gets messy</strong>
+            <h3>A folder of three files.</h3>
+            <p>Split the layers into separate files. The HTML file then "links to" the CSS and JS files so the browser knows where to find them. This is the shape every real website uses.</p>
+
+            <p class="visual-label">What it looks like inside the folder</p>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my_new_app/</div></div>
+              <div class="desktop-view">
+                <div class="file-tile">
+                  <svg viewBox="0 0 56 70" aria-hidden="true">
+                    <path d="M 4 4 L 38 4 L 52 18 L 52 64 L 4 64 Z" fill="#ffffff" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M 38 4 L 38 18 L 52 18" fill="rgba(42,31,21,.05)" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="9" y="44" width="32" height="6" rx="2" fill="#b85c2c"/>
+                  </svg>
+                  <span class="filename">index.html</span>
+                </div>
+                <div class="file-tile">
+                  <svg viewBox="0 0 56 70" aria-hidden="true">
+                    <path d="M 4 4 L 38 4 L 52 18 L 52 64 L 4 64 Z" fill="#ffffff" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M 38 4 L 38 18 L 52 18" fill="rgba(42,31,21,.05)" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="9" y="44" width="32" height="6" rx="2" fill="#4a8c6f"/>
+                  </svg>
+                  <span class="filename">style.css</span>
+                </div>
+                <div class="file-tile">
+                  <svg viewBox="0 0 56 70" aria-hidden="true">
+                    <path d="M 4 4 L 38 4 L 52 18 L 52 64 L 4 64 Z" fill="#ffffff" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M 38 4 L 38 18 L 52 18" fill="rgba(42,31,21,.05)" stroke="rgba(42,31,21,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+                    <rect x="9" y="44" width="32" height="6" rx="2" fill="#c9933a"/>
+                  </svg>
+                  <span class="filename">script.js</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="visual-label">Or written out as a tree</p>
+            <div class="example-frame">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">my_new_app/</div></div>
+              <div class="example-body">
+                <div class="folder-tree">my_new_app/
+  index.html
+  style.css
+  script.js</div>
+              </div>
+            </div>
+
+            <p style="margin-top: 14px; font-size: .94rem;"><strong>How they connect:</strong> two short lines inside <code>index.html</code> tell the browser to load the other two files.</p>
+
+            <div class="example-frame" style="margin-top: 10px;">
+              <div class="example-top"><span class="example-dot"></span><span class="example-dot"></span><span class="example-dot"></span><div class="browser-url">inside index.html</div></div>
+              <div class="example-body">
+                <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+              </div>
+            </div>
+
+            <ul style="margin-top: 14px; padding-left: 20px; color: var(--muted); font-size: .95rem; line-height: 1.55;">
+              <li>Cleaner once the project is more than ~100 lines.</li>
+              <li>You can change just the CSS without scrolling past the HTML.</li>
+              <li>Easier for an AI coding helper like Claude Code or Cursor to work with.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+          <strong>The paper-cut: saving with the right extension.</strong>
+          <p style="margin-top: 6px;">Notepad and TextEdit will try to save your file as <code>.txt</code> by default. You have to override that, or the browser won't know it's a web page.</p>
+          <ul style="margin-top: 10px; padding-left: 22px; line-height: 1.55;">
+            <li><strong>TextEdit (Mac):</strong> Format → Make Plain Text first. Then in the Save dialog, uncheck "If no extension is provided, use .txt" and type the full filename like <code>index.html</code>.</li>
+            <li><strong>Notepad (Windows):</strong> In the Save dialog, change "Save as type" to <em>All Files</em>, then type the full filename like <code>index.html</code>.</li>
+            <li><strong>Easier route:</strong> install <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>. It treats every file as code by default — no fighting with the editor.</li>
+          </ul>
+        </div>
+
+        <p style="margin-top: 18px; color: var(--muted);">A handful of file extensions you'll see, in plain English: <code>.html</code> is a web page, <code>.css</code> is styling, <code>.js</code> is JavaScript, <code>.png</code> or <code>.jpg</code> is an image, <code>.md</code> is plain-text notes (often used for a project's README), <code>.json</code> is structured data the AI sometimes asks you to save alongside.</p>
+      </section>
+
+      <section class="section" id="git">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The two G words</div>
+            <h2>Git and GitHub, in two paragraphs.</h2>
+          </div>
+          <p>Two different tools, often confused. You only need to understand them at this level to get going.</p>
+        </div>
+
+        <div class="paper">
+          <p><strong>Git</strong> is a program that runs on your computer. Every time you save your project, Git takes a snapshot — so a week from now you can see what you changed, undo something, or recover a version that worked before you broke it. It's free, it's small, and it works without the internet. You install it once and forget about it.</p>
+          <p style="margin-top: 14px;"><strong>GitHub</strong> is a website that holds a copy of your project online. It mirrors what's on your computer, so other people can see your code and so you don't lose everything if your laptop dies. GitHub also has a free feature called <strong>GitHub Pages</strong>: take the HTML files in your project, flip a switch, and GitHub publishes them at a real web address. That's how my <a href="https://turnstyle19320.github.io/taskFlow/" target="_blank" rel="noopener">taskFlow</a> lives on the internet — it's a folder on my computer, mirrored to GitHub, served by GitHub Pages. No server. No database. Just files.</p>
+        </div>
+
+        <div class="flow diagram-3" style="margin-top: 20px;">
+          <div class="flow-step">
+            <div class="icon">1</div>
+            <h4>Your computer</h4>
+            <p>The actual files live here in a folder. Git tracks every save.</p>
+          </div>
+          <div class="flow-step">
+            <div class="icon">2</div>
+            <h4>GitHub.com</h4>
+            <p>A mirror of those files, online. Free for public projects.</p>
+          </div>
+          <div class="flow-step">
+            <div class="icon">3</div>
+            <h4>GitHub Pages</h4>
+            <p>Free hosting. Your project gets a real public web address.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ladder">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The path</div>
+            <h2>From Gemini Canvas to a live site.</h2>
+          </div>
+          <p>Every project moves through some of these rungs. Some stop at rung 2. That's fine. The point is to know what each step changes.</p>
+        </div>
+        <div class="flow ladder">
+          <div class="flow-step"><div class="num">1</div><h4>Canvas preview</h4><p>The AI tool shows your tool running inside its sandbox. Nobody else can use it yet.</p></div>
+          <div class="flow-step"><div class="num">2</div><h4>One HTML file</h4><p>Save the file to your computer. Double-click it. It opens in your browser, just like a website.</p></div>
+          <div class="flow-step"><div class="num">3</div><h4>A folder</h4><p>HTML, CSS, JavaScript, and images split into separate files. Still on your desktop.</p></div>
+          <div class="flow-step"><div class="num">4</div><h4>GitHub repo</h4><p>That folder, mirrored to GitHub. Now there's a backup and every save is tracked.</p></div>
+          <div class="flow-step"><div class="num">5</div><h4>Live URL</h4><p>Turn on GitHub Pages. Anyone in the world can open your tool at its own web address.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="accessibility">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">WCAG 2.1 AA</div>
+            <h2>Make it usable for everyone.</h2>
+          </div>
+          <p>If you're going to put something in front of students, run these five checks. The AI won't always do them by default — you have to ask.</p>
+        </div>
+
+        <ul class="check-list">
+          <li class="check-item">
+            <div><strong>Color contrast of at least 4.5:1.</strong><p>Body text needs to be dark enough against its background. Paste your text color and background color into the WebAIM contrast checker — it tells you in two seconds whether you pass.</p></div>
+          </li>
+          <li class="check-item">
+            <div><strong>Alt text on every meaningful image.</strong><p>Every image that carries meaning gets an <code>alt</code> attribute describing it. Purely decorative images get <code>alt=""</code>. Screen readers depend on this.</p></div>
+          </li>
+          <li class="check-item">
+            <div><strong>Reachable with the keyboard.</strong><p>Try pressing Tab to move through your tool without using a mouse. Can you reach every button, link, and form field? Can you submit the form with Enter?</p></div>
+          </li>
+          <li class="check-item">
+            <div><strong>Visible focus rings.</strong><p>When you tab to something, you should see a clear outline around it. If the AI stripped the default outlines to "look cleaner," ask it to put them back.</p></div>
+          </li>
+          <li class="check-item">
+            <div><strong>Real semantic HTML.</strong><p>Buttons should be <code>&lt;button&gt;</code>, not <code>&lt;div&gt;</code>. Headings in order — <code>h1</code>, then <code>h2</code>, then <code>h3</code>. Form fields need <code>&lt;label&gt;</code> elements. Screen readers and keyboard users depend on this.</p></div>
+          </li>
+        </ul>
+
+        <div class="callout gold" style="margin-top: 20px;">
+          <strong>The accessibility prompt.</strong>
+          <p style="margin-top: 6px;"><em>"Audit this for WCAG 2.1 AA. Check every text/background color pair for at least 4.5:1 contrast. Add alt text to every meaningful image. Make sure every interactive element is keyboard-reachable. Keep visible focus styles. Use semantic HTML elements — real buttons, labels, and headings in order."</em></p>
+        </div>
+      </section>
+
+      <section class="section" id="recipes">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Copy and adapt</div>
+            <h2>Prompt recipes.</h2>
+          </div>
+          <p>Use these when you don't know where to start. Adapt the words to your situation.</p>
         </div>
 
         <details class="guide" open>
-          <summary>Simple classroom tool</summary>
+          <summary>Start a simple classroom tool</summary>
           <div class="guide-body">
-            <p>"Create a single-file HTML tool for vocabulary practice. Students should see one term at a time, guess the definition, click to reveal the answer, and track how many they got right. Make it clean and readable for middle school."</p>
+            <p>"Create a single-file HTML web tool for vocabulary practice. Students see one term at a time, guess the definition, click to reveal the answer, and the page tracks how many they got right. Clean and readable for middle school. Use warm neutral colors. Not childish."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Interactive dashboard</summary>
+          <summary>Ask for a multi-file project (not one big file)</summary>
           <div class="guide-body">
-            <p>"Create a dashboard where students can add evidence of learning, tag it as growth, revision, contribution, collaboration, or reflection, and see a simple summary. Store entries in localStorage for this demo."</p>
+            <p>"Create a Todo List app. Put the code into three separate files: <code>index.html</code> for the page structure, <code>style.css</code> for the styling, and <code>script.js</code> for the JavaScript logic. The JS should let me add a todo, mark it done with a strikethrough, and remove it. Use Tailwind CSS and Lucide icons."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Better styling</summary>
+          <summary>Build a real game with HTML &lt;canvas&gt;</summary>
           <div class="guide-body">
-            <p>"This works, but it looks generic. Redesign it for teachers. Use warm neutral colors, clear hierarchy, readable font sizes, strong spacing, and buttons that are easy to find. Do not make it childish."</p>
+            <p>"Create a simple game using an HTML <code>&lt;canvas&gt;</code>. Make a small red square I can move with the arrow keys. Add a blue square at a random location. When the red square touches the blue one, the score goes up by one and the blue square jumps to a new random spot. Show the score in the corner."</p>
           </div>
         </details>
 
         <details class="guide">
-          <summary>Debugging</summary>
+          <summary>Build a diagram or board game with SVG</summary>
           <div class="guide-body">
-            <p>"The Add button does not create a new card. Read the code, explain the likely cause in plain language, then give me a corrected full file."</p>
+            <p>"Create a 3x3 tic-tac-toe board using <strong>SVG</strong>, not <code>&lt;canvas&gt;</code>. When I click a square, draw an X in it. Then the computer draws an O in a random empty square. Use clear lines, good spacing, and label the winner when the game ends."</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Make it remember things</summary>
+          <div class="guide-body">
+            <p>"Add localStorage so entries persist between page refreshes. Save them under a key like <code>evidence-entries</code>. Load them on page load and display them on the page in the order they were added."</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Redesign the look</summary>
+          <div class="guide-body">
+            <p>"This works but it looks generic. Restyle it. Warm cream background. Terracotta and sage accents. Newsreader serif for headings. Space Grotesk for body. Generous spacing. Rounded corners. Soft shadows. Calm and professional — not childish, not corporate."</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Audit it for accessibility</summary>
+          <div class="guide-body">
+            <p>"Audit this for WCAG 2.1 AA. Check every text/background color pair for at least 4.5:1 contrast. Add alt text to every meaningful image. Make sure every interactive element is keyboard-reachable. Keep visible focus styles. Use semantic HTML elements."</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Debug something that's broken</summary>
+          <div class="guide-body">
+            <p>"The Add button doesn't create a new card when I click it. Read the code, explain the likely cause in plain language, then give me a corrected full file."</p>
+          </div>
+        </details>
+
+        <details class="guide">
+          <summary>Help me think about what to build next</summary>
+          <div class="guide-body">
+            <p>"I'm a [grade and subject] teacher. I keep wishing I had a tool that [describe the friction]. I'm not a developer, but I want to make a small first version with HTML, CSS, and JavaScript. Help me think about the smallest version that would still be useful, then build version one."</p>
           </div>
         </details>
       </section>
 
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">When you are ready</div>
-            <h2>Single file, folder, or real app?</h2>
-          </div>
-          <p>Do not start with a complex setup. Start with the smallest version that lets you test the idea.</p>
-        </div>
-        <div class="path-map">
-          <div class="path-row"><strong>One HTML file</strong><p>Best for first prototypes, Google Sites embeds, and tools that do one job.</p></div>
-          <div class="path-row"><strong>Project folder</strong><p>Best when you have separate HTML, CSS, JavaScript, and images.</p></div>
-          <div class="path-row"><strong>VS Code + agent</strong><p>Best when you need help managing multiple files, debugging, and publishing.</p></div>
-          <div class="path-row"><strong>Server or database</strong><p>Best only when the tool needs live collaboration, join codes, accounts, or cloud storage.</p></div>
+      <section class="stuck">
+        <span class="stuck-label">Stuck? Two next stops.</span>
+        <h3>Where to go from here.</h3>
+        <div class="stuck-grid">
+          <a href="build-lab.html">
+            <strong>I want to start building.</strong>
+            <span>Open Build Together →</span>
+          </a>
+          <a href="deployment.html">
+            <strong>I want to put my thing on the internet.</strong>
+            <span>Open Where It Lives →</span>
+          </a>
         </div>
       </section>
     </main>
+
+    <footer class="footer">Made for the 517 EdTech Innovators Network.</footer>
   </div>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('js-demo-btn');
+      const msg = document.getElementById('js-demo-msg');
+      if (!btn || !msg) return;
+      btn.addEventListener('click', () => {
+        const open = msg.classList.toggle('visible');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? 'Click again to hide' : 'Click me';
+      });
+    })();
+
+    // Render Lucide icons in the Toolkit section
+    window.addEventListener('load', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+
+    // Toolkit live demos: confetti + chart
+    window.addEventListener('load', () => {
+      const confettiBtn = document.getElementById('confetti-btn');
+      if (confettiBtn && typeof confetti === 'function') {
+        confettiBtn.addEventListener('click', () => {
+          confetti({
+            particleCount: 90,
+            spread: 65,
+            startVelocity: 35,
+            origin: { y: 0.75 },
+            colors: ['#b85c2c', '#4a8c6f', '#c9933a', '#f5e6c2', '#a04a1f']
+          });
+        });
+      }
+
+      const chartCanvas = document.getElementById('chart-demo');
+      if (chartCanvas && typeof Chart !== 'undefined') {
+        new Chart(chartCanvas, {
+          type: 'bar',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            datasets: [{
+              data: [12, 19, 8, 15, 22],
+              backgroundColor: ['#b85c2c', '#4a8c6f', '#c9933a', '#b85c2c', '#4a8c6f'],
+              borderRadius: 4,
+              borderSkipped: false
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#2a1f15',
+                titleFont: { family: 'Space Grotesk' },
+                bodyFont: { family: 'Space Grotesk' }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: { font: { family: 'Space Grotesk', size: 10 }, color: '#5a4a3a' },
+                grid: { color: 'rgba(42,31,21,.08)' },
+                border: { display: false }
+              },
+              x: {
+                ticks: { font: { family: 'Space Grotesk', size: 10, weight: '600' }, color: '#2a1f15' },
+                grid: { display: false },
+                border: { display: false }
+              }
+            }
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
