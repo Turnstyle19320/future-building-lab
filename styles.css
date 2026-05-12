@@ -1127,6 +1127,142 @@ mark {
   border-radius: 6px;
 }
 
+/* VS Code + Claude Code IDE mockup */
+.ide-mockup {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #2a2d3e;
+  box-shadow: 0 22px 50px rgba(42, 31, 21, .22);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: .8rem;
+}
+
+.ide-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  background: #1f2233;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.ide-top .ide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e85c4a;
+}
+
+.ide-top .ide-dot:nth-child(2) { background: #f4c95d; }
+.ide-top .ide-dot:nth-child(3) { background: #71d3a6; }
+
+.ide-title {
+  margin-left: 8px;
+  color: rgba(255, 255, 255, .5);
+  font-size: .72rem;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: .02em;
+}
+
+.ide-body {
+  display: grid;
+  grid-template-columns: 32% 1fr;
+  min-height: 260px;
+}
+
+.ide-sidebar {
+  border-right: 1px solid rgba(255, 255, 255, .08);
+  background: #252837;
+  padding: 14px 0;
+  color: rgba(255, 255, 255, .7);
+}
+
+.ide-folder {
+  padding: 4px 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .85);
+}
+
+.ide-file {
+  padding: 4px 14px 4px 30px;
+  color: rgba(255, 255, 255, .55);
+}
+
+.ide-file.active {
+  background: rgba(184, 92, 44, .25);
+  border-left: 2px solid var(--clay);
+  padding-left: 28px;
+  color: #fff8e8;
+}
+
+.ide-right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.ide-code {
+  padding: 14px 18px;
+  color: #d0d6dd;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.ide-code .selector { color: #f4c95d; }
+.ide-code .property { color: #6cb4e6; }
+.ide-code .value { color: #a3bf85; }
+.ide-code .punct { color: rgba(255, 255, 255, .55); }
+
+.ide-claude {
+  background: #1f2233;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 100px;
+}
+
+.ide-claude-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, .6);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.ide-claude-head::before {
+  content: "✱";
+  color: var(--clay);
+  font-size: .95rem;
+}
+
+.ide-msg {
+  padding: 8px 11px;
+  border-radius: 9px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: .76rem;
+  line-height: 1.4;
+  max-width: 92%;
+}
+
+.ide-msg.user {
+  background: rgba(184, 92, 44, .22);
+  color: #fff8e8;
+  align-self: flex-end;
+  border: 1px solid rgba(184, 92, 44, .42);
+}
+
+.ide-msg.claude {
+  background: rgba(74, 140, 111, .22);
+  color: #e0eee5;
+  align-self: flex-start;
+  border: 1px solid rgba(74, 140, 111, .42);
+}
+
 /* Canvas-game mockup (static visual demo) */
 .canvas-mockup {
   position: relative;

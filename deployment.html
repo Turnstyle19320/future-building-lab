@@ -143,9 +143,54 @@
           </div>
           <p>Most teacher-built tools never need anything beyond the two paths above.</p>
         </div>
-        <div class="paper">
-          <p>When you want a tool that remembers things across devices, syncs in real time, has user accounts, or stores actual records — you've moved into "real app" territory. That usually means a folder of files instead of one, a code editor like <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>, an AI coding helper like <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> or Cursor, and eventually some kind of storage layer (which is the next section).</p>
-          <p style="margin-top: 14px;">None of that is necessary today. The full five-stage path is on the <a href="playbook.html#ladder">ladder on From Idea to Folder</a>.</p>
+
+        <div class="manual-grid" style="align-items: center; gap: clamp(28px, 4vw, 56px);">
+          <div>
+            <p style="color: var(--muted); font-size: 1.08rem; line-height: 1.55;">When you want a tool that remembers things across devices, syncs in real time, has user accounts, or stores actual records — you've moved into "real app" territory. That usually means a folder of files instead of one, a code editor like <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>, an AI coding helper like <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> or Cursor, and eventually some kind of storage layer (which is the next section).</p>
+            <p style="margin-top: 14px; color: var(--muted); font-size: 1.08rem; line-height: 1.55;">None of that is necessary today. The full five-stage path is on the <a href="playbook.html#ladder">ladder on From Idea to Folder</a>.</p>
+          </div>
+
+          <div class="ide-mockup" aria-label="VS Code with Claude Code panel: file tree on the left, an open style.css file in the editor, and a Claude Code chat panel showing a request being completed">
+            <div class="ide-top">
+              <span class="ide-dot"></span>
+              <span class="ide-dot"></span>
+              <span class="ide-dot"></span>
+              <span class="ide-title">my-app — VS Code</span>
+            </div>
+            <div class="ide-body">
+              <div class="ide-sidebar">
+                <div class="ide-folder">▾ my-app</div>
+                <div class="ide-file">index.html</div>
+                <div class="ide-file active">style.css</div>
+                <div class="ide-file">script.js</div>
+                <div class="ide-folder">▸ assets</div>
+              </div>
+              <div class="ide-right">
+                <div class="ide-code">
+                  <div><span class="selector">.header</span> <span class="punct">{</span></div>
+                  <div>&nbsp;&nbsp;<span class="property">background</span><span class="punct">:</span> <span class="value">var(--paper)</span><span class="punct">;</span></div>
+                  <div>&nbsp;&nbsp;<span class="property">padding</span><span class="punct">:</span> <span class="value">32px 48px</span><span class="punct">;</span></div>
+                  <div>&nbsp;&nbsp;<span class="property">box-shadow</span><span class="punct">:</span> <span class="value">0 12px 30px ...</span><span class="punct">;</span></div>
+                  <div><span class="punct">}</span></div>
+                </div>
+                <div class="ide-claude">
+                  <div class="ide-claude-head">Claude Code</div>
+                  <div class="ide-msg user">Make the header more dramatic</div>
+                  <div class="ide-msg claude">Edited style.css — added warm shadow and bigger padding.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout sage" style="margin-top: 28px;">
+          <strong>It sounds like the deep end. It's actually the time-saver.</strong>
+          <ul style="margin-top: 10px; padding-left: 22px; line-height: 1.6; color: var(--ink);">
+            <li><strong>No more copy-paste loop.</strong> Claude Code edits your files directly. You stop ferrying code in and out of a chat window every iteration.</li>
+            <li><strong>It sees the whole project.</strong> Reads across <code>index.html</code>, <code>style.css</code>, and <code>script.js</code> at once and keeps them in sync — Gemini Canvas only knows about one file at a time.</li>
+            <li><strong>Version history is built in.</strong> Every save is tracked. Roll back a broken change without losing the work that was good.</li>
+            <li><strong>One afternoon to set up.</strong> Download VS Code. Run one command to install Claude Code. Point it at your folder. That's it.</li>
+          </ul>
         </div>
       </section>
 
