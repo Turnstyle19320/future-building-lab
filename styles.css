@@ -111,6 +111,126 @@ summary:focus-visible {
   padding: 48px 0 56px;
 }
 
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 60;
+}
+
+.confetti-piece {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: block;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 3px 10px rgba(42, 31, 21, .18);
+  animation: confetti-burst ease-out forwards;
+}
+
+.smile-banner-wrap {
+  padding: 18px 0 0;
+}
+
+.smile-banner {
+  position: relative;
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid rgba(42, 31, 21, .14);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 226, 122, .42), transparent 16rem),
+    radial-gradient(circle at 88% 12%, rgba(74, 140, 111, .24), transparent 14rem),
+    linear-gradient(135deg, #fff8cf 0%, #ffd56f 34%, #f4a261 100%);
+  box-shadow: 0 26px 60px rgba(184, 92, 44, .2);
+  color: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.smile-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 250, 240, .36) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  opacity: .7;
+}
+
+.smile-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 30px 70px rgba(184, 92, 44, .24);
+}
+
+.smile-banner-copy,
+.smile-banner-marquee {
+  position: relative;
+  z-index: 1;
+}
+
+.smile-banner-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.smile-banner-kicker {
+  font-size: .74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: rgba(42, 31, 21, .72);
+}
+
+.smile-banner-title {
+  font-family: "Newsreader", serif;
+  font-size: clamp(1.75rem, 5vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.smile-banner-subtitle {
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(42, 31, 21, .8);
+  font-weight: 600;
+}
+
+.smile-banner-marquee {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  color: rgba(42, 31, 21, .82);
+}
+
+.smile-banner-marquee span {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  background: rgba(255, 248, 232, .42);
+  border: 1px solid rgba(42, 31, 21, .08);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes confetti-burst {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(.7);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--drift-x)), calc(-50% + var(--drift-y))) rotate(var(--spin)) scale(1.15);
+    opacity: 0;
+  }
+}
+
 .hero-copy { position: relative; z-index: 2; }
 
 .eyebrow {
@@ -666,6 +786,7 @@ mark {
     padding: 16px 0;
   }
   .nav-links { justify-content: flex-start; }
+  .smile-banner-marquee { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .hero,
   .section-head,
   .feature,
