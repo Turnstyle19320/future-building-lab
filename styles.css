@@ -130,6 +130,14 @@ summary:focus-visible {
   animation: confetti-burst ease-out forwards;
 }
 
+.confetti-piece svg,
+.wolf-tile svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+}
+
 .smile-banner-wrap {
   padding: 18px 0 0;
 }
@@ -154,6 +162,20 @@ summary:focus-visible {
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
+.banner-symbols {
+  position: absolute;
+}
+
+.wolf-banner {
+  background:
+    radial-gradient(circle at 16% 16%, rgba(255, 222, 226, .18), transparent 15rem),
+    radial-gradient(circle at 84% 10%, rgba(255, 207, 214, .12), transparent 14rem),
+    linear-gradient(135deg, #3b0918 0%, #641127 45%, #8c1835 100%);
+  border-color: rgba(126, 31, 58, .42);
+  box-shadow: 0 28px 62px rgba(59, 9, 24, .34);
+  color: #fff4f6;
+}
+
 .smile-banner::before {
   content: "";
   position: absolute;
@@ -166,6 +188,18 @@ summary:focus-visible {
 .smile-banner:hover {
   transform: translateY(-2px);
   box-shadow: 0 30px 70px rgba(184, 92, 44, .24);
+}
+
+.smile-banner.wolf-banner::before {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, .09), transparent 45%),
+    radial-gradient(rgba(255, 240, 242, .11) 1.2px, transparent 1.2px);
+  background-size: auto, 18px 18px;
+  opacity: .9;
+}
+
+.smile-banner.wolf-banner:hover {
+  box-shadow: 0 34px 78px rgba(59, 9, 24, .42);
 }
 
 .smile-banner-copy,
@@ -187,6 +221,10 @@ summary:focus-visible {
   color: rgba(42, 31, 21, .72);
 }
 
+.wolf-banner .smile-banner-kicker {
+  color: rgba(255, 229, 234, .78);
+}
+
 .smile-banner-title {
   font-family: "Newsreader", serif;
   font-size: clamp(1.75rem, 5vw, 3.9rem);
@@ -202,11 +240,14 @@ summary:focus-visible {
   font-weight: 600;
 }
 
+.wolf-banner .smile-banner-subtitle {
+  color: rgba(255, 238, 242, .86);
+}
+
 .smile-banner-marquee {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 8px;
-  font-size: clamp(1.45rem, 3vw, 2.25rem);
   color: rgba(42, 31, 21, .82);
 }
 
@@ -218,6 +259,31 @@ summary:focus-visible {
   background: rgba(255, 248, 232, .42);
   border: 1px solid rgba(42, 31, 21, .08);
   backdrop-filter: blur(4px);
+}
+
+.wolf-banner .smile-banner-marquee {
+  gap: 10px;
+}
+
+.wolf-tile {
+  min-height: clamp(68px, 9vw, 112px);
+  padding: 12px;
+  color: #f7d8de;
+  background: linear-gradient(180deg, rgba(255, 244, 246, .12), rgba(255, 244, 246, .04));
+  border: 1px solid rgba(255, 226, 231, .14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.wolf-tile:nth-child(3n) {
+  color: #ffd8df;
+}
+
+.wolf-tile:nth-child(4n) {
+  color: #eab4c0;
+}
+
+.wolf-confetti {
+  filter: drop-shadow(0 8px 16px rgba(59, 9, 24, .22));
 }
 
 @keyframes confetti-burst {
