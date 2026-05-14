@@ -115,10 +115,10 @@
             <ul style="margin-top: 16px; padding-left: 20px; color: var(--muted); font-size: .95rem; line-height: 1.55;">
               <li>Best for: a one-file tool that belongs near class materials</li>
               <li>Account you already have: yes</li>
-              <li>Its own web address: no, lives inside the Site</li>
+              <li>Its own web address: maybe — can live inside the Site, or as an embedded web app</li>
             </ul>
 
-            <p style="margin-top: 14px; font-size: .92rem;"><strong>Quick how:</strong> In your Google Site, add an Embed block, paste your HTML, save.</p>
+            <p style="margin-top: 14px; font-size: .92rem;"><strong>Quick how:</strong> First put the tool somewhere that has a URL — for example a published Apps Script web app or a GitHub Pages site. Then in Google Sites, add an Embed block and paste that URL.</p>
           </article>
 
           <article class="card">
@@ -150,6 +150,11 @@
         <div class="callout sage" style="margin-top: 20px;">
           <strong>Which to start with.</strong>
           <p style="margin-top: 6px;">If the tool belongs inside a class page, embed it. If your district blocks GitHub, Cloudflare, or similar services, stay with what you can access and keep learning what else is possible. A tool can move later when the infrastructure catches up.</p>
+        </div>
+
+        <div class="callout gold" style="margin-top: 16px;">
+          <strong>The simplest "real" path for many educators.</strong>
+          <p style="margin-top: 6px;">If you want something that can live on a Google Site <em>and</em> remember data across devices, the easiest middle route is usually <strong>Google Apps Script + a file in Google Drive or a Google Sheet</strong>. You publish the tool as a web app, embed that URL in Google Sites if you want, and let Apps Script handle the saving.</p>
         </div>
       </section>
 
@@ -233,7 +238,7 @@
             <strong>The clever middle</strong>
             <h3>Google Apps Script + your Drive.</h3>
             <p>A free Google trick. Your tool talks to a file in your own Google Drive through Apps Script. It syncs across your devices without setting up a database or paying for a service. This is exactly how taskFlow works.</p>
-            <p style="margin-top: 10px; font-size: .9rem; color: var(--quiet);"><em>Good for:</em> personal tools you want on your phone and laptop. <em>The prompt that got me started:</em> "What's the simplest way to sync this without a complicated cloud setup, using tools I already have?"</p>
+            <p style="margin-top: 10px; font-size: .9rem; color: var(--quiet);"><em>Good for:</em> personal tools you want on your phone and laptop, lightweight staff tools, or a tool you want to embed in a Google Site without adding a full backend. <em>The prompt that got me started:</em> "What's the simplest way to sync this without a complicated cloud setup, using tools I already have?"</p>
           </article>
 
           <article class="card">
@@ -243,6 +248,35 @@
             <p style="margin-top: 10px; font-size: .9rem; color: var(--quiet);"><em>Important:</em> once student data is involved, this is where district approval and FERPA become real. <a href="privacy.html">Read Student Data before you go here.</a></p>
           </article>
         </div>
+
+        <div class="paper" style="margin-top: 22px;">
+          <div class="eyebrow">Recommended simple route</div>
+          <h3 style="margin-bottom: 14px;">Google Site on the front. Apps Script in the middle. Drive or Sheets on the back.</h3>
+          <div class="flow steps-4" style="margin-bottom: 16px;">
+            <div class="flow-step">
+              <div class="num">1</div>
+              <h4>Build the interface</h4>
+              <p>Make the HTML/CSS/JS tool the normal way.</p>
+            </div>
+            <div class="flow-step">
+              <div class="num">2</div>
+              <h4>Publish with Apps Script</h4>
+              <p>Use a doGet web app for the page and doPost or server functions for saving.</p>
+            </div>
+            <div class="flow-step">
+              <div class="num">3</div>
+              <h4>Save to Google tools</h4>
+              <p>Write to a Sheet or a file in Drive instead of setting up a separate database.</p>
+            </div>
+            <div class="flow-step">
+              <div class="num">4</div>
+              <h4>Embed in Google Sites</h4>
+              <p>Paste the published web app URL into an Embed block if you want it to live on a class page.</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); line-height: 1.55; margin-bottom: 10px;"><strong>Why this is a good reference path:</strong> it stays inside a Google ecosystem many schools already allow, it avoids introducing Firebase or Supabase on day one, and it creates a clear mental model for educators: page here, script here, data there.</p>
+          <p style="color: var(--muted); line-height: 1.55;"><strong>Use this when:</strong> the tool needs lightweight persistence and you want the simplest thing that still feels like a real deployed app.</p>
+        </div>
       </section>
 
       <section class="section paper source-list" id="docs">
@@ -251,6 +285,8 @@
         <ul style="margin-top: 18px;">
           <li><a href="https://docs.github.com/en/pages" target="_blank" rel="noopener">GitHub Pages — official docs</a></li>
           <li><a href="https://developers.google.com/apps-script" target="_blank" rel="noopener">Google Apps Script — official docs</a></li>
+          <li><a href="https://developers.google.com/apps-script/guides/web" target="_blank" rel="noopener">Apps Script web apps — publish and deploy guide</a></li>
+          <li><a href="https://support.google.com/sites/answer/90569" target="_blank" rel="noopener">Google Sites — embed content and URLs</a></li>
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener">MDN — localStorage reference</a></li>
           <li><a href="https://firebase.google.com/docs" target="_blank" rel="noopener">Firebase — Google's cloud backend</a></li>
           <li><a href="https://supabase.com/docs" target="_blank" rel="noopener">Supabase — open-source alternative to Firebase</a></li>
